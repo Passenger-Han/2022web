@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        li {
+            list-style: none;
+        }
+
+        div.header_wrapper {
+            background-color: #0cc;
+            width: 1200px;
+            margin: 0 auto;
+        }
+
+        div.header_wrapper> h1 {
+            background-color: #b0b;
+            width: 200px;
+            height: 50px;
+            float: left;
+        }
+
+        div.header_wrapper> .menu {
+            background-color: #b00;
+            width: 800px;
+            float: right;
+        }
+
+        div.header_wrapper> .menu> ul> li {
+            height: 50px;
+            width: 25%;
+            float: left;
+
+            line-height: 50px;
+            text-align: center;
+        }
+
+        div.header_wrapper> .menu> ul:after {
+            content: "";
+            display: block;
+            clear: both;
+        }
+
+        div.header_wrapper:after {
+            content: "";
+            display: block;
+            clear: both;
+        }
+
+        .visual {
+            background-color: green;
+            height: 500px;
+        }
+    </style>
+</head>
+<body>
+    <div class="header_wrapper">
+        <h1>LOGO</h1>
+        <div class="menu">
+            <ul>
+                <li>MENU1</li>
+                <li>MENU2</li>
+                <li>MENU3</li>
+                <li>MENU4</li>
+            </ul>
+        </div>
+    </div>
+    <div class="visual">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</div>
+</body>
+</html>

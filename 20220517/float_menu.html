@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* initial settings */
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        
+        li {
+            list-style: none;
+        }
+
+        .clean_float:after {
+            content: "";
+            display: block;
+            clear: both;
+        }
+
+        /* header layout */
+        div.header_wrapper {
+            background-color: beige;
+            width: 1000px;
+            margin: 0 auto;
+        }
+
+        /* div.header_wrapper:after {
+            content: "";
+            display: block;
+            clear: both;
+        } */
+
+        /* header - h1 logo */
+        div.header_wrapper> h1 {
+            background-color: pink;
+            width: 120px;
+            line-height: 100px;
+            text-align: center;
+            float: left;
+        }
+
+        /* header - menu */
+        div.header_wrapper> nav.nav_bar {
+            background-color: aliceblue;
+            width: 700px;
+            float: right;
+        }
+
+        div.header_wrapper> nav.nav_bar> ul> li {
+            background-color: whitesmoke;
+            width: 25%;
+            line-height: 100px;
+            text-align: center;
+            float: left;
+        }
+
+        /* div.header_wrapper> nav.nav_bar> ul:after {
+            content: "";
+            display: block;
+            clear: both;
+        } */
+
+        /* crucial banner */
+        .visual {
+            background-color: burlywood;
+            height: 400px;
+        }
+
+        /* main contents */
+        .section-1 {
+            width: 1000px;
+            margin: 0 auto;
+        }
+
+        .section-1> .contents {
+            background-color: gray;
+            width: 750px;
+            height: 500px;
+            float: left;
+        }
+
+        .section-1> .aside-1 {
+            background-color: aquamarine;
+            width: 240px;
+            height: 500px;
+            float: right;
+        }
+
+        /* footer */
+        .footer-1 {
+            background-color: palegoldenrod;
+            padding: 1.5em 0;
+        }
+
+        .footer-1> address {
+            width: 1000px;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="header_wrapper clean_float">
+        <h1>logo</h1>
+        <nav class="nav_bar">
+            <ul class="clean_float">
+                <li>menu1</li>
+                <li>menu2</li>
+                <li>menu3</li>
+                <li>menu4</li>
+            </ul>
+        </nav>
+    </div>
+    <div class="visual"></div>
+    <section class="section-1 clean_float">
+        <div class="contents"></div>
+        <aside class="aside-1"></aside>
+    </section>
+    <footer class="footer-1">
+        <address>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nostrum ducimus quidem rerum.</address>
+    </footer>
+</body>
+</html>

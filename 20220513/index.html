@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 
+            스타일에서의 '속성' 은 'property' 입니다.
+        */
+
+        /*
+            선택자의 적용 우선도 : (오른쪽으로 갈수록 높음)
+            * > tag > class > id > inline style인라인 스타일(직접 적용시킨 스타일)
+        */
+
+        /* Initial reset (See 'reset CSS' via Google.com) */
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .tred {
+            color: red;
+        }
+
+        .tred.tbold {
+            font-weight: bold;
+        }
+
+        div.box {
+            width: 100px;
+            height: 100px;
+            background-color: #bbbb00;
+            
+            /* margin-left: auto;
+            margin-right: auto; */
+            /* auto = 활용할 수 있는 최댓값 */
+
+            /* margin: 8px 8px 8px 8px */
+            /* 12시(top) - 3시(right) - 6시(bottom) - 9시(left) */
+
+            margin: 0 auto;
+            /* 상하(top, bottom) - 좌우(left, right) */
+        }
+
+        div.box1 {
+            width: 100%; /* parent 의 100% 비율 */
+            height: 100px;
+            background-color: #0cd;
+        }
+
+        header#hd {
+            width: 1200px;
+            height: 100px;
+            background-color: black;
+
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<body>
+    <!-- html에서의 '속성' 은 'attribute' 입니다 -->
+
+    <!-- display:block 요소들 // 부모parent의 크기로 채워짐 -->
+    <h1></h1>
+    <h2></h2>
+    <h3></h3>
+    <h4></h4>
+    <h5></h5>
+    <h6></h6>
+    <ul>
+        <li>
+        </li>
+    </ul>
+    <p></p>
+    <div></div>
+
+    <br> <!-- 줄바꿈 태그 -->
+    <hr> <!-- 구분선 태그 (라인을 그어줌) -->
+
+
+    <!-- display:inline 요소들 // 같은 라인에 나열됨 -->
+    <img src="" alt="">
+    <a href=""></a>
+    <span></span>
+
+
+    <div>
+        Lorem <span class="tred">ipsum</span>  dolor <span class="tred tbold">sit</span> amet.
+    </div>
+
+    <div class="box"></div>
+    <div class="box1"></div>
+
+    <header id="hd"></header>
+</body>
+</html>

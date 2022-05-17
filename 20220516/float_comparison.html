@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .float_container {
+            background-color: skyblue;
+            width: 500px;
+            margin: 0 auto;
+        }
+
+        .float_container> .float1 {
+            background-color: #f00;
+            /* float: left; */
+
+            width: 200px;
+            height: 200px;
+        }
+
+        .float_container> .float2 {
+            background: #f0f;
+            /* float: right; */
+
+            width: 200px;
+            height: 200px;
+        }
+
+        .float_container> .float_clear {
+            background-color: #0ff;
+            /* clear: both; */
+        }
+    </style>
+</head>
+<body>
+    <div class="float_container">
+        <div class="float1"></div>
+        <div class="float2"></div>
+        <div class="float_clear">ㅇ0 ㅇ</div>
+    </div>
+
+    Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+</body>
+</html>

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        li {
+            list-style: none;
+        }
+
+        .header_wrapper {
+            max-width: 1200px; /* 가변 너비 */
+            /* width: 1200px; >>> 고정 너비 <<< */
+            /* background-color: #994; */
+            margin: 0 auto;
+        }
+
+        .title {
+            width: 20%;
+            margin: 0 auto;
+            /* height: 7em; >>> html 요소의 높이 <<< */
+            line-height: 500%; /* 행간 */
+            text-align: center;
+        }
+
+        .header_wrapper> .header_menu> ul:after { /* :after = 해당 ul의 맨 마지막에 적용 */
+            content: ""; /* html에 "~" 내용을 추가함*/
+            display: block; /* 개체를 block 으로 인식 */
+            clear: both; /* 적용된 float 를 해제함 */
+        }
+
+        .header_wrapper> .header_menu> ul> li {
+            /* background-color: skyblue; */
+            width: 20%;
+            float: left;
+            /* height: 5em; >>> html 요소의 높이 <<< */
+            line-height: 400%;
+            text-align: center;
+        }
+
+        .visual {
+            background-color: beige;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="header_wrapper">
+        <div class="title">
+            <h1>Logo</h1>
+        </div>
+        <div class="header_menu">
+            <ul>
+                <li>MENU1</li>
+                <li>MENU2</li>
+                <li>MENU3</li>
+                <li>MENU4</li>
+                <li>MENU5</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="visual">
+        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Officia reprehenderit, assumenda voluptatum alias voluptas amet aliquid quo.</p>
+        <br>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias officia asperiores dicta ullam placeat voluptatum, architecto laudantium.</p>
+        <p>Culpa dolor possimus nostrum voluptates obcaecati laborum suscipit aspernatur officia, quod nobis atque excepturi officiis iste voluptatum?</p>
+        <br>
+        <p>Neque pariatur earum laborum fuga dolore nam, iusto excepturi officia. Optio ratione quidem, quam saepe sunt repellat?</p>
+        <br>
+        <p>Quaerat soluta dignissimos architecto nemo, omnis molestiae iste ipsum quas, itaque, eveniet beatae magnam autem eos consequatur?</p>
+        <br>
+        <p>How a man can die better, than facing fearful odds, for the ashes of the fathers and his temples of his Gods.</p>
+    </div>
+</body>
+
+</html>
