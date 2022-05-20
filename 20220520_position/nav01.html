@@ -1,0 +1,225 @@
+<!-- position02_practice.html 의 모범답지, 비교해보기! -->
+<!DOCTYPE html>
+<html lang="ko">
+
+    <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- bxSlider -->
+    <script src="../js/jquery-3.1.1.min.js"></script>
+    <script src="../js/jquery.bxslider.js"></script>
+    <link rel="stylesheet" href="../css/jquery.bxslider.css">
+    <title>Document</title>
+    <style>
+        /* initial settings */
+        * {
+            margin: 0;
+            padding: 0;
+
+            box-sizing: border-box;
+        }
+
+        li {
+            list-style: none;
+        }
+
+        .cleanfloat::after {
+            content: "";
+            display: block;
+            clear: both;
+        }
+
+        a:link,
+        a:visited {
+            color: #333333;
+            text-decoration: none;
+        }
+
+        /* header */
+        #hder_wrap {
+            /* background-color: blueviolet; */
+            width: 1000px;
+            height: 150px;
+
+            margin: 0 auto;
+            padding: 20px;
+
+            position: relative;
+        }
+        
+        #hder_wrap h1 {
+            /* background-color: #fff; */
+            width: 160px;
+            height: 110px;
+        }
+
+        #hder_wrap h1 a {
+            background-color: pink;
+            display: block;
+
+            line-height: 110px;
+            text-align: center;
+        }
+
+        #hder_wrap .util_bar {
+            position: absolute;
+            right: 20px;
+            top: 20px;
+        }
+
+        #hder_wrap .nav_bar {
+            position: absolute;
+            right: 20px;
+            bottom: 20px;
+        }
+
+        .util_bar>ul>li {
+            float: left;
+        }
+
+        .util_bar>ul>li>a {
+            /* background-color: ivory; */
+            display: block;
+            padding: 10px 20px;
+            font-size: 14px;
+            transition: 0.9s;
+        }
+
+        .util_bar>ul>li>a:hover {
+            background-color: red;
+            color: white;
+        }
+
+        .nav_bar>ul>li {
+            float: left;
+        }
+
+        .nav_bar>ul>li>a {
+            /* background-color: ivory; */
+            display: block;
+            padding: 10px 20px;
+            font-size: 18px;
+            transition: 0.9s;
+        }
+
+        .nav_bar>ul>li>a:hover {
+            background-color: black;
+            color: white;
+        }
+
+        /* visual */
+        .visual {
+            background-color: beige;
+        }
+
+        .visual img {
+            display: block;
+
+            width: 100%;
+            margin: 0 auto;
+        }
+
+        .bx-wrapper {
+            -moz-box-shadow: 0 0 0px #ccc;
+            -webkit-box-shadow: 0 0 0px #ccc;
+            box-shadow: 0 0 0px #ccc;
+            border: 0px none;
+            margin-bottom: 0;
+        }
+
+        .bx-wrapper .bx-pager {
+            position: absolute;
+            bottom: 30px;
+            width: 100%;
+        }
+
+        .visual .txt_wrap {
+            /* background-color: #fff; */
+            color: #eee;
+            position: absolute;
+            left: calc(50% - 480px);
+            top: 270px;
+        }
+
+        .visual .txt_wrap h2 {
+            margin-bottom: 10px;
+        }
+
+        .visual .txt_wrap p {
+            margin-bottom: 60px;
+        }
+
+        .visual .txt_wrap .btn {
+            display: inline-block;
+            padding: 12px 20px;
+
+            color: #eee;
+            border-radius: 22px;
+            border: 1px solid #eee;
+            transition: 0.9s;
+        }
+
+        .visual .txt_wrap .btn:hover {
+            font-weight: 100;
+            color: black;
+            background-color: #eee;
+            padding: 12px 40px;
+        }
+    </style>
+    <script>
+        $(document).ready (function(){
+            $(".slide").bxSlider()
+        })
+    </script>
+</head>
+
+<body>
+    <header id="hder_wrap">
+        <h1><a href="#">logo</a></h1>
+        <div class="util_bar">
+            <ul class="cleanfloat">
+                <li><a href="#">HOME</a></li>
+                <li><a href="#">MY PAGE</a></li>
+                <li><a href="#">SITEMAP</a></li>
+            </ul>
+        </div>
+        <nav class="nav_bar">
+            <ul class="cleanfloat">
+                <li><a href="">menu1</a></li>
+                <li><a href="">menu2</a></li>
+                <li><a href="">menu3</a></li>
+                <li><a href="">menu4</a></li>
+                <li><a href="">menu5</a></li>
+            </ul>
+        </nav>
+    </header>
+    <div class="visual">
+        <ul class="slide">
+            <li>
+                <div class="txt_wrap">
+                    <h2>Lorem, ipsum dolor.</h2>
+                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Animi, quia.</p>
+                    <a href="#" class="btn">More..</a>
+                </div>
+                <img src="../images/pc01.jpg" alt="">
+            </li>
+            <li>
+                <div class="txt_wrap">
+                    <h2>Lorem, ipsum dolor.</h2>
+                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Animi, quia.</p>
+                </div>
+                <img src="../images/pc02.jpg" alt="">
+            </li>
+            <li>
+                <div class="txt_wrap">
+                    <h2>Lorem, ipsum dolor.</h2>
+                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Animi, quia.</p>
+                </div>
+                <img src="../images/pc03.jpg" alt="">
+            </li>
+        </ul>
+    </div>
+</body>
+
+</html>

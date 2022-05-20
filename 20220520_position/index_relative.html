@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* initial settings */
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        li {
+            list-style: none;
+        }
+
+        .cleanfloat::after {
+            content: "";
+            display: block;
+            clear: both;
+        }
+
+        /* position practice ^ 0^ */
+        body {
+            background-image: url(../images/bg_grid.gif);
+        }
+
+        div {
+            width: 100px;
+            height: 100px;
+        }
+
+        div.box1 {
+            background-color: rgba(0, 0, 255, 1);
+        }
+
+        div.box2 {
+            background-color: rgba(255, 0, 0, 1);
+            
+            position: relative;
+            /* relative 개체는 기존 위치 갋을 보전한 채, 그에 맞는 좌표이동을 한다 */
+            left: 20px;
+            top: 20px;
+        }
+
+        div.box3 {
+            /* absolute 와는 달리 위치 값이 그대로 있어서 다른 개체들이 영역을 침범하지 않는다 */
+            /* (레이아웃을 깨지 않는다!) */
+            background-color: rgba(255, 192, 103, 1);
+        }
+
+        div.box4 {
+            background-color: rgba(0, 255, 100, 1);
+        }
+    </style>
+</head>
+<body>
+    <div class="box1"></div>
+    <div class="box2"></div>
+    <div class="box3"></div>
+    <div class="box4"></div>
+</body>
+</html>

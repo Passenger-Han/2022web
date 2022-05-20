@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* initial settings */
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        li {
+            list-style: none;
+        }
+
+        img {
+            display: block;
+        }
+
+        .cleanfloat::after {
+            content: "";
+            display: block;
+            clear: both;
+        }
+
+        /* section layout */
+        .sc01_wrap_bg {
+            background-color: #212121;
+            padding: 30px 0;
+        }
+
+        .sc01_wrap {
+            background-color: beige;
+            width: 1440px;
+            margin: 0 auto;
+        }
+
+        .sc01_wrap h2 {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .sc01_wrap li {
+            float: left;
+            width: calc((1440px - 40px) / 3);
+            margin-right: 20px;
+        }
+
+        .sc01_wrap li:last-child {
+            margin-right: 0;
+        }
+
+        .sc01_wrap li img {
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div class="sc01_wrap_bg">
+        <section class="sc01_wrap">
+            <h2>GALLERY</h2>
+            <ul class="cleanfloat">
+                <li><img src="../images/testimg.jpg" alt=""></li>
+                <li><img src="../images/testimg.jpg" alt=""></li>
+                <li><img src="../images/testimg.jpg" alt=""></li>
+            </ul>
+        </section>
+    </div>
+</body>
+</html>

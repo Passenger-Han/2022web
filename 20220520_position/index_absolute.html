@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* initial settings */
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        li {
+            list-style: none;
+        }
+
+        .cleanfloat::after {
+            content: "";
+            display: block;
+            clear: both;
+        }
+
+        /* position practice ^ 0^ */
+        body {
+            background-image: url(../images/bg_grid.gif);
+        }
+
+        div {
+            width: 100px;
+            height: 100px;
+        }
+
+        div.box1 {
+            background-color: rgba(0, 0, 255, 1);
+        }
+
+        div.box2 {
+            background-color: rgba(255, 0, 0, 1);
+            
+            position: absolute;
+            /* absolute 지정을 하고 나면 좌표지정(top, right, bottom, left)을 사용할 수 있다 */
+            left: 10px;
+            top: 10px;
+
+            /* z-index 를 이용해 absolute 지정된 개체의 순번을 조정할 수 있다 */
+            z-index: 1;
+        }
+
+        div.box3 {
+            background-color: rgba(255, 192, 103, 1);
+            
+            /* absolute 로 지정되어 있는 개체끼리 계층(layer) 구조가 적용된다 */
+            position: absolute;
+        }
+
+        div.box4 {
+            /* absolute 로 지정된 개체는 기존 공간을 차지하지 않는다 */
+            /* 4번째 상자는 1번째 상자 바로 밑으로 들어가서 가려져있다 */
+            background-color: rgba(0, 255, 100, 1);
+        }
+    </style>
+</head>
+<body>
+    <div class="box1"></div>
+    <div class="box2"></div>
+    <div class="box3"></div>
+    <div class="box4"></div>
+</body>
+</html>

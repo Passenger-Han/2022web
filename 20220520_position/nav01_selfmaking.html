@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- jQuery -->
+    <script src="../js/jquery-3.1.1.min.js"></script>
+    <!-- bxSlider -->
+    <script src="../js/jquery.bxslider.js"></script>
+    <!-- bxSlider CSS -->
+    <link rel="stylesheet" href="../css/jquery.bxslider.css">
+    <title>Document</title>
+    <style>
+        /* initial settings */
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            box-sizing: border-box;
+            font-size: 15px;
+            letter-spacing: -0.75px;
+        }
+
+        li {
+            list-style: none;
+        }
+
+        /* commonly used */
+        .cleanfloat::after {
+            content: "";
+            display: block;
+            clear: both;
+        }
+
+        .layout-1440 {
+            width: 1440px;
+        }
+
+        .m-0a {
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .p-y60 {
+            padding-top: 60px;
+            padding-bottom: 60px;
+        }
+
+        .flat_a:link, .flat_a:visited {
+            color: inherit;
+            text-decoration: inherit;
+        }
+
+        /* header layouts */
+        #hder {
+            /* background-color: burlywood; */
+            width: 1440px;
+            height: 160px;
+
+            position: relative;
+        }
+
+        #logo_wrap {
+            position: absolute;
+            left: 60px;
+            top: calc(50% - 2em);
+        }
+
+        #logo_wrap h1 {
+            transition: 0.9s
+        }
+
+        #logo_wrap h1:hover {
+            color: #f00;
+        }
+
+        .util {
+            /* background-color: #fff; */
+            position: absolute;
+            right: 20px;
+            top: 20px;
+        }
+
+        .util li {
+            float: left;
+
+            margin-left: 8px;
+            transition: 0.9s;
+        }
+
+        .util li:first-child {
+            margin-left: 0;
+        }
+        
+        .util li:hover {
+            background-color: #f00;
+            color: #eee;
+        }
+
+        .util li a {
+            padding: 14px 22px;
+            display: block;
+        }
+
+        .nav_bar {
+            /* background-color: #fff; */
+            position: absolute;
+            right: 20px;
+            bottom: 20px;
+        }
+
+        .nav_bar li {
+            float: left;
+
+            margin-left: 8px;
+            transition: 0.9s;
+        }
+
+        .nav_bar li:first-child {
+            margin-left: 0;
+        }
+        
+        .nav_bar li:hover {
+            background-color: #000;
+            color: #eee;
+        }
+
+        .nav_bar li a {
+            padding: 14px 22px;
+            display: block;
+        }
+
+        #crucial_banner {
+            width: 100%;
+        }
+
+        #crucial_banner img {
+            width: 100%;
+        }
+
+        .banner_txt {
+            color: #dfdfdf;
+            position: absolute;
+            bottom: 14%;
+        }
+
+        .banner_txt h2 {
+            font-size: 44px;
+            letter-spacing: -1.25px;
+            margin-bottom: 12px;
+        }
+
+        .banner_txt p {
+            font-size: 20px;
+            font-style: italic;
+            font-weight: 300;
+
+            margin-bottom: 100px;
+        }
+
+        .btn {
+            border-width: 1px;
+            border-style: solid;
+            border-color: #000;
+        }
+
+        .banner_txt .btn {
+            padding: 14px 22px;
+
+            border-color: #dfdfdf;
+            border-radius: 12px;
+
+            transition: 0.9s
+        }
+
+        .banner_txt .btn:hover {
+            padding: 14px 40px;
+
+            background-color: #dfdfdf;
+            color: #292929;
+        }
+    </style>
+    <script>
+        $(document).ready(function(){
+            $('.slide').bxSlider({
+                mode: 'fade',
+                speed: 1000,
+                pager: false,
+                controls: false,
+                auto: true,
+                pause: 6500
+            })
+        })
+    </script>
+</head>
+<body>
+    <header id="hder" class="m-0a">
+        <div id="logo_wrap">
+            <h1><a href="#" class="flat_a">logo</a></h1>
+        </div>
+        <div class="util">
+            <ul class="cleanfloat">
+                <li><a href="#" class="flat_a">HOME</a></li>
+                <li><a href="#" class="flat_a">SIGN UP</a></li>
+                <li><a href="#" class="flat_a">SITEMAP</a></li>
+            </ul>
+        </div>
+        <nav class="nav_bar">
+            <ul class="cleanfloat">
+                <li><a href="#" class="flat_a">MENU</a></li>
+                <li><a href="#" class="flat_a">MENU</a></li>
+                <li><a href="#" class="flat_a">MENU</a></li>
+                <li><a href="#" class="flat_a">MENU</a></li>
+                <li><a href="#" class="flat_a">MENU</a></li>
+            </ul>
+        </nav>
+    </header>
+    <div id="crucial_banner">
+        <div class="cBanner_wrap">
+            <ul class="slide">
+                <li>
+                    <div class="layout-1440 m-0a">
+                        <div class="banner_txt">
+                            <h2>Things what you were looking for</h2>
+                            <p>No more wandering</p>
+                            <a href="#" class="btn flat_a">More detail</a>
+                        </div>
+                    </div>
+                    <img src="../images/pc01.jpg" alt="">
+                </li>
+                <li>
+                    <div class="layout-1440 m-0a">
+                        <div class="banner_txt">
+                            <h2>Things what you were chasing</h2>
+                            <p>No more lurking</p>
+                            <a href="#" class="btn flat_a">See Products</a>
+                        </div>
+                    </div>
+                    <img src="../images/pc02.jpg" alt="">
+                </li>
+                <li>
+                    <div class="layout-1440 m-0a">
+                        <div class="banner_txt">
+                            <h2>Things what you wanted</h2>
+                            <p>No more waiting</p>
+                            <a href="#" class="btn flat_a">o- o? why</a>
+                        </div>
+                    </div>
+                    <img src="../images/pc03.jpg" alt="">
+                </li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

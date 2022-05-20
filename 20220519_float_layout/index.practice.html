@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* initial settings */
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        li {
+            list-style: none;
+        }
+
+        img {
+            display: block;
+        }
+
+        .cleanfloat:after {
+            content: "";
+            display: block;
+            clear: both;
+        }
+
+        /* background filling */
+        .bg_sc01 {
+            background-color: black;
+        }
+
+        /* section layout */
+        .sc01 {
+            width: 1440px;
+            background-color: burlywood;
+            margin: 0 auto;
+            padding: 40px 0;
+
+        }
+
+        .sc01 h2 {
+            font-size: 200%;
+            font-style: italic;
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .sc01 li {
+            float: left;
+            width: calc((100% - 60px) / 3);
+            margin-right: 30px;
+        }
+
+        .sc01 li:last-child {
+            margin-right: 0;
+        }
+
+        .sc01 li img {
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div class="bg_sc01">
+        <section class="sc01">
+            <h2>Gallery</h2>
+            <ul class="cleanfloat">
+                <li><img src="../images/testimg.jpg" alt=""></li>
+                <li><img src="../images/testimg.jpg" alt=""></li>
+                <li><img src="../images/testimg.jpg" alt=""></li>
+            </ul>
+        </section>
+    </div>
+</body>
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* initial settings */
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-image: url(../images/bg_grid.gif);
+        }
+
+        .cleanfloat::after {
+            content: "";
+            display: block;
+            clear: both;
+        }
+
+        /* box-sizing ^0 ^ */
+        ul {
+            width: 400px;
+        }
+
+        ul> li {
+            float: left;
+            width: 100px;
+            height: 100px;
+
+            box-sizing: border-box; /* 기본값은 content-box 입니다 */
+            border-left: 5px solid rgba(255, 0, 0, 0.2);
+            
+            /* border: 1px solid rgba(255, 0, 0, 0.2); */
+            /* 아래와 동일합니다
+            border-width: 1px;
+            border-style: solid;
+            border-color: red;
+            */
+        }
+
+        ul> li:last-child {
+            border-right: 5px solid rgba(255, 0, 0, 0.2);
+        }
+
+        ul> li:nth-child(2n) /* 홀수를 선발하려면 2n+1(-1) */ {
+            /* 배경만 투명도를 적용하려면 이렇게 */
+            background-color: rgba(0, 127, 255, 0.188); 
+
+            /* 이렇게 하면 li 태그 전체에 투명도가 적용됩니다 */
+            /* opacity: 0.188; */
+        }
+
+        li {
+            list-style: none;
+        }
+
+    </style>
+</head>
+<body>
+    <ul class="cleanfloat">
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+    </ul>
+</body>
+</html>
