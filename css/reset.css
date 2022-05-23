@@ -1,0 +1,23 @@
+@charset "UTF-8";
+/* initial settings */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+li {
+    list-style: none;
+}
+
+a:link, a:visited {
+    color: inherit;
+    text-decoration: inherit;
+}
+
+/* commonly used */
+.cleanfloat::after {
+    content: "";
+    display: block;
+    clear: both;
+}
