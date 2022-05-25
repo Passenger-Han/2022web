@@ -1,0 +1,19 @@
+@charset "UTF-8";
+/* initial settings */
+* {
+    margin: 0; padding: 0; box-sizing: border-box;
+}
+
+li {
+    list-style: none;
+}
+
+.cleanfloat::after {
+    content: "";
+    display: block;
+    clear: both;
+}
+
+a:link, a:visited {
+    color: inherit; text-decoration: none;
+}

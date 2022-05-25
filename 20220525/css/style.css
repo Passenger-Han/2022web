@@ -1,0 +1,67 @@
+@charset "UTF-8";
+/* gnb layouts */
+.nav_wrap {
+    background-color: #1D5DA4;
+}
+
+.nav_wrap .nav {
+    width: 980px;
+    margin: 0 auto;
+}
+
+.nav_wrap .nav li {
+    float: left;
+    width: calc(100% / 6); height: 3em; border-left: 1px solid #336DAC;
+}
+
+.nav_wrap .nav li:last-child {
+    border-right: 1px solid #336DAC;
+}
+
+.nav_wrap .nav li a {
+    height: 100%;
+    display: flex; justify-content: center; align-items: center;
+
+    color: #FFF;
+    transition: 0.4s;
+}
+
+.nav_wrap .nav li a:hover {
+    background-color: #336DAC;
+}
+
+.util_wrap {
+    border-bottom: 1px solid #DDDDDD;
+}
+
+.util_wrap .util {
+    width: 980px; margin: 0 auto;
+}
+
+.util_wrap .util .util_menu {
+    float: right;
+}
+
+.util_wrap .util .util_menu li {
+    float: left;
+    position: relative;
+}
+
+.util_wrap .util .util_menu li::after {
+    content: "";
+    display: block;
+    width: 1px; height: 0.50em; background-color: #DDDDDD;
+
+    position: absolute; right: 0; top: 0.50em;
+}
+
+.util_wrap .util .util_menu li:last-child::after {
+    display: none;
+}
+
+.util_wrap .util .util_menu li a {
+    display: block;
+    padding: 7px 10px;
+
+    color: #888888; font-size: 0.75em; line-height: 0.75em;
+}
