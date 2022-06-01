@@ -1,0 +1,73 @@
+@charset "UTF-8";
+img {
+    display: block;
+}
+
+.visual {
+    width: 1000px; margin: 0 auto;
+    position: relative;
+}
+
+.visual .text_wrap {
+    width: 450px;
+    position: absolute; right: 30px; top: 50px;
+}
+
+.visual .text_wrap h2 {
+    font-size: 2.5em;
+}
+.visual .text_wrap h2::after {
+    content: "";
+    display: block;
+    width: 100%; height:2px; margin: 10px 0;
+    background-color: #000;
+}
+.visual .text_wrap p {margin-bottom: 1em;}
+.visual .text_wrap a {
+    display: inline-block;
+    padding: 1em 2.5em;
+    border: 1px solid #000; border-radius: 2em;
+    transition: 0.65s;
+}
+
+.visual .text_wrap a:hover {
+    background-color: #000; color: #FFF;
+}
+
+.visual img.btn_prev, .visual img.btn_next {
+    position: absolute;
+    top: 50%; margin-top: -50px;
+    cursor: pointer;
+}
+/* .visual img.btn_prev {
+    left: 8%;
+} */
+
+.visual img.btn_next {
+    right: 0;
+}
+
+.slide_tap {
+    width: 8%; height: 100%;
+    position: absolute; left: -8%; bottom: 0;
+}
+
+.slide_tap a {
+    height: calc(100% / 3);
+    display: flex; justify-content: center; align-items: center;
+    background-color: orange;
+    transition: 0.65s;
+}
+
+.slide_tap a.active, .slide_tap a:hover {
+    background-color: #FF0000; color: #FFFFFF;
+}
+
+.bx-wrapper {
+    -moz-box-shadow: 0 0 0px #ccc;
+    -webkit-box-shadow: 0 0 0px #ccc;
+    box-shadow: 0 0 0px #ccc;
+    border: 0px solid #fff;
+    background: #fff;
+    margin-bottom: 0;
+}

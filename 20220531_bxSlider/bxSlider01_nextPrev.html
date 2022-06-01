@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- initial settings CSS -->
+    <link rel="stylesheet" href="../css/reset.css">
+    <!-- jQuery -->
+    <script src="../js/jquery-3.1.1.min.js"></script>
+    <!-- bxSlider -->
+    <script src="../js/jquery.bxslider.js"></script>
+    <!-- bxSlider CSS -->
+    <link rel="stylesheet" href="../css/jquery.bxslider.css">
+    <style>
+        .visual {
+            position: relative;
+        }
+
+        .visual .text_wrap {
+            width: 1280px;
+            position: absolute; left: 50%; margin-left: -640px;
+            color: #FFF; height: 100%;
+        }
+
+        .visual .text_wrap .text {position: absolute; bottom: 25%;}
+        .visual .text_wrap h3 {font-size: 80px;}
+        .visual .text_wrap p {font-size: 24px; margin-bottom: 1em;}
+        .visual .text_wrap a {color: #000; font-size: 24px; display: inline-block; background-color: #FFF; padding: 6px 26px; border-radius: 24px;}
+
+        .slide_left, .slide_right {position: absolute; top: 50%; margin-top: -50px;}
+        .slide_right {right: 0;}
+
+        .container02 {
+            width: 500px; margin: 0 auto;
+        }
+
+        .visual li img {
+            width: 100%;
+        }
+
+        .bx-wrapper {
+            -moz-box-shadow: 0 0 0px #ccc;
+            -webkit-box-shadow: 0 0 0px #ccc;
+            box-shadow: 0 0 0px #ccc;
+            border: 0px solid #fff;
+            background: #fff;
+        }
+
+        .bx-wrapper .bx-pager, .bx-wrapper .bx-controls-auto {
+            position: absolute;
+            bottom: 30px;
+            width: 100%;
+        }
+
+        .bx-wrapper {
+            position: relative;
+            margin-bottom: 0;
+            padding: 0;
+            *zoom: 1;
+            -ms-touch-action: pan-y;
+            touch-action: pan-y;
+        }
+
+        .container02 .bx-wrapper .bx-pager.bx-default-pager a:hover,
+        .container02 .bx-wrapper .bx-pager.bx-default-pager a.active,
+        .container02 .bx-wrapper .bx-pager.bx-default-pager a:focus {
+            background: #F00;
+        }
+    </style>
+    <script>
+        $(document).ready(function(){
+            var slide = $(".slide01").bxSlider({
+                controls: false
+            });
+
+            $(".slide_right").click(function(){
+                slide.goToNextSlide();
+            });
+            $(".slide_left").click(function(){
+                slide.goToPrevSlide();
+            });
+
+            $(".slide02").bxSlider({});
+        })
+    </script>
+</head>
+<body>
+    <div class="visual">
+        <ul class="slide01">
+            <li>
+                <div class="text_wrap"> <!-- 1280 position: absolute -->
+                    <div class="text">
+                        <h3>견학프로그램</h3>
+                        <p>나의 게임 산업 탐방기</p>
+                        <a href="#">더보기</a>
+                    </div>
+                </div>
+                <img src="../images/pc01.jpg" alt="">
+            </li>
+            <li>
+                <div class="text_wrap"> <!-- 1280 position: absolute -->
+                    <div class="text">
+                        <h3>견학프로그램</h3>
+                        <p>나의 게임 산업 탐방기</p>
+                        <a href="#">더보기</a>
+                    </div>
+                </div>
+                <img src="../images/pc02.jpg" alt="">
+            </li>
+            <li>
+                <div class="text_wrap"> <!-- 1280 position: absolute -->
+                    <div class="text">
+                        <h3>견학프로그램</h3>
+                        <p>나의 게임 산업 탐방기</p>
+                        <a href="#">더보기</a>
+                    </div>
+                </div>
+                <img src="../images/pc03.jpg" alt="">
+            </li>
+        </ul>
+        <div class="slide_left">
+            <img src="../images/Arrow-left.png" alt="">
+        </div>
+        <div class="slide_right">        
+            <img src="../images/Arrow-right.png" alt="">
+        </div>
+    </div>
+    <div class="container02">
+        <ul class="slide02">
+            <li>
+                <img src="../images/pc01.jpg" alt="">
+            </li>
+            <li>
+                <img src="../images/pc02.jpg" alt="">
+            </li>
+            <li>
+                <img src="../images/pc03.jpg" alt="">
+            </li>
+        </ul>
+    </div>
+</body>
+</html>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- initial settings -->
+    <link rel="stylesheet" href="../css/reset.css">
+    <!-- bxSlider CSS -->
+    <link rel="stylesheet" href="../css/jquery.bxslider.css">
+    <!-- page CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <!-- jQuery -->
+    <script src="../js/jquery-3.1.1.min.js"></script>
+    <!-- bxSlider js -->
+    <script src="../js/jquery.bxslider.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            var slide = $('.slide').bxSlider({
+                mode: "vertical",
+                auto: true,
+                controls: false,
+                pagerCustom: ".slide_tap"
+            });
+
+            $('.btn_prev').click(function () {
+                slide.goToPrevSlide()
+            });
+            $('.btn_next').click(function () {
+                slide.goToNextSlide()
+            });
+        })
+
+
+    </script>
+</head>
+
+<body>
+    <div class="visual">
+        <ul class="slide">
+            <li>
+                <div class="text_wrap">
+                    <h2>Lorem, ipsum dolor. 1</h2>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet, quidem!</p>
+                    <a href="#" class="btn_more">More</a>
+                </div>
+                <img src="../images/banner_Sample01.jpg" alt="노란 바탕에 앉아서 손드는 아이 둘 사진">
+            </li>
+            <li>
+                <div class="text_wrap">
+                    <h2>Lorem, ipsum dolor. 2</h2>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet, quidem!</p>
+                    <a href="#" class="btn_more">More</a>
+                </div>
+                <img src="../images/banner_Sample01.jpg" alt="노란 바탕에 앉아서 손드는 아이 둘 사진">
+            </li>
+            <li>
+                <div class="text_wrap">
+                    <h2>Lorem, ipsum dolor. 3</h2>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet, quidem!</p>
+                    <a href="#" class="btn_more">More</a>
+                </div>
+                <img src="../images/banner_Sample01.jpg" alt="노란 바탕에 앉아서 손드는 아이 둘 사진">
+            </li>
+        </ul>
+        <img src="../images/Arrow-left.png" alt="왼쪽 화살표" class="btn_prev">
+        <img src="../images/Arrow-right.png" alt="오른쪽 화살표" class="btn_next">
+        <div class="slide_tap">
+            <a href="#" data-slide-index="0">MENU1</a>
+            <a href="#" data-slide-index="1">MENU2</a>
+            <a href="#" data-slide-index="2">MENU3</a>
+        </div>
+    </div>
+</body>
+
+</html>
