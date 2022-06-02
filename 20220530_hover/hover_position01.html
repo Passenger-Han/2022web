@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/reset.css">
+
+    <style>
+        .con-1st {
+            width: 1000px; margin: 0 auto;
+        }
+
+        .con-1st li {
+            float: left;
+            width: calc((100% - (20px * 3)) / 4);
+            height: 235px;
+            margin-right: 20px;
+            border-radius: 50%;
+            overflow: hidden;
+            position: relative;
+        }
+        .con-1st li:last-child {
+            margin-right: 0;
+        }
+
+        .con-1st li img {
+            width: 100%;
+            transition: 0.2s;
+        }
+        
+        .con-1st .overlay {
+            width: 100%; height: 100%;
+            background-color: rgba(138, 235, 135, 0.699);
+            position: absolute;
+            transition: 0.2s;
+        }
+        .con-1st .overlay a {
+            display: flex; justify-content: center; align-items: center;
+            height: 100%;
+        }
+
+        /* 1st */
+        .con-1st.sc-1st .overlay {
+            left: -85%; top: 0;
+        }
+        .con-1st.sc-1st li:hover .overlay {
+            left: 0;
+        }
+        .con-1st.sc-1st li:hover img {
+            width: 110%;
+        }
+
+        /* 2nd */
+        .con-1st.sc-2nd li .overlay {
+            right: -85%; top: 0;
+        }
+        .con-1st.sc-2nd li:hover .overlay {
+            right: 0; top: 0;
+        }
+        .con-1st.sc-2nd li:hover img {
+            width: 150%;
+        }
+
+        /* 3rd */
+        .con-1st.sc-3rd li .overlay {
+            top: -85%;
+        }
+        .con-1st.sc-3rd li:hover .overlay {
+            top: 0;
+        }
+        .con-1st.sc-3rd li:hover img {
+            transform-origin: 100% 100%;
+            transform: scale(150%);
+        }
+        
+        /* 4th */
+        .con-1st.sc-4th .overlay {
+            background-color: rgb(255, 0, 0, 0.5);
+            color: #FFFFFF;
+            border-radius: 50%;
+        }
+        .con-1st.sc-4th li .overlay {
+            bottom: -50%; right: -50%;
+        }
+        .con-1st.sc-4th li:hover .overlay {
+            bottom:0; right: 0;
+        }
+        .con-1st.sc-4th li:hover img {
+            transform-origin: 73% 0;
+            transform: scale(120%);
+        }
+    </style>
+</head>
+<body>
+    <div class="con-1st sc-1st">
+        <ul class="cleanfloat">
+            <li>
+                <img src="../images/testimg.jpg" alt="에펠타워">
+                <div class="overlay">
+                    <a href="#">프랑스</a>
+                </div>
+            </li>
+            <li>
+                <img src="../images/testimg.jpg" alt="에펠타워">
+                <div class="overlay">
+                    <a href="#">프랑스</a>
+                </div>
+            </li>
+            <li>
+                <img src="../images/testimg.jpg" alt="에펠타워">
+                <div class="overlay">
+                    <a href="#">프랑스</a>
+                </div>
+            </li>
+            <li>
+                <img src="../images/testimg.jpg" alt="에펠타워">
+                <div class="overlay">
+                    <a href="#">프랑스</a>
+                </div>
+            </li>
+        </ul>
+    </div>
+
+    <div class="con-1st sc-2nd">
+        <ul class="cleanfloat">
+            <li>
+                <img src="../images/testimg.jpg" alt="에펠타워">
+                <div class="overlay">
+                    <a href="#">프랑스</a>
+                </div>
+            </li>
+            <li>
+                <img src="../images/testimg.jpg" alt="에펠타워">
+                <div class="overlay">
+                    <a href="#">프랑스</a>
+                </div>
+            </li>
+            <li>
+                <img src="../images/testimg.jpg" alt="에펠타워">
+                <div class="overlay">
+                    <a href="#">프랑스</a>
+                </div>
+            </li>
+            <li>
+                <img src="../images/testimg.jpg" alt="에펠타워">
+                <div class="overlay">
+                    <a href="#">프랑스</a>
+                </div>
+            </li>
+        </ul>
+    </div>
+
+    <div class="con-1st sc-3rd">
+        <ul class="cleanfloat">
+            <li>
+                <img src="../images/testimg.jpg" alt="에펠타워">
+                <div class="overlay">
+                    <a href="#">프랑스</a>
+                </div>
+            </li>
+            <li>
+                <img src="../images/testimg.jpg" alt="에펠타워">
+                <div class="overlay">
+                    <a href="#">프랑스</a>
+                </div>
+            </li>
+            <li>
+                <img src="../images/testimg.jpg" alt="에펠타워">
+                <div class="overlay">
+                    <a href="#">프랑스</a>
+                </div>
+            </li>
+            <li>
+                <img src="../images/testimg.jpg" alt="에펠타워">
+                <div class="overlay">
+                    <a href="#">프랑스</a>
+                </div>
+            </li>
+        </ul>
+    </div>
+
+    <div class="con-1st sc-4th">
+        <ul class="cleanfloat">
+            <li>
+                <img src="../images/testimg.jpg" alt="에펠타워">
+                <div class="overlay">
+                    <a href="#">프랑스</a>
+                </div>
+            </li>
+            <li>
+                <img src="../images/testimg.jpg" alt="에펠타워">
+                <div class="overlay">
+                    <a href="#">프랑스</a>
+                </div>
+            </li>
+            <li>
+                <img src="../images/testimg.jpg" alt="에펠타워">
+                <div class="overlay">
+                    <a href="#">프랑스</a>
+                </div>
+            </li>
+            <li>
+                <img src="../images/testimg.jpg" alt="에펠타워">
+                <div class="overlay">
+                    <a href="#">프랑스</a>
+                </div>
+            </li>
+        </ul>
+    </div>
+</body>
+</html>
