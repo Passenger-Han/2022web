@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/reset.css">
+
+    <style>
+        html {
+            background: #000;
+        }
+
+        html, body {
+            height: 100%;
+            /* 아니면 body에 height: 100vh; 로 해도.. */
+        }
+
+        body {
+            display: flex; justify-content: center; align-items: center;
+        }
+
+        #playboard {
+            /* initial */
+            width: 400px;
+            height: 300px;
+            background: pink;
+        }
+
+        #playboard {
+            display: flex; justify-content: center; align-items: center;
+        }
+
+        #playboard div {
+            width: 100px; height: 100px; position: absolute; transition: 0.42s;
+        }
+
+        #playboard div:nth-child(1) {background: #F00;}
+        #playboard div:nth-child(2) {background: #0F0;}
+        #playboard div:nth-child(3) {background: #00F; transition-delay: 0.1s;}
+
+        #playboard:hover div:nth-child(1) {
+            transform: translate(-100%, 50%);
+        }
+
+        #playboard:hover div:nth-child(3) {
+            transform: translate(100%, -50%);
+        }
+        </style>
+</head>
+<body>
+    <div id="playboard">
+        <div class="one"></div>
+        <div class="two"></div>
+        <div class="three"></div>
+    </div>
+</body>
+</html>
