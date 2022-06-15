@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/reset.css">
+    <style>
+        .navWrap{background-color: #eee;}
+        .navbar{width: 1000px;margin:auto;position: relative;}
+        .navbar:hover:after{
+            content:"";display: block;width: 100%;height: 40px;background-color:pink;
+            position: absolute;z-index: 1;
+        }
+        .navbar:after{display: none;}
+
+        .navbar>ul{position: relative;}
+        .navbar>ul>li{float: left;width:200px;height: 40px;}
+        .navbar>ul>li:hover{background-color: #ddd;}
+        .navbar>ul>li>a{display:flex;height: 100%;justify-content: center;align-items: center;}
+
+        .submenu{display: none;position: absolute;height: 40px;z-index:2;}
+        .navbar>ul>li:hover .submenu{display: block;}
+        .submenu li{float: left;background-color:pink;}
+        .submenu li a{display: block;padding: 5px 10px;}
+
+        .navbar>ul>li:nth-child(1) .submenu{}
+        .navbar>ul>li:nth-child(2) .submenu{margin-left: -35px;}
+        .navbar>ul>li:nth-child(3) .submenu{margin-left: -35px;}
+        .navbar>ul>li:nth-child(4) .submenu{margin-left: -35px;}
+        .navbar>ul>li:nth-child(5) .submenu{right:0}
+
+        .visual{height: 500px;background: skyblue;position: relative;}
+    </style>
+</head>
+<body>
+    <div class="navWrap">
+        <div class="navbar">
+            <ul class="clearfix">
+                <li><a href="#">menu1</a>
+                    <div class="submenu">
+                        <ul class="clearfix">
+                            <li><a href="#">s01_01</a></li>
+                            <li><a href="#">s01_01</a></li>
+                            <li><a href="#">s01_01</a></li>
+                            <li><a href="#">s01_01</a></li>
+                        </ul>
+                    </div>
+                </li>
+                <li><a href="#">menu2</a>
+                    <div class="submenu">
+                        <ul class="clearfix">
+                            <li><a href="#">s02_01</a></li>
+                            <li><a href="#">s02_01</a></li>
+                            <li><a href="#">s02_01</a></li>
+                            <li><a href="#">s02_01</a></li>
+                        </ul>
+                    </div>
+                </li>
+                <li><a href="#">menu3</a>
+                    <div class="submenu">
+                        <ul class="clearfix">
+                            <li><a href="#">s03_01</a></li>
+                            <li><a href="#">s03_01</a></li>
+                            <li><a href="#">s03_01</a></li>
+                            <li><a href="#">s03_01</a></li>
+                        </ul>
+                    </div>
+                </li>
+                <li><a href="#">menu4</a>
+                    <div class="submenu">
+                        <ul class="clearfix">
+                            <li><a href="#">s04_01</a></li>
+                            <li><a href="#">s04_01</a></li>
+                            <li><a href="#">s04_01</a></li>
+                            <li><a href="#">s04_01</a></li>
+                        </ul>
+                    </div>
+                </li>
+                <li><a href="#">menu5</a>
+                    <div class="submenu">
+                        <ul class="clearfix">
+                            <li><a href="#">s05_01</a></li>
+                            <li><a href="#">s05_01</a></li>
+                            <li><a href="#">s05_01</a></li>
+                            <li><a href="#">s05_01</a></li>
+                        </ul>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="visual"></div>
+</body>
+</html>

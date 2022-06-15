@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/reset.css">
+    <style>
+        h1 {
+            margin: 0 auto;
+            width: 440px;
+            height: 105px;
+            background-image: url(../images/sprite_naver.png);
+            background-position: 0 -320px;
+        }
+
+        h1 a {
+            display: block;
+            height: 105px;
+            /* text-indent: -10000px; */
+        }
+
+        .hider {
+            position: absolute;
+            clip: rect(0 0 0 0);
+            width: 1px;
+            height: 1px;
+            margin: -1px;
+            overflow: hidden;
+            text-overflow: clip;
+        }
+
+        .nav-bar {
+            width: 980px;
+            margin: 0 auto;
+        }
+
+        .nav-bar li {
+            width: 140px;
+            height: 50px;
+            background-image: url(../images/sprites.png);
+            float: left;
+
+            transition: 0.2s;
+        }
+
+        .nav-bar li:nth-child(2) {background-position: -140px 0;}
+        .nav-bar li:nth-child(3) {background-position: -280px 0;}
+        .nav-bar li:nth-child(4) {background-position: -420px 0;}
+        .nav-bar li:nth-child(5) {background-position: -560px 0;}
+        .nav-bar li:nth-child(6) {background-position: -700px 0;}
+        .nav-bar li:nth-child(7) {background-position: -840px 0;}
+
+        .nav-bar li:nth-child(1):hover {background-position: -0px -50px;}
+        .nav-bar li:nth-child(2):hover {background-position: -140px -50px;}
+        .nav-bar li:nth-child(3):hover {background-position: -280px -50px;}
+        .nav-bar li:nth-child(4):hover {background-position: -420px -50px;}
+        .nav-bar li:nth-child(5):hover {background-position: -560px -50px;}
+        .nav-bar li:nth-child(6):hover {background-position: -700px -50px;}
+        .nav-bar li:nth-child(7):hover {background-position: -840px -50px;}
+        
+        .nav-bar li:nth-child(1).active {background-position: -0px -50px;}
+        .nav-bar li:nth-child(2).active {background-position: -140px -50px;}
+        .nav-bar li:nth-child(3).active {background-position: -280px -50px;}
+        .nav-bar li:nth-child(4).active {background-position: -420px -50px;}
+        .nav-bar li:nth-child(5).active {background-position: -560px -50px;}
+        .nav-bar li:nth-child(6).active {background-position: -700px -50px;}
+        .nav-bar li:nth-child(7).active {background-position: -840px -50px;}
+        
+        .nav-bar li a {
+            display: block;
+            height: 50px;
+            text-indent: -10000px;
+        }
+
+        .one,
+        .two,
+        .three {
+            margin: 0 auto;
+            background-image: url(../images/sprite_naver.png);
+            width: 40px; height: 40px;
+            background-position: -716px -714px;
+            transition: 1s;
+        }
+
+        .one:hover {
+            background-position: -760px -714px;
+        }
+
+        .two:hover {
+            background-position: -808px -714px;
+        }
+
+        .three:hover {
+            background-position: -858px -742px;
+        }
+
+
+    </style>
+</head>
+<body>
+    <h1><a href="#"> <span class="hider">네이버</span></a></h1>
+    <nav class="nav-bar">
+        <ul class="cleanfloat">
+            <li class="active"><a href="#">MENU1</a></li>
+            <li><a href="#">MENU2</a></li>
+            <li><a href="#">MENU3</a></li>
+            <li><a href="#">MENU4</a></li>
+            <li><a href="#">MENU5</a></li>
+            <li><a href="#">MENU6</a></li>
+            <li><a href="#">MENU7</a></li>
+        </ul>
+    </nav>
+
+    <div class="one"></div>
+    <div class="two"></div>
+    <div class="three"></div>
+</body>
+</html>

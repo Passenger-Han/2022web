@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/reset.css">
+    <style>
+        html,
+        body {
+            height: 100%;
+        }
+
+        body {
+            background-image: linear-gradient(90deg, #6A11CB 0%, #2575FC 100%);
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .box {
+            width: 300px;
+            height: 300px;
+
+            border-radius: 16px;
+
+            position: relative;
+            cursor: pointer;
+
+            overflow: hidden;
+
+            box-shadow: 0 0 0 #000000;
+
+            transition: 0.2s;
+        }
+
+        .box:hover {
+            transform: translate(-8px, -8px);
+
+            box-shadow: 8px 8px 4px rgba(0, 0, 0, 0.33);
+        }
+
+        .box .background {
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.50);
+            color: #FFFFFF;
+
+            position: absolute; top: 0; left: 0;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            transition: 0.20s;
+        }
+
+        .box:hover .background {
+            background: rgba(0, 0, 0, 0);
+        }
+
+        .box .circle {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            border: 4px solid #FFFFFF;
+
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            transition: 0.20s;
+        }
+
+        .box:hover .circle {
+            transform: translate(-50%, -50%) rotate(180deg);
+        }
+
+        .box img {
+            transition: 0.20s;
+        }
+
+        .box:hover img {
+            transform: scale(112%) rotate(5deg);
+        }
+
+        .box .bar {
+            position: absolute; bottom: 0;
+            width: 100%;
+            height: 10px;
+            transform: scaleX(0);
+            background-color: #f00;
+
+            transition: 0.2s;
+        }
+
+        .box:hover .bar {
+            transform: scaleX(1);
+        }
+
+        .circle:before,
+        .circle:after {
+            content: "";
+            display: block;
+            border-radius: 4px;
+            background-color: #fff;
+
+            position: absolute;
+        }
+
+        .circle:before {
+            width: 20px; height: 4px;
+        }
+
+        .circle:after {
+            width: 4px; height: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <img src="../images/testimg.jpg" alt="에펠타워">
+        <div class="background"></div>
+        <div class="circle"></div>
+        <div class="bar"></div>
+    </div>
+    <div class="box">
+        <img src="../images/testimg.jpg" alt="에펠타워">
+        <div class="background"></div>
+        <div class="circle"></div>
+        <div class="bar"></div>
+    </div>
+    <div class="box">
+        <img src="../images/testimg.jpg" alt="에펠타워">
+        <div class="background"></div>
+        <div class="circle"></div>
+        <div class="bar"></div>
+    </div>
+</body>
+</html>

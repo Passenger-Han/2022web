@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/8.2.4/swiper-bundle.css" integrity="sha512-303pOWiYlJMbneUN488MYlBISx7PqX8Lo/lllysH56eKO8nWIMEMGRHvkZzfXYrHj4j4j5NtBuWmgPnkLlzFCg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        .wrap-nav {
+            background: #D3D3D3;
+        }
+
+        .nav-bar {
+            width: 1000px; margin: 0 auto;
+        }
+
+        .wrap-nav:hover:after {
+            content: "";
+            display: block;
+            width: 100%;
+            height: 40px;
+            background: #F00;
+            position: absolute;
+            z-index: 1;
+        }
+
+        .nav-bar>ul {
+            position: relative;
+        }
+
+        .nav-bar>ul>li {
+            float: left; width: 200px; height: 40px;
+        }
+
+        .nav-bar>ul>li:hover {
+            background: #EEE;
+        }
+
+        .nav-bar>ul>li>a {
+            display: flex; height: 100%; justify-content: center; align-items: center;
+        }
+
+        .submenu {
+            display: none;
+            position: absolute;
+            height: 40px;
+            z-index: 2;
+        }
+
+        .nav-bar>ul>li:hover .submenu {
+            display: block;
+        }
+
+        .submenu li {
+            float: left;
+            background: pink;
+        }
+
+        .submenu li a {
+            display: block;
+            padding: 5px 10px;
+        }
+
+        .swiper {
+            width: 600px; height: 300px;
+        }
+
+        .swiper-slide {
+            display: flex; justify-content: center; align-items: center;
+        }
+
+        /* .nav-bar>ul>li:nth-child(4) .submenu,
+        .nav-bar>ul>li:nth-child(5) .submenu{
+            right: 0;
+        } */
+    </style>
+</head>
+<body>
+    <div class="wrap-nav">
+        <nav class="nav-bar">
+            <ul class="cleanfloat">
+                <li>
+                    <a href="">
+                        MENU1
+                    </a>
+                    <div class="submenu">
+                        <ul class="cleanfloat">
+                            <li><a href="">SUBMENU1</a></li>
+                            <li><a href="">SUBMENU2</a></li>
+                            <li><a href="">SUBMENU3</a></li>
+                            <li><a href="">SUBMENU4</a></li>
+                            <li><a href="">SUBMENU5</a></li>
+                        </ul>
+                    </div>
+                </li>
+                <li>
+                    <a href="">
+                        MENU2
+                    </a>
+                    <div class="submenu">
+                        <ul class="cleanfloat">
+                            <li><a href="">SUBMENU1</a></li>
+                            <li><a href="">SUBMENU2</a></li>
+                            <li><a href="">SUBMENU3</a></li>
+                            <li><a href="">SUBMENU4</a></li>
+                            <li><a href="">SUBMENU5</a></li>
+                        </ul>
+                    </div>
+                </li>
+                <li>
+                    <a href="">
+                        MENU3
+                    </a>
+                    <div class="submenu">
+                        <ul class="cleanfloat">
+                            <li><a href="">SUBMENU1</a></li>
+                            <li><a href="">SUBMENU2</a></li>
+                            <li><a href="">SUBMENU3</a></li>
+                            <li><a href="">SUBMENU4</a></li>
+                            <li><a href="">SUBMENU5</a></li>
+                        </ul>
+                    </div>
+                </li>
+                <li>
+                    <a href="">
+                        MENU4
+                    </a>
+                    <div class="submenu">
+                        <ul class="cleanfloat">
+                            <li><a href="">SUBMENU1</a></li>
+                            <li><a href="">SUBMENU2</a></li>
+                            <li><a href="">SUBMENU3</a></li>
+                            <li><a href="">SUBMENU4</a></li>
+                            <li><a href="">SUBMENU5</a></li>
+                        </ul>
+                    </div>
+                </li>
+                <li>
+                    <a href="">
+                        MENU5
+                    </a>
+                    <div class="submenu">
+                        <ul class="cleanfloat">
+                            <li><a href="">SUBMENU1</a></li>
+                            <li><a href="">SUBMENU2</a></li>
+                            <li><a href="">SUBMENU3</a></li>
+                            <li><a href="">SUBMENU4</a></li>
+                            <li><a href="">SUBMENU5</a></li>
+                        </ul>
+                    </div>
+                </li>
+            </ul>
+        </nav>
+    </div>
+    <div class="swiper mySwiper">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide">Slide 1</div>
+          <div class="swiper-slide">Slide 2</div>
+          <div class="swiper-slide">Slide 3</div>
+          <div class="swiper-slide">Slide 4</div>
+          <div class="swiper-slide">Slide 5</div>
+          <div class="swiper-slide">Slide 6</div>
+          <div class="swiper-slide">Slide 7</div>
+          <div class="swiper-slide">Slide 8</div>
+          <div class="swiper-slide">Slide 9</div>
+        </div>
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
+      </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/8.2.4/swiper-bundle.min.js" integrity="sha512-Hvn3pvXhhG39kmZ8ue3K8hw8obT4rfLXHE5n+IWNCMkR6oV3cfkQNUQqVvX3fNJO/JtFeo/MfLmqp5bqAT+8qg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script>
+        const swiper = new Swiper('.swiper', {
+                // Optional parameters
+                direction: 'horizontal',
+                loop: true,
+
+                // If we need pagination
+                pagination: {
+                    el: '.swiper-pagination',
+                },
+
+                // Navigation arrows
+                navigation: {
+                    nextEl: '.swiper-button-next',
+                    prevEl: '.swiper-button-prev',
+                },
+
+                // And if we need scrollbar
+                scrollbar: {
+                    el: '.swiper-scrollbar',
+                },
+            });
+    </script>
+</body>
+</html>
