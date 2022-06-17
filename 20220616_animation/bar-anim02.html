@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/reset.css">
+    <style>
+        html,
+        body {
+            height: 100%;
+            background: rgba(0, 0, 0, 1);
+        }
+
+        body {
+            display: flex; justify-content: center; align-items: center;
+        }
+
+        .wrap-box {
+            width: 500px;
+            height: 500px;
+            border: 1px solid rgba(255, 255, 255, 1);
+
+            position: relative;
+        }
+
+        .wrap-box:hover .bar-01 {
+            width: 0;
+            height: 20px;
+            background: rgba(255, 255, 255, 1);
+
+            animation-name: bar-horizontal;
+            animation-duration: 1s;
+            animation-timing-function: linear;
+            animation-fill-mode: forwards;
+        }
+
+        .wrap-box:hover .bar-02 {
+            width: 20px;
+            height: 0;
+            background: rgba(255, 0, 0, 1);
+
+            position: absolute;
+            top: 0; right: 0;
+
+            animation: bar-vertical;
+            animation-duration: 1s;
+            animation-timing-function: linear;
+            animation-fill-mode: forwards;
+            animation-delay: 1s;
+        }
+
+        .wrap-box:hover .bar-03 {
+            width: 0;
+            height: 20px;
+            background: rgba(0, 255, 0, 1);
+
+            position: absolute;
+            bottom: 0; right: 0;
+
+            animation: bar-horizontal;
+            animation-duration: 1s;
+            animation-timing-function: linear;
+            animation-fill-mode: forwards;
+        }
+
+        .wrap-box:hover .bar-04 {
+            width: 20px;
+            height: 0;
+            background: rgba(0, 0, 255, 1);
+
+            position: absolute;
+            bottom: 0; left: 0;
+
+            animation: bar-vertical-alt;
+            animation-duration: 1s;
+            animation-timing-function: linear;
+            animation-fill-mode: forwards;
+            animation-delay: 1s;
+        }
+
+        @keyframes bar-horizontal {
+            to {
+                width: 100%;
+            }
+        }
+
+        @keyframes bar-vertical {
+            to {
+                height: 100%;
+            }
+        }
+
+        @keyframes bar-vertical-alt {
+            96% {
+                height: calc(96%);
+            }
+            
+            100% {
+                height: calc(96% - 1px);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="wrap-box">
+        <div class="bar-01"></div>
+        <div class="bar-02"></div>
+        <div class="bar-03"></div>
+        <div class="bar-04"></div>
+    </div>
+</body>
+</html>

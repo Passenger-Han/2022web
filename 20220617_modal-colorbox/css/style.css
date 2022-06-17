@@ -1,0 +1,29 @@
+@charset "UTF-8";
+html,
+body {
+    height: 100%;
+}
+
+body {
+    background-image: linear-gradient(90deg, #232528, #000714);
+    display: flex; justify-content: center; align-items: center; flex-direction: column;
+}
+
+.wrap-sct {
+    width: 1000px;
+
+    margin: 0 auto;
+}
+
+.wrap-sct ul {
+    display: flex;
+    justify-content: space-between;
+}
+
+.wrap-sct ul li {
+    width: calc((100% - 45px) / 4);
+}
+
+.wrap-sct ul li img {
+    width: 100%;
+}
