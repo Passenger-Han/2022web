@@ -76,3 +76,142 @@ fieldset {
 #content .field .icon.email {background-position: 0 -47px;}
 #content .field .icon.pass {background-position: 0 -466px;}
 #content .field .icon.pass2 {background-position: 0 -515px;}
+
+#content .field.radio {
+    height: 49px;
+}
+
+#content .field.radio .btn-label {
+    width: 212px; height: 31px;
+    position: absolute;
+    top: 9px;
+    display: flex; justify-content: center; align-items: center;
+    cursor: pointer;
+    border: 1px solid #DCDCDC;
+    background: #FFFFFF;
+    border-radius: 5px;
+}
+
+#content .field.radio .btn-label.male {
+    left: 15px;
+}
+
+#content .field.radio .btn-label.female {
+    right: 15px;
+}
+
+#content .field.radio input {
+    position: absolute;
+    left: 20px;
+    top: 9px;
+}
+
+#content .field.radio input:nth-of-type(1):checked ~ label.male,
+#content .field.radio input:nth-of-type(2):checked ~ label.female {
+    background-color: #D9DEEF;
+}
+
+#content .field.birth label {
+    width: 53px; height: 49px; background-color: #F7F7F7;
+    display: flex; justify-content: center; align-items: center;
+}
+
+#content .field.birth label,
+#content .field.birth input,
+#content .field.confirm input,
+#content .field.birth select,
+#content .field.confirm select,
+#content .field.birth .wall,
+#content .field.confirm .wall {
+    float: left;
+}
+
+#content .field.birth .wall,
+#content .field.confirm .wall {
+    width: 0;
+    height: 29px;
+    border-right: 1px solid #CDCDCD;
+    margin-top: 10px;
+    text-indent: -9999px;
+}
+
+#content .field.birth select,
+#content .field.confirm select {
+    width: 120px;
+    height: 29px;
+    border: 0 none;
+    font-size: 16px;
+    margin: 10px 9px 0;
+}
+
+#content .field .input-field,
+#content .field.birth select,
+#content .field.confirm select {
+    outline: none;
+}
+
+#content .field.confirm {
+    height: 49px;
+}
+
+.btn-confirm {
+    border: 1px solid #CCCCCC;
+    width: 99px;
+    height: 31px;
+    background-color: #FFFFFF;
+    cursor: pointer;
+    
+    position: absolute;
+    right: 14px;
+    top: 9px;
+
+    border-radius: 3px;
+}
+
+.btn-confirm.btn-primary  {
+    background-color: rgb(25, 154, 214);
+    color: #FFFFFF;
+}
+
+.btn-confirm.btn-success {
+    background-color: rgb(21, 226, 141);
+    color: #FFFFFF;
+}
+
+#content .btn-submit {
+    width: 100%;
+    height: 59px;
+    border: 1px solid #1FBC02;
+    border-radius: 3px;
+    background-color: #1FBC02;
+    text-indent: -9999px;
+    cursor: pointer;
+
+    background-image: url(../images/btn_join2.gif);
+    background-repeat: no-repeat;
+    background-position: 50% -3px;
+}
+
+
+
+
+/* MEASURED */
+.width-458 {
+    width: 458px !important;
+}
+
+.width-130 {
+    width: 130px !important;
+}
+
+.width-145 {
+    width: 145px !important;
+}
+
+.width-202 {
+    width: 202px !important;
+}
+
+.width-303 {
+    width: 303px !important;
+}

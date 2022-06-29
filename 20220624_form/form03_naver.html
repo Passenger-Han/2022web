@@ -40,9 +40,68 @@
                             <span class="icon pass2">Password</span>
                         </p>
                     </fieldset>
+                    <fieldset>
+                        <legend class="blind">개인정보</legend>
+                        <p class="field">
+                            <label for="user-name" class="blind">이름</label>
+                            <input type="text" id="user-name" name="username" placeholder="이름" class="input-field width-458">
+                        </p>
+                        <div class="field radio">
+                            <input type="radio" id="male" name="user-gender" value="남성">
+                            <input type="radio" id="female" name="user-gender" value="여성" checked>
+                            <label for="male" class="btn-label male">남성</label>
+                            <label for="female" class="btn-label female">여성</label>
+                        </div>
+                        <p class="field birth cleanfloat">
+                            <label for="user-birth">생일</label>
+                            <input type="text" id="user-birth" name="userbirth" placeholder="YYYY" class="input-field width-130">
+                            <span class="wall">|</span>
+                            <select name="month" class="birth-month">
+                                <!-- <script>
+                                    for (let i = 1; i < 13; i++) {
+                                        document.write(`<option value="${i}월">${i}월</option>`)
+                                    }
+                                </script> -->
+                            </select>
+                            <span class="wall">|</span>
+                            <input type="text" id="user-birth-day" name="userbirthday" placeholder="DD" class="input-field width-130">
+                        </p>
+
+                        <p class="field">
+                            <label for="user-confirm-mail" class="blind">본인확인 이메일</label>
+                            <input type="text" id="user-confirm-mail" name="userconfirmmail" class="input-field w458" placeholder="본인확인 이메일">
+                        </p>
+                    </fieldset>
+                    <fieldset>
+                        <legend class="blind">휴대전화인증</legend>
+                        <p class="field confirm cleanfloat">
+                            <label for="region-number" class="blind">인증번호받기</label>
+                            <select name="regionnumber" id="region-number" class="region-number">
+                                <option value="+082">+082</option>
+                                <option value="+082">+081</option>
+                            </select>
+                            <span class="wall">|</span>
+                            <input type="text" name="cellnumber" placeholder="휴대전화번호" class="input-field width-202">
+                            <button type="text" class="btn-confirm btn-primary">인증</button>
+                        </p>
+                        <p class="field confirmed">
+                            <label for="number-confirmed" class="blind">인증번호확인</label>
+                            <input type="text" id="number-confirmed" name="numberconfirmed" placeholder="인증번호" class="input-field width-303">
+                            <button type="text" class="btn-confirm btn-success">확인</button>
+                        </p>
+                    </fieldset>
+
+                    <input type="submit" value="가입하기" class="btn-submit">
                 </form>
             </div>
         </div>
     </div>
+    <script>
+        let months = '';
+        for (let i = 1; i < 13; i++) {
+            months = months + `<option value="${i}월">${i}월</option>`;
+        }
+        document.getElementsByClassName('birth-month')[0].innerHTML = months;
+    </script>
 </body>
 </html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="googoo-box" class="box">1111111</div>
+    <div>3333333</div>
+    <div class="box">2222222</div>
+    <!-- <script>
+        let googoo = '';
+        for (let i = 1; i < 10; i++) {
+            // document.write(`3 X ${i} = ${3 * i} <br>`);
+            googoo += `3 X ${i} = ${3 * i} <br>`;
+        }
+        document.getElementById('googoo-box').innerHTML = googoo; // div#googoo-box.box 선택됨, 기존의 내용물을 지우고 들어감.
+        document.getElementsByClassName('box')[1].innerHTML = googoo; // div.box 선택됨, 기존의 내용물을 지우고 들어감.
+        document.getElementsByTagName('div')[1].innerHTML = googoo; // div 선택됨, 기존의 내용물을 지우고 들어감.
+        console.log("<br>" + googoo);
+    </script> -->
+
+    <script>
+        for (let i = 1; i < 10; i++) {
+            document.write(`3 X ${i} = ${3 * i} <br>`);
+        }
+        document.write("<br>");
+    </script>
+    <script>
+        let googoo_Two = '';
+        for (let j = 1; j < 10; j++) {
+            googoo_Two += `3 X ${j} = ${3 * j} <br>`;
+        }
+        document.write("<br>");
+        console.log(googoo_Two);
+    </script>
+    <script>
+        let googoo_Three = '';
+        for (let k = 1; k < 10; k++) {
+            googoo_Three += `3 X ${k} = ${3 * k} <br>`
+        }
+        document.getElementById('googoo-box').innerHTML = googoo_Three + '<br>';
+        document.getElementsByClassName('box')[1].innerHTML = googoo_Three + '<br>';
+        document.getElementsByTagName('div')[1].innerHTML = googoo_Three + '<br>';
+    </script>
+</body>
+</html>
