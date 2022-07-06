@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        성명 : <span class="name">(성명)</span>,
+        나이 : <span class="age">(22)</span>세
+    </div>
+    <button onclick="insertName('이아름', 22)">확인</button>
+
+    <hr>
+
+    너의 <span class="your-name">(이름)</span>
+    너의 나이 <span class="your-age">(나이)</span>세
+
+    <script>
+        function insertName(name, age){ // 표현식 함수
+            document.querySelector('.name').innerHTML = name;
+            document.querySelector('.age').innerHTML = age;
+        };
+
+        const functionName = function(name){ // 일반 함수
+            return name;
+        };
+        document.querySelector('.your-name').innerHTML = functionName('이름이름');
+
+        const functionSummary = function(num1, num2){
+            let summary = num1 + num2;
+            return summary;
+        };
+        document.querySelector('.your-age').innerHTML = functionSummary(22, 1);
+    </script>
+</body>
+</html>

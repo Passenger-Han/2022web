@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Document</title>
+    <script src="../js/jquery-3.1.1.min.js"></script>
+    <style>
+        html,
+        body {
+            height: 100%;
+        }
+
+        body {
+            background-color: #000;
+            color: #FFF;
+            display: flex; justify-content: center; align-items: center;
+        }
+
+        #toggle-menu {
+            width: 100px;
+            height: 100px;
+            background-color: #EAEAEA;
+
+            position: absolute;
+            left: 0;
+
+            transition: 1s;
+        }
+        
+        #toggle-menu.view {
+            left: 25%;
+            background-color: #A9A9A9;
+        }
+
+        .toggle-menu-btn04 {
+            color: #E00;
+        }
+    </style>
+</head>
+<body>
+    <div class="toggle-menu-btn01"><i class="fa-solid fa-bars"></i></div>
+    <div class="toggle-menu-btn02"><i class="fa-solid fa-bars"></i></div>
+    <div class="toggle-menu-btn03"><i class="fa-solid fa-bars"></i></div>
+    <div class="toggle-menu-btn04"><i class="fa-solid fa-bars"></i></div>
+    <div id="toggle-menu"></div>
+
+    <script>
+        const target_Toggle_Menu = document.querySelector("#toggle-menu");
+
+        function menuOpen(){
+            target_Toggle_Menu.classList.add("view");
+        };
+        function menuClosed(){
+            target_Toggle_Menu.classList.remove("view");
+        };
+        function menuToggle(){
+            target_Toggle_Menu.classList.toggle("view");
+        };
+
+        // document.querySelector(".toggle-menu-btn01").addEventListener("click", function(){
+        //     menuOpen();
+        // });
+        // document.querySelector(".toggle-menu-btn02").addEventListener("click", function(){
+        //     menuClosed();
+        // });
+        // document.querySelector(".toggle-menu-btn03").addEventListener("click", function(){
+        //     menuToggle();
+        // });
+        
+        $(".toggle-menu-btn04").on("click", function(){
+            $("#toggle-menu").addClass("view");
+        });
+
+        let on = true;
+        $(".toggle-menu-btn04").on("click", function(){
+            if (on == true){
+                $("#toggle-menu").addClass("view");
+                on = false;
+            } else {
+                $("#toggle-menu").removeClass("view");
+                on = true;
+            }
+            console.log(on);
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            color: white;
+            background-color: black;
+        }
+    </style>
+</head>
+<body>
+    <script>
+        function meat(num, name){ // function 함수이름(매개변수, 매개변수, 매개변수, ...){}
+            console.log('OK!');
+            let text = "";
+            for (let i = 1; i < 10; i++) {
+                text += `${num} X ${i} = ${num * i} <br>`;
+            };
+            document.querySelector(name).innerHTML = text;
+        };
+
+        // meat();
+        
+        
+    </script>
+
+    <div class="box">
+    </div>
+
+    <script>
+        for (let int = 2; int < 10; int++) {
+            meat(int, ".box"); // 함수이름(인자); <호출하는 데에 쓰임
+        };
+    </script>
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        html,
+        body {
+            height: 100%;
+        }
+
+        body {
+            background-color: #000;
+            color: #FFF;
+            display: flex; justify-content: center; align-items: center; flex-direction: column; gap: 4px;
+        }
+
+        .container {
+            position: absolute;
+            left: 45%;
+            top: -100px;
+
+            width: 100px;
+            height: 100px;
+            background-color: #900;
+
+            transition: 0.25s;
+        }
+    </style>
+</head>
+<body>
+    <div class="container"></div>
+    <div>
+        <button onclick="style_Color()">변형</button>
+        <button onclick="style_Initial()">복구</button>
+    </div>
+    <script>
+        const con_Elmt = document.querySelector(".container");
+        function style_Color(){
+            con_Elmt.style.width = "200px";
+            con_Elmt.style.height = "200px";
+            con_Elmt.style.backgroundColor = "#C00";
+            con_Elmt.style.top = "25%";
+        }
+        function style_Initial(){
+            con_Elmt.style.width = "100px";
+            con_Elmt.style.height = "100px";
+            con_Elmt.style.backgroundColor = "#900";
+            con_Elmt.style.top = "-100px";
+        }
+    </script>
+</body>
+</html>

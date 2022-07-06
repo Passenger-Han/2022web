@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {background-color: #000000; color: #FFFFFF;}
+    </style>
+</head>
+<body>
+    <h2>점수</h2>
+    <div>국어 <span class="kor">0</span>점</div>
+    <div>영어 <span class="eng">0</span>점</div>
+    <div>수학 <span class="mat">0</span>점</div>
+
+    <div>
+        <ul class="score">
+        </ul>
+    </div>
+
+    <div>
+        <ul class="images">
+        </ul>
+    </div>
+
+    <script>
+        let score = [90, 100, 80, 66];
+        let images = [
+            "img1.jpg",
+            "img2.jpg",
+            "img3.jpg",
+            "img4.jpg",
+            "img5.jpg"
+        ]
+
+        let img_list = '';
+        for (let j = 0; j < images.length; j++) {
+            img_list = img_list + `<li><img src='../images/${images[j]}' alt=''></li>`;
+        }
+        document.querySelector('.images').innerHTML = img_list;
+    </script>
+</body>
+</html>

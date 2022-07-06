@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        html,
+        body {
+            height: 100%;
+        }
+
+        body {
+            background-color: #000;
+            color: #FFF;
+            display: flex; justify-content: center; align-items: center; flex-direction: column; gap: 4px;
+        }
+    </style>
+</head>
+<body>
+    <button id="female" onclick="abc('춘향')">춘향</button>
+    <button id="male">몽룡</button>
+
+    <div><span class="name">(이름) </span>님, 안녕하세요.</div>
+    <script>
+        function abc(name){
+            document.querySelector(".name").innerHTML = name;
+        }
+
+        document.querySelector("#male").addEventListener("click", function(){
+            abc("몽룡");
+        })
+    </script>
+</body>
+</html>

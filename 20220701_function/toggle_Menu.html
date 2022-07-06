@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/reset.css">
+    <script src="../js/jquery-3.1.1.min.js"></script>
+    <style>
+        html,
+        body {
+            height: 100%;
+        }
+
+        body {
+            background-color: black;
+            color: white;
+            display: flex; justify-content: center; align-items: center; gap: 4px;
+        }
+
+        .toggle {
+            width: 48px;
+            height: 48px;
+            border: 1px solid white;
+            padding: 9px;
+
+            display: flex; justify-content: center; align-items: center;
+            
+            position: relative;
+        }
+
+        .bar {
+            width: 24px;
+            height: 3px;
+            background-color: white;
+
+            position: absolute;
+
+            transition: 0.22s;
+        }
+
+        .bar01 {
+            transform: translateY(-9px);
+        }
+        .bar02 {}
+        .bar03 {
+            transform: translateY(9px);
+        }
+        .bar01.active {
+            transform: rotate(45deg);
+        }
+        .bar02.active {
+            opacity: 0;
+            visibility: hidden;
+        }
+        .bar03.active {
+            transform: rotate(-45deg);
+        }
+
+        .menus {
+            background-color: red;
+            width: 100px;
+            height: 100px;
+            visibility: hidden;
+            opacity: 0;
+
+            transition: 0.33s;
+        }
+
+        .menus.active {
+            visibility: visible;
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+    <div class="toggle">
+        <div class="bar bar01"></div>
+        <div class="bar bar02"></div>
+        <div class="bar bar03"></div>
+    </div>
+    <div class="menus"></div>
+
+    <script>
+        // JavaScript
+        // function toggling(){
+        //     document.querySelector(".menus").classList.toggle("active");
+        //     for (let i = 0; i < 3; i++) {
+        //         document.querySelectorAll(".bar")[i].classList.toggle("active");
+        //     };
+        // };
+
+        // document.querySelector(".toggle").addEventListener("click", function(){
+        //     toggling();
+        // });
+
+        // jQuery
+        let switching = false;
+        $(".toggle").on("click", function(){
+            if (switching == false){
+                $(".bar").addClass("active");
+                $(".menus").addClass("active");
+                switching = true;
+            } else {
+                $(".bar").removeClass("active");
+                $(".menus").removeClass("active");
+                switching = false;
+            }
+        });
+    </script>
+</body>
+</html>

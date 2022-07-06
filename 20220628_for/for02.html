@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .total {
+            width: 200px;
+            height: 125px;
+            display: flex; justify-content: center; align-items: center;
+
+            background-color: rgb(255, 78, 90);
+
+            color: #FFFFFF;
+            font-weight: 700;
+            font-size: 20px;
+            
+            margin-bottom: 4px;
+        }
+    </style>
+</head>
+<body>
+    <div class="total">-1</div>
+    <div class="total">0</div>
+    <div class="total">1</div>
+    <div class="total">2</div>
+    <div class="total">3</div>
+    <div class="total">4</div>
+    <div class="total">5</div>
+    <div class="total">6</div>
+    <script>
+        // let 은 재차 선언할 수 없습니다.
+        // const 데이터는 변조할 수 없습니다.
+        // var 은 전역으로 선언됩니다.
+
+        let sum = 0;
+        for (let i = 1; i <= 100; i++) {
+            // document.write(`${i} `);
+            sum = sum + i;
+        }
+        // document.getElementsByClassName('total')[1].innerHTML = sum;
+        // document.querySelector('.total').innerHTML = sum;
+        // document.querySelectorAll('div.total')[1].innerHTML = sum;
+
+        const total = document.querySelectorAll('div.total');
+
+        console.log(total.length);
+        for (let i = 0; i < total.length; i++) {
+            total[i].innerHTML = sum;
+        }
+    </script>
+</body>
+</html>

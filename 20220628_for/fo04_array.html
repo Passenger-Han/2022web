@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- JQuery -->
+    <script src="../js/jquery-3.1.1.min.js"></script>
+    
+    <!-- CSStyle -->
+    <style>
+        body {background-color: #000; color: #FFF;}
+        </style>
+</head>
+<body>
+    <div class="box">Lorem, ipsum.</div>
+    <button class="btn">CLICK</button>
+    
+    <!-- Script -->
+    <script>
+        $(".box").html("메롱 ^- ^");
+
+        $(".btn").click(function(){
+            $(".box").css("border", "1px solid #F00").css("border-radius", "4px");
+        });
+    </script>
+    
+    <!-- JavaScript -->
+    <script src="js/script.js"></script>
+</body>
+</html>
