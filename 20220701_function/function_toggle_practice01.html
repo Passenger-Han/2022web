@@ -36,6 +36,7 @@
             z-index: 3;
 
             transition: 0.5s;
+            cursor: pointer;
         }
 
         .toggle-btn01{left: 100px; top: 100px;}
@@ -127,21 +128,47 @@
 
     <script>
         const btnArray = document.querySelectorAll('.toggle-btn');
+
         const activator = function(btnNumber){
+            // cleanoff
             let indicator;
             indicator = btnArray[btnNumber];
+
+            for (let b = 0; b < btnArray.length; b++){
+                if (indicator.classList.contains('active') == true){
+                    continue;
+                }
+                document.querySelector(`.toggle-btn0${b + 1}`).classList.remove('active');
+                document.querySelector(`.toggle-menu0${b + 1}`).classList.remove('active');
+            }
+
             for (let m = 0; m < btnArray.length; m++){
                 checking = indicator.classList.contains(`toggle-btn0${m + 1}`);
                 console.log(checking);
+
                 if (checking == true){
-                    document.querySelector(`.toggle-btn0${m + 1}`).classList.toggle('active');
-                    document.querySelector(`.toggle-menu0${m + 1}`).classList.toggle('active');
-                    break;
+
+                    if (indicator.classList.contains('active') == false) {
+                        document.querySelector(`.toggle-btn0${m + 1}`).classList.add('active');
+                        document.querySelector(`.toggle-menu0${m + 1}`).classList.add('active');
+                        break;
+                    } else {
+                        document.querySelector(`.toggle-btn0${m + 1}`).classList.remove('active');
+                        document.querySelector(`.toggle-menu0${m + 1}`).classList.remove('active');
+                        break;
+                    }
+
                 }
+
             }
+            // copiedArray = btnArray.slice();
+            // exceptOne = copiedArray.splice(btnNumber, 1);
+
+            // console.log(copiedArray);
+            // console.log(exceptOne);
         };
 
-        for (let i = 0; i < 4; i++){
+        for (let i = 0; i < btnArray.length; i++){
             document.querySelectorAll('.toggle-btn')[i].classList.add(`toggle-btn0${i + 1}`);
             document.querySelectorAll('.toggle-menu')[i].classList.add(`toggle-menu0${i + 1}`);
         };

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../../js/jquery-3.1.1.min.js"></script>
+</head>
+<body>
+    <input type="text" class="input">
+    <button class="btn">INSERT</button>
+
+    <ul class="view"></ul>
+
+    <button class="del">DELETE</button>
+
+    <script>
+        // javaScript
+        const arrayRegion = ["seoul", "busan", "daegu"];
+
+        const inputEle = document.querySelector('.input');
+        const btnEle = document.querySelector('.btn');
+        const viewEle = document.querySelector('.view');
+        const delEle = document.querySelector('.del');
+
+        // btnEle.addEventListener('click', function(){
+        //     console.log(`newData = ${inputEle.value}`);
+        //     arrayRegion.push(inputEle.value);
+        //     console.log(arrayRegion);
+
+        //     let node = document.createElement('li');
+        //     let nodeText = document.createTextNode(inputEle.value);
+        //     node.appendChild(nodeText);
+        //     viewEle.appendChild(node);
+
+        //     inputEle.value = '';
+        // });
+
+        // delEle.addEventListener('click', function(){
+        //     viewEle.innerHTML = '';
+        // })
+
+        // jQuery
+        $('.btn').click(function(){
+            console.log(`newData = ${$('.input').val()}`);
+            arrayRegion.push($('.input').val());
+            console.log(arrayRegion);
+
+            $('.view').prepend(`<li>${$('.input').val()}</li>`);
+        })
+
+        $('.del').click(function(){
+            $('.view').html('');
+        })
+    </script>
+</body>
+</html>
