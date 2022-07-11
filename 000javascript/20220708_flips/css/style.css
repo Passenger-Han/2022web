@@ -1,0 +1,54 @@
+@charset "UTF-8";
+html,
+body {
+    height: 100%;
+}
+
+body {
+    background-color: black;
+    color: white;
+}
+
+body,
+.menuboard {
+    display: flex; justify-content: center; align-items: center;
+}
+
+.menu {
+    width: 400px;
+    height: 400px;
+    perspective: 600px;
+    perspective-origin: left;
+    transform-style: preserve-3d;
+
+    position: relative;
+
+    display: flex; justify-content: center; align-items: center;
+}
+
+.menuboard {
+    width: 200px;
+    height: 200px;
+
+    backface-visibility: hidden;
+
+    transition: 1s;
+}
+
+
+.menuboard.front {
+    position: absolute;
+    background-color: rgb(19, 51, 36);
+    transform: rotateY(0deg);
+}
+.menu.active .menuboard.front {
+    transform: rotateY(180deg);
+}
+
+.menuboard.rear {
+    background-color: rgb(51, 36, 19);
+    transform: rotateY(-180deg);
+}
+.menu.active .menuboard.rear {
+    transform: rotateY(0deg);
+}

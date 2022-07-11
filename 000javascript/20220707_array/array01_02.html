@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+</head>
+<body>
+    <input type="text" class="input">
+    <button class="btn">INSERT</button>
+    <button class="del">REMOVE</button>
+
+    <ul class="view-data"></ul>
+
+    <script>
+        let data = [];
+        // jQuery
+        // $('.btn').click(function(){
+        //     data.push($('.input').val());
+
+        //     let text = `<li> ${$('.input').val()} </li>`;
+        //     $('.view-data').append(text);
+
+        //     viewData();
+        // });
+
+        // function viewData(){
+        //     let text = "";
+        //     for (let i = 0; i < data.length; i++){
+        //         text = text + `<li>${data[i]}</li>`;
+        //     }
+        //     $('.view-data').html(text);
+        // };
+
+        // javaScript
+        document.querySelector('.btn').addEventListener('click', function(){ // .btn 에 이벤트 생성
+            if (document.querySelector('.input').value != ''){ // .input 이 공란이 아닐 경우
+                data.push(document.querySelector('.input').value); // .input 의 내용을 "data" array 에 push
+                document.querySelector('.input').value = ''; // 입력되어있는 .input 의 내용을 공란 처리
+                
+                renderData();
+            }
+        })
+
+        function renderData(){
+            let text = ''; // 텍스트 누적용 지역변수
+            for (let i = 0; i < data.length; i++){ // "data" array 의 요소 수만큼 반복
+                text = text + `<li>${data[i]}</li>`; // 텍스트 누적
+            }
+            document.querySelector('.view-data').innerHTML = text; // .view-data 에 렌더링
+        }
+        
+        document.querySelector('.del').addEventListener('click', function(){
+            delData();
+        })
+        
+        function delData(){
+            data = [];
+            renderData();
+        }
+    </script>
+</body>
+</html>
