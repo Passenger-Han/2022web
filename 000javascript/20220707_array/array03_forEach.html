@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>array03 - forEach</title>
+    <style>
+        body {
+            background-color: black;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <ul class="location">
+
+    </ul>
+    <p class="summaries"></p>
+
+    <script>
+        const kData = ['서울', '부산', '청주', '대구'];
+        const numbers = [10, 20, 30, 40, 50];
+
+        const loca = document.querySelector(".location");
+        const sum = document.querySelector(".summaries");
+        let text = "";
+
+        // for (let i = 0; i < kData.length; i++){
+        //     text += `<li>${kData[i]}</li>`; // text = text + kData[i];
+        // }
+        
+        kData.forEach(function(item, index){
+            text += `<li>${item}</li>`;
+        });
+
+        let summaries = 0;
+        numbers.forEach(function(value){
+            summaries += value;
+        })
+        
+        sum.innerHTML = summaries;
+    </script>
+</body>
+</html>

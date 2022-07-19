@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../../js/jquery-3.1.1.min.js"></script>
+</head>
+<body>
+    <input type="text" class="input-field">
+    <button class="submit">입력</button>
+
+    <ul class="view-list"></ul>
+    <button class="removeAll">전체 삭제</button>
+
+    <script>
+        let listData = ["TEST1", "TEST2"];
+
+        const field = document.querySelector(".input-field");
+        const btnSubmit = document.querySelector(".submit");
+        const btnRemoveAll = document.querySelector(".removeAll");
+        const list = document.querySelector(".view-list");
+
+        btnSubmit.addEventListener("click", function(){
+            if (field.value != ''){
+                listData.push(field.value);
+                field.value = '';
+                viewData();
+            } else {
+                alert("오늘의 할일을 입력하세요.");
+            }
+        });
+
+        btnRemoveAll.addEventListener("click", function(){
+            listData = [];
+            viewData();
+        })
+
+        function viewData(){
+            let htmls = '';
+            for (let i = 0; i < listData.length; i++){
+                htmls += `<li>${listData[i]} <span class="remove" onclick="remove(${i})"> [삭제] </span></li>`;
+            }
+
+            if (listData.length == 0) {
+                htmls += "오늘은 쉬는 날";
+            }
+
+            list.innerHTML = htmls;
+        }
+
+        function remove(index){
+            console.log(index);
+            listData.splice(index, 1);
+            viewData();
+        }
+
+        viewData();
+    </script>
+</body>
+</html>

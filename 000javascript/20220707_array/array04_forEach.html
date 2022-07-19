@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            /* margin: 0;
+            padding: 0; */
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: black;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div>영어 점수 <span class="eng"></span>점</div>
+    <div>국어 점수 <span class="kor"></span>점</div>
+    <div>수학 점수 <span class="mat"></span>점</div>
+
+    <div class="content"></div>
+
+    <script>
+        const obj = {
+            eng: 100,
+            kor: 90,
+            mat: 80,
+            lvlUp: function(){
+                console.log(this);
+                return this.eng + 10;
+            },
+        };
+
+        const array = [10, 30, 40];
+
+        array.forEach(function(item, index){
+            console.log(item);
+        })
+
+        for (let i in obj){
+            console.log(obj[i]);
+        }
+
+        document.querySelector(".eng").innerHTML = obj.eng;
+        document.querySelector(".kor").innerHTML = obj.kor;
+        document.querySelector(".mat").innerHTML = obj.mat;
+        document.querySelector(".eng").innerHTML = obj.lvlUp();
+
+        const viewData = [
+            {index: 1, title : 'HELLO', name: 'Hong', date: '20220714'},
+            {index: 2, title : 'WHAT?', name: 'Kims', date: '20220713'},
+            {index: 3, title : 'NOPE.', name: 'June', date: '20220712'},
+            {index: 4, title : 'YEAH!', name: 'June', date: '20220711'},
+        ]
+
+        let text = '';
+        for (let i = 0; i < viewData.length; i++){
+            console.log(viewData[i].title);
+            
+            text += `<ul class="table">
+                        <li>${viewData[i].index}</li>
+                        <li>${viewData[i].title}</li>
+                        <li>${viewData[i].name}</li>
+                        <li>${viewData[i].date}</li>
+                    </ul>`;
+        }
+
+        document.querySelector(".content").innerHTML = text;
+        </script>
+</body>
+</html>

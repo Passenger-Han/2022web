@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SCROLLING</title>
+    <link rel="stylesheet" href="../../css/reset.css">
+    <script src="../../js/jquery-3.1.1.min.js"></script>
+    <style>
+        html,
+        body {
+            height: 100%;
+        }
+
+        body {
+            background-color: black;
+            color: white;
+        }
+
+        .container {
+            height: 100vh;
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: cover;
+            background-attachment: fixed;
+
+            display: flex; justify-content: center; align-items: center;
+        }
+
+        .container h3 {
+            font-size: 5.25vw;
+            text-shadow: 1px 1px 2px black;
+        }
+        
+        .box {
+            background-color: #222222CC;
+            display: flex; justify-content: center; align-items: center;
+            position: fixed; right: 10px; bottom: 10px;
+            width: 100px;
+            height: 100px;
+            text-shadow: 1px 1px 1px black;
+        }
+
+        .header,
+        .header .menu ul {
+            display: flex;
+        }
+
+        .header {
+            position: absolute;
+            width: 100%;
+            background-color: #000000FF;
+            padding: 16px 20px;
+            box-shadow: 0 0 8px #00000088;
+        }
+
+        .header .menu {
+            width: 400px;
+            margin-left: auto;
+        }
+
+        .header .toggle {
+            display: none;
+        }
+
+        .header.fixed {
+            background-color: #00000000;
+            position: fixed;
+            box-shadow: none;
+        }
+
+        @media screen and (max-width: 700px){
+            .header .menu {
+                display: none;
+            }
+
+            .header .toggle {
+                display: block;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1><a href="#">logo</a></h1>
+        <nav class="menu">
+            <ul>
+                <li><a href="#">MENU</a></li>
+                <li><a href="#">MENU</a></li>
+                <li><a href="#">MENU</a></li>
+                <li><a href="#">MENU</a></li>
+            </ul>
+        </nav>
+        <nav class="toggle">TOGGLE</nav>
+    </div>
+    <section class="container sct01" style="background-image: url(../../images/pc01.jpg);">
+        <h3>Lorem, ipsum dolor.</h3>
+    </section>
+    <section class="container sct02" style="background-image: url(../../images/pc02.jpg);">
+        <h3>Lorem, ipsum dolor.</h3>
+    </section>
+    <section class="container sct03" style="background-image: url(../../images/pc03.jpg);">
+        <h3>Lorem, ipsum dolor.</h3>
+    </section>
+    <section class="container sct04" style="">
+        <h3>Lorem, ipsum dolor.</h3>
+    </section>
+    <div class="box">
+        Scroll: <span class="scrolled">0</span>
+    </div>
+
+    <script>
+        // JavaScript
+        // document.querySelector(".scrolled").innerHTML = window.pageYOffset;
+
+        // window.addEventListener("scroll", function(){
+            // document.querySelector(".scrolled").innerHTML = window.pageYOffset;
+
+
+            // setAttribute
+            // if (window.pageYOffset > 150){
+                // document.querySelector(".header").setAttribute("style", "position: fixed");
+            // } else {
+                // document.querySelector(".header").setAttribute("style", "");
+            // }
+
+            // classList
+            // if (window.pageYOffset > 150){
+                // document.querySelector(".header").classList.add("fixed");
+            // } else {
+                // document.querySelector(".header").classList.remove("fixed");
+            // }
+        // });
+
+        // jQuery
+        $(window).scroll(function(){
+            $(".scrolled").html(scrollY);
+
+
+            // attribute
+            // if (scrollY > 200){
+                // $(".header").attr("style", "position: fixed");
+            // } else {
+                // $(".header").attr("style", "");
+            // }
+
+            // class
+            if (scrollY > 200){
+                $(".header").addClass("fixed");
+            } else {
+                $(".header").removeClass("fixed");
+            }
+        })
+    </script>
+</body>
+</html>

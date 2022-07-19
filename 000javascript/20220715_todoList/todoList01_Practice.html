@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TO DO LIST</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html,
+        body {
+            height: 100%;
+        }
+
+        body {
+            padding: 40px 0;
+            background-color: black;
+            color: white;
+        }
+
+        .list-board {
+            padding-top: 40px;
+        }
+
+        body,
+        .section-input,
+        .section-input-btn {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .section-input-btn {
+            padding: 8px;
+            flex-direction: row;
+            justify-content: center;
+            gap: 8px;
+        }
+    </style>
+</head>
+<body>
+    <div class="section-input">
+        <h2>일</h2>
+        <div>
+            <input type="text" class="input-field">
+            <div class="section-input-btn">
+                <button onclick="addList();" class="submit">입력</button>
+                <button onclick="removeListAll();" class="removeAll">전체 삭제</button>
+            </div>
+        </div>
+    </div>
+    
+    <ul class="list-board"></ul>
+
+    <script>
+        const textField = document.querySelector(".input-field");
+        const removeOne = document.querySelector(".remove");
+        const listBoard = document.querySelector(".list-board");
+        let todoList = ["TODO 1", "TODO 2", "TODO 3"];
+        let textStacked = '';
+
+        function refreshList(){
+            textStacked = '';
+            console.log("ph");
+            if (todoList.length < 1){
+                textStacked = '할 일이 없다!';
+            } else {
+                for (let i = 0; i < todoList.length; i++){
+                    textStacked += `<li>${todoList[i]} <button onclick="removeList(${i});">삭제</button></li>`;
+                }
+            }
+            listBoard.innerHTML = textStacked;
+        }
+        
+        function addList(){
+            console.log("ph");
+            todoList.push(textField.value);
+            textField.value = '';
+            refreshList();
+        }
+        
+        function removeList(index){
+            todoList.splice(index, 1);
+            refreshList();
+        }
+        
+        function removeListAll(){
+            todoList = [];
+            refreshList();
+        }
+
+        refreshList();
+    </script>
+</body>
+</html>

@@ -7,21 +7,48 @@
     <title>Document</title>
     <link rel="stylesheet" href="../../css/reset.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <style>
+        html,
+        body {
+            height: 100%;
+        }
+
+        body{
+            background-color: black;
+            color: white;
+
+            display: flex; justify-content: center; align-items: center;
+        }
+
+        .today-number {
+            display: flex; gap: 12px;
+        }
+
+        .today-number li {
+            background-color: red;
+            width: 30px;
+            height: 30px;
+
+            display: flex; justify-content: center; align-items: center;
+            border-radius: 50%;
+
+            font-weight: 900;
+        }
+    </style>
 </head>
 <body>
+    <ul class="today-number">
+
+    </ul>
+
     <script>
         let list = [];
-        
         for (let i = 1; i < 46; i++){
-            if (i < 10) {
-                list.push(`0${i}`);
-            } else {
-                list.push(`${i}`);
-            }
-        }        
+            list.push(i);
+        }
+
         let result = [];
-        
-        for (let k = 0; k < 6; k++) {
+        for (let i = 0; i < 6; i++){
             let index = Math.floor(Math.random() * list.length);
             let num = list[index];
 
@@ -29,11 +56,15 @@
             result.push(num);
         }
 
-        result.sort();
+        result.sort(function(a, b){
+            return a-b;
+        });
 
-        for (let i = 0; i < result.length; i++){
-            document.write(` ${result[i]} `);
-        }
+        let text = '';
+        result.forEach(function(item, index){
+            text += `<li>${item}</li>`
+        });
+        document.querySelector(".today-number").innerHTML = text;
     </script>
 </body>
 </html>

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OBJECT DATA</title>
+    <script src="../../js/jquery-3.1.1.min.js"></script>
+    <style>
+        body {
+            background-color: black;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <table class="list">
+        <tr>
+            <td>이름</td>
+            <td>국어</td>
+            <td>영어</td>
+            <td>수학</td>
+            <td>상담내용</td>
+        </tr>
+    </table>
+
+    <script>
+        const arrayOne = [
+            {
+                name: "홍길동",
+                subject: {
+                    kor: 90,
+                    eng: 100,
+                    math: 80,
+                },
+                etc: "성실하며, 성실하고, 아무튼 성실합니다. 말이 필요 없습니다.",
+            },
+            {
+                name: "이춘식",
+                subject: {
+                    kor: 60,
+                    eng: 60,
+                    math: 80,
+                },
+                etc: "착하며, 착하고, 아무튼 착합니다. 말이 필요 없습니다.",
+            },
+            {
+                name: "고희동",
+                subject: {
+                    kor: 70,
+                    eng: 50,
+                    math: 100,
+                },
+                etc: "괴롭히며, 괴롭히고, 아무튼 괴롭힙니다. 말이 필요 없습니다.",
+            },
+            {
+                name: "수철",
+                subject: {
+                    kor: 70,
+                    eng: 50,
+                    math: 100,
+                },
+                etc: "친절하며, 친절하고, 아무튼 친절합니다. 말이 필요 없습니다.",
+            },
+        ]
+
+        let text = '';
+        for (let i = 0; i < arrayOne.length; i++){
+            console.log(arrayOne[i].name);
+            text += `<tr>
+                        <td>${arrayOne[i].name}</td>
+                        <td>${arrayOne[i].subject.kor}</td>
+                        <td>${arrayOne[i].subject.eng}</td>
+                        <td>${arrayOne[i].subject.math}</td>
+                        <td>${arrayOne[i].etc}</td>
+                    </tr>`;
+        }
+
+        $(".list").append(text);
+    </script>
+</body>
+</html>

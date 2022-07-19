@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery</title>
+    <link rel="stylesheet" href="../../css/reset.css">
+    <script src="../../js/jquery-3.1.1.min.js"></script>
+    <style>
+        body {
+            background-color: black;
+            color: white;
+        }
+
+        .wrap ul {
+            display: flex;
+        }
+
+        .wrap ul li {
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <ul>
+            <li><img src="../../images/btn1_1.jpg" alt="버튼"></li>
+            <li><img src="../../images/btn2_1.jpg" alt="버튼"></li>
+            <li><img src="../../images/btn3_1.jpg" alt="버튼"></li>
+            <li><img src="../../images/btn4_1.jpg" alt="버튼"></li>
+        </ul>
+    </div>
+
+    <div class="images">
+        <img src="../../images/spring.jpg" alt="봄">
+    </div>
+
+    <script>
+        // $(".wrap > ul > li").eq(0).click(function(){
+        //     $(".images > img").attr("src", `../../images/spring.jpg`);
+        // })
+        // $(".wrap > ul > li").eq(1).click(function(){
+        //     $(".images > img").attr("src", `../../images/summer.jpg`);
+        // })
+        // $(".wrap > ul > li").eq(2).click(function(){
+        //     $(".images > img").attr("src", `../../images/fall.jpg`);
+        // })
+        // $(".wrap > ul > li").eq(3).click(function(){
+        //     $(".images > img").attr("src", `../../images/winter.jpg`);
+        // })
+
+        const array = ["spring", "summer", "fall", "winter"];
+        // array[0] = "spring"
+        // array[1] = "summer"
+        // array[2] = "fall"
+        // array[3] = "winter"
+
+        for (let a = 0; a < array.length; a++){
+            $(".wrap > ul > li").eq(a).click(function(){
+                $(".images > img").attr("src", `../../images/${array[a]}.jpg`);
+            })
+        }
+
+        // $(".wrap > ul > li").eq(0).click(function(){
+        //     $(".images > img").attr("src", `../../images/array[0].jpg`);
+        // })
+        // $(".wrap > ul > li").eq(1).click(function(){
+        //     $(".images > img").attr("src", `../../images/array[1].jpg`);
+        // })
+        // $(".wrap > ul > li").eq(2).click(function(){
+        //     $(".images > img").attr("src", `../../images/array[2].jpg`);
+        // })
+        // $(".wrap > ul > li").eq(3).click(function(){
+        //     $(".images > img").attr("src", `../../images/array[3].jpg`);
+        // })
+    </script>
+</body>
+</html>

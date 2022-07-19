@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            background-color: black;
+            color: white;
+        }
+
+        .modifier {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div></div>
+    <div class="car-name"></div>
+    <div class="car-color"></div>
+    <div class="car-velo"></div>
+    <script>
+        function Car(name){
+            this.name = name;
+        }
+
+        let myCar = new Car('Stinger');
+        let yourCar = new Car('G70');
+    </script>
+
+
+    <a href="#" onclick="adding()" class="adder">이미지추가</a>
+    <a href="#" onclick="modifying()" class="modifier">이미지변경</a>
+    <script>
+        function adding(){
+            const img = document.createElement("img");
+            img.src = "../../images/testimg.jpg";
+            img.classList.add("image");
+
+            document.body.appendChild(img);
+            document.querySelector(".modifier").style.display = "block";
+            document.querySelector(".adder").style.display = "none";
+        }
+        
+        function modifying(){
+            let randomImg = Math.floor(Math.random() * 7 + 1);
+            document.querySelector(".image").src = `../../images/img${randomImg}.jpg`
+            console.log(randomImg);
+        }
+    </script>
+</body>
+</html>
