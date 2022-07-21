@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ACCORDION</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js" integrity="sha512-uto9mlQzrs59VwILcLiRYeLKPPbS/bT71da/OEBYEwcdNUk8jYIy+D176RYoop1Da+f9mvkYrmj5MCLZWEtQuA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css" integrity="sha512-aOG0c6nPNzGk+5zjwyJaoRUgCdOrfSDhmMID2u4+OIslr0GjpLKo7Xm0Ao3xmpM4T8AmIouRkqwj1nrdVsLKEQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html,
+        body {
+            height: 100%;
+        }
+
+        body {
+            background-color: black;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        a {
+            text-decoration: inherit;
+            color: inherit;
+        }
+
+        li {
+            list-style: none;
+        }
+
+        .wrap-menus > ul {
+            width: 200px;
+            background-color: #797979;
+        }
+
+        .wrap-menus > ul > li {
+            border: 1px solid #FFFFFF77;
+            margin-top: -1px;
+        }
+        
+        .wrap-menus > ul > li > a {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 40px;
+            padding: 0 16px;
+        }
+
+        .wrap-menus > ul > li.active > a > i {
+            transform: rotate(45deg);
+        }
+
+        .wrap-menus > ul > li .submenu {
+            display: none;
+            background-color: #ACACAC;
+            padding: 8px 16px;
+        }
+
+        .wrap-menus > ul > li.active .submenu {
+            display: block;
+        }
+
+        .wrap-menus > ul > li .submenu li {
+            padding: 2px 0;
+            text-indent: 6px;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrap-menus">
+        <ul>
+            <li class="">
+                <a href="#">MENU1<i class="fa-solid fa-plus"></i></a>
+                <ul class="submenu">
+                    <li><a href="#">SUBMENU1-01</a></li>
+                    <li><a href="#">SUBMENU1-02</a></li>
+                    <li><a href="#">SUBMENU1-03</a></li>
+                    <li><a href="#">SUBMENU1-04</a></li>
+                    <li><a href="#">SUBMENU1-05</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="#">MENU2<i class="fa-solid fa-plus"></i></a>
+                <ul class="submenu">
+                    <li><a href="#">SUBMENU2-01</a></li>
+                    <li><a href="#">SUBMENU2-02</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="#">MENU3<i class="fa-solid fa-plus"></i></a>
+                <ul class="submenu">
+                    <li><a href="#">SUBMENU3-01</a></li>
+                    <li><a href="#">SUBMENU3-02</a></li>
+                    <li><a href="#">SUBMENU3-03</a></li>
+                    <li><a href="#">SUBMENU3-04</a></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+
+    <script>
+        // $(".wrap-menus > ul > li").removeClass("active");
+        // $(".wrap-menus > ul > li").find(".submenu").slideUp();
+        
+        // $(".wrap-menus ul li").hover(function(){
+        //     $(this).addClass("active");
+        // }, function(){
+        //     $(this).removeClass("active");
+        // })
+
+        $(".wrap-menus > ul > li > a").click(function(e){
+            e.preventDefault();
+            let ab = $(".wrap-menus > ul > li > a"); // 귀찮음 방지
+            $(".wrap-menus > ul > li").find(".submenu").slideUp(150); // 일차적으로 열려있는 아코디언 정리
+
+            if ($(this).parent().hasClass("active") == true){ // 활성화한 걸(열려있는 걸) 눌렀을 때
+                ab.parent().removeClass("active"); // class 제거: 아이콘 회전
+            } else {
+                $(this).parent().find(".submenu").slideDown(150); // 누른 메뉴 활성화(열기)
+                ab.parent().removeClass("active"); // class 제거: 아이콘 회전
+                $(this).parent().addClass("active"); // 누른 메뉴의 class 생성: 아이콘 회전
+            }
+        })
+    </script>
+</body>
+</html>

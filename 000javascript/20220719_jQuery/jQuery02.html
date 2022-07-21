@@ -20,6 +20,11 @@
         .wrap ul li {
             cursor: pointer;
         }
+
+        .active {
+            background-color: gold;
+            color: black;
+        }
     </style>
 </head>
 <body>
@@ -56,11 +61,11 @@
         // array[2] = "fall"
         // array[3] = "winter"
 
-        for (let a = 0; a < array.length; a++){
-            $(".wrap > ul > li").eq(a).click(function(){
-                $(".images > img").attr("src", `../../images/${array[a]}.jpg`);
-            })
-        }
+        // for (let a = 0; a < array.length; a++){
+        //     $(".wrap > ul > li").eq(a).click(function(){
+        //         $(".images > img").attr("src", `../../images/${array[a]}.jpg`);
+        //     })
+        // }
 
         // $(".wrap > ul > li").eq(0).click(function(){
         //     $(".images > img").attr("src", `../../images/array[0].jpg`);
@@ -74,6 +79,45 @@
         // $(".wrap > ul > li").eq(3).click(function(){
         //     $(".images > img").attr("src", `../../images/array[3].jpg`);
         // })
+
+        $(".wrap > ul > li").click(function(){
+            const $list = $(".wrap > ul > li");
+            console.log($(this).index());
+            $(".images > img").attr("src", `../../images/${array[$(this).index()]}.jpg`);
+        });
+    </script>
+
+    <ul class="menus">
+        <li>MENU1</li>
+        <li>MENU2</li>
+        <li>MENU3</li>
+        <li>MENU4</li>
+    </ul>
+    <div class="content">
+        <div> 1. Lorem ipsum dolor sit amet, consectetur adipisicing.</div>
+        <div> 2. Nihil doloribus provident possimus qui similique blanditiis.</div>
+        <div> 3. Velit animi ullam dolorem corporis molestiae voluptatum!</div>
+        <div> 4. Assumenda optio sint quas laborum ullam. Esse.</div>
+    </div>
+
+    <script>
+        // $(".content div").hide();
+        // $(".content div").eq(0).show();
+
+        $(".content div").hide();
+        $(".content div").eq(0).show();
+        $(".menus li").removeClass("active");
+        $(".menus li").eq(0).addClass("active");
+
+        $(".menus li").click(function(){
+            $(".content div").hide().eq($(this).index()).show();
+            // $(".content div").hide();
+            // $(".content div").eq($(this).index()).show();
+
+            $(".menus li").removeClass("active").eq($(this).index()).addClass("active");
+            // $(".menus li").removeClass("active");
+            // $(this).addClass("active");
+        });
     </script>
 </body>
 </html>

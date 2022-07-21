@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ACCORDION</title>
+    <link rel="stylesheet" href="../../css/reset.css">
+    <script src="../../js/jquery-3.1.1.min.js"></script>
+    <style>
+        body {
+            background-color: black;
+            color: white;
+        }
+
+        .wrap-accordion {
+            width: 600px;
+            margin: 0 auto;
+            border: 1px solid white;
+        }
+        
+        .accordion {
+            padding: 20px;
+            background-color: #464648;
+        }
+
+        .accordion > li {
+            padding: 8px;
+            border-bottom: 1px solid #FFFFFF33;
+        }
+        
+        .accordion .accordion-submenu {
+            margin-top: 12px;
+            background-color: #575759;
+            display: none;
+        }
+
+        .accordion .accordion-submenu li {
+            border-bottom: 1px solid #FFFFFF33;
+        }
+
+        /* .accordion .accordion-submenu.active {
+            display: block;
+        } */
+
+        .accordion .accordion-submenu li {
+            padding: 12px;
+            text-indent: 40px;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrap-accordion">
+        <ul class="accordion">
+            <li>
+                <a href="javascript:void(0);">MENU 1</a>
+                <ul class="accordion-submenu active">
+                    <li>SUBMENU 1</li>
+                    <li>SUBMENU 2</li>
+                    <li>SUBMENU 3</li>
+                    <li>SUBMENU 4</li>
+                </ul>
+            </li>
+            <li>
+                <a href="javascript:void(0);">MENU 2</a>
+                <ul class="accordion-submenu">
+                    <li>SUBMENU 1</li>
+                    <li>SUBMENU 2</li>
+                    <li>SUBMENU 3</li>
+                    <li>SUBMENU 4</li>
+                </ul>
+            </li>
+            <li>
+                <a href="javascript:void(0);">MENU 3</a>
+                <ul class="accordion-submenu">
+                    <li>SUBMENU 1</li>
+                    <li>SUBMENU 2</li>
+                    <li>SUBMENU 3</li>
+                    <li>SUBMENU 4</li>
+                </ul>
+            </li>
+            <li>
+                <a href="javascript:void(0);">MENU 4</a>
+                <ul class="accordion-submenu">
+                    <li>SUBMENU 1</li>
+                    <li>SUBMENU 2</li>
+                    <li>SUBMENU 3</li>
+                    <li>SUBMENU 4</li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+
+    <script>
+        $(".accordion > li").find(".accordion-submenu").slideUp();
+        
+        $(".accordion > li").click(function(){
+            // console.log($(this).find("accordion-submenu"));
+            if ($(this).hasClass("active") == false){
+                $(".accordion > li").find(".accordion-submenu").slideUp();
+                $(this).find(".accordion-submenu").slideDown();
+                $(".accordion > li").removeClass("active");
+                $(this).addClass("active");
+            } else {
+                $(this).find(".accordion-submenu").slideUp();
+                $(this).removeClass("active");
+            }
+        })
+    </script>
+</body>
+</html>

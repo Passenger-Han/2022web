@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery</title>
+    <script src="../../js/jquery-3.1.1.min.js"></script>
+
+    <style>
+        body {
+            background-color: black;
+            color: white;
+        }
+
+        .tabs,
+        .tabs li {
+            display: flex;
+        }
+
+        .tabs li {
+            padding: 16px 20px;
+            justify-content: center; align-items: center;
+            border: 1px solid white;
+        }
+
+        .tabs li.active {
+            background-color: white;
+            color: black;
+        }
+
+        .textbox {
+            padding: 8px 16px;
+            border: 1px solid white;
+        }
+    </style>
+</head>
+<body>
+    <ul class="tabs">
+        <li class="active">tab1</li>
+        <li>tab2</li>
+        <li>tab3</li>
+    </ul>
+    <div class="textbox">
+        <div class="active"> 1. Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates iure amet qui praesentium velit suscipit at!</div>
+        <div> 2. ipsum dolor sit amet, consectetur adipisicing elit. Magni vel alias et!</div>
+        <div> 3. dolor sit amet consectetur adipisicing elit. Magnam nostrum earum quidem hic repellendus voluptates eum est optio assumenda cum?</div>
+    </div>
+
+    <script>
+        'use strict';
+        // jQuery
+        $(".tabs li").removeClass("active").eq(0).addClass("active");
+        $(".textbox div").hide().eq(0).show();
+
+        // $(".tabs li").click(function(){
+            // $(".tabs li").removeClass("active");
+            // $(".tabs li").eq($(this).index()).addClass("active");
+            // $(".textbox div").hide().eq($(this).index()).show();
+        // });
+
+        for (let i = 0; i < $(".tabs li").length; i++){
+            $(".tabs li").eq(i).click(function(){
+                $(".tabs li").removeClass("active").eq(i).addClass("active");
+                $(".textbox div").hide().eq(i).show();
+            });
+        }
+    </script>
+</body>
+</html>

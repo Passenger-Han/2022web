@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TABMENU</title>
+    <link rel="stylesheet" href="../../css/reset.css">
+    <script src="../../js/jquery-3.1.1.min.js"></script>
+    <style>
+        img {
+            display: block;
+        }
+
+        body {
+            background-color: black;
+            color: white;
+        }
+
+        .wrap-tabs {
+            width: 400px;
+            height: 100px;
+            display: flex;
+        }
+
+        .wrap-tabs > div {
+            display: flex; justify-content: center; align-items: center;
+        }
+
+        .tab {
+            width: calc(100% / 3);
+            height: 100%;
+            border: 1px solid white;
+        }
+
+        .tab.active {
+            background-color: white;
+            color: black;
+        }
+
+        .container-imgs {
+            overflow: hidden;
+        }
+
+        .container-imgs,
+        .container-imgs ul li img {
+            width: 400px;
+        }
+
+        .container-imgs ul {
+            display: flex;
+            position: relative;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrap-tabs">
+        <div class="tab active">TAB1</div>
+        <div class="tab">TAB2</div>
+        <div class="tab">TAB3</div>
+    </div>
+
+    <div class="container-imgs">
+        <ul>
+            <li><img src="../../images/pc01.jpg" alt=""></li>
+            <li><img src="../../images/pc02.jpg" alt=""></li>
+            <li><img src="../../images/pc03.jpg" alt=""></li>
+        </ul>
+    </div>
+
+    <script>
+        $(".wrap-tabs .tab").click(function(){
+            let i = $(this).index();
+            $(".container-imgs ul").animate({left: i * -400}, 300);
+            $(".wrap-tabs .tab").removeClass("active");
+            $(this).addClass("active");
+        })
+    </script>
+</body>
+</html>

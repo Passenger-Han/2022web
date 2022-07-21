@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../../css/reset.css">
+    <script src="../../js/jquery-3.1.1.min.js"></script>
+    <style>
+        body {
+            background-color: black;
+            color: white;
+        }
+
+        .box {
+            width: 300px;
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .box .item {
+            flex-grow: 1;
+            flex-basis: 20%;
+            display: flex; justify-content: center; align-items: center;
+        }
+    </style>
+</head>
+<body>
+    <button class="btn">늘이기</button>
+    <button class="removeAll">지우기</button>
+    <div class="box"></div>
+
+    <script>
+        // $(".btn").on("click", function(){})
+        let num = 1;
+        $(".btn").click(function(){
+            $(".box").append(`<div class="item"> ${num} </div>`);
+            num++;
+        });
+
+        $(".removeAll").click(function(){
+            $(".box").empty();
+            num = 1;
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MODAL</title>
+    <link rel="stylesheet" href="../../css/reset.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="../../js/jquery-3.1.1.min.js"></script>
+    <style>
+        html,
+        body {
+            height: 100%;
+        }
+
+        body {
+            background-color: black;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        img {
+            display: block;
+        }
+
+        .layer {
+            width: 600px;
+            display: flex;
+            gap: 12px;
+        }
+        .layer li {
+            flex-grow: 1;
+        }
+
+        .layer li img {
+            width: 100%;
+        }
+
+        .gray-layer {
+            position: fixed;
+            background-color: #FFFFFF4F;
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            justify-content: center;
+            align-items: center;
+            display: none;
+        }
+
+        .overlay {
+            position: relative;
+        }
+
+        .close {
+            background-color: white;
+            color: black;
+            position: absolute;
+            right: 0;
+            top: -40px;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    </style>
+</head>
+<body>
+    <ul class="layer">
+        <li><a href="../../images/img1.jpg" class="modal"><img src="../../images/img1.jpg" alt=""></a></li>
+        <li><a href="../../images/img2.jpg" class="modal"><img src="../../images/img2.jpg" alt=""></a></li>
+        <li><a href="../../images/img3.jpg" class="modal"><img src="../../images/img3.jpg" alt=""></a></li>
+    </ul>
+
+    <div class="gray-layer">
+        <div class="overlay">
+            <div class="close"><i class="fa-solid fa-xmark"></i></div>
+            <img src="../../images/img3.jpg" alt="">
+        </div>
+    </div>
+
+    <script>
+        $(".modal").click(function(event){ // a의 href 를 받아온다
+            event.preventDefault(); // href 의 기본기능을 억제
+            let aModal = $(this).attr("href"); // getAttribute
+
+            $(".gray-layer").css("display", "flex");
+            $(".overlay img").attr("src", aModal); // setAttribute
+        });
+        
+        $(".close").click(function(){
+            $(".gray-layer").css("display", "none");
+            // $(this).parent().parent().hide();
+        });
+        
+        // $(".gray-layer").click(function(){
+            // $(this).css("display", "none"); // $(this).hide();
+        // });
+    </script>
+</body>
+</html>

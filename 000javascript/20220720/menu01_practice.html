@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TABMENU</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: black;
+            color: white;
+        }
+
+        a {
+            text-decoration: inherit;
+            color: inherit;
+        }
+
+        li {
+            list-style: none;
+        }
+
+        #wrap-menu {
+            width: 1200px;
+            margin: 0 auto;
+            border: 1px solid white;
+            display: flex;
+            align-items: center;
+            padding: 0 28px;
+        }
+
+        .menus {
+            margin-left: auto;
+        }
+        
+        .menus > ul {
+            display: flex;
+            height: 80px;
+        }
+
+        .menus > ul > li {
+            position: relative;
+        }
+        
+        .menus > ul > li > a {
+            height: 100%;
+            display: flex;
+            align-items: center;
+            padding: 0 28px;
+        }
+
+        /* SUBMENU */
+        .submenu {
+            transition: 0.15s;
+            visibility: hidden;
+            opacity: 0;
+            position: absolute;
+            left: -6px;
+            top: 86px;
+        }
+        
+        .menus > ul > li:hover .submenu {
+            visibility: visible;
+            opacity: 1;
+            top: 80px;
+        }
+        
+        .menus .submenu > li {
+            background-color: #9A9A9A;
+            width: 150%;
+            padding: 16px 0px;
+        }
+        .menus .submenu > li > a {
+            display: flex; justify-content: center;
+        }
+
+        /* TOGGLE BUTTON */
+        .btn-toggle {
+            width: 48px;
+            height: 48px;
+            margin: 16px 0;
+            margin-left: auto;
+            border: 1px solid white;
+            display: none;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .bar {
+            position: absolute;
+            width: 18px;
+            height: 1px;
+            background-color: white;
+        }
+
+        .bar:nth-child(1) {transform: translateY(-6px);}
+        .bar:nth-child(3) {transform: translateY(6px);}
+        .bar:nth-child(1).active {transform: rotate(-135deg);}
+        .bar:nth-child(3).active {transform: rotate(135deg);}
+
+        @media screen and (max-width: 1200px){
+            #wrap-menu {
+                width: 100%;
+            }
+        }
+
+        @media screen and (max-width: 700px){
+            .menus {
+                display: none;
+            }
+
+            .btn-toggle {
+                display: flex;
+            }
+        }
+
+        /* VISUAL */
+        .visual {
+            background-color: rgba(218, 165, 32, 0.667);
+            height: 400px;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrap-wrap-menu">
+        <div id="wrap-menu">
+            <h1><a href="./">logo</a></h1>
+            <nav class="menus">
+                <ul>
+                    <li>
+                        <a href="#">MENU1</a>
+                        <ul class="submenu">
+                            <li><a href="">SUBMENU1</a></li>
+                            <li><a href="">SUBMENU2</a></li>
+                            <li><a href="">SUBMENU3</a></li>
+                            <li><a href="">SUBMENU4</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#">MENU2</a>
+                        <ul class="submenu">
+                            <li><a href="">SUBMENU1</a></li>
+                            <li><a href="">SUBMENU2</a></li>
+                            <li><a href="">SUBMENU3</a></li>
+                            <li><a href="">SUBMENU4</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#">MENU3</a>
+                        <ul class="submenu">
+                            <li><a href="">SUBMENU1</a></li>
+                            <li><a href="">SUBMENU2</a></li>
+                            <li><a href="">SUBMENU3</a></li>
+                            <li><a href="">SUBMENU4</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#">MENU4</a>
+                        <ul class="submenu">
+                            <li><a href="">SUBMENU1</a></li>
+                            <li><a href="">SUBMENU2</a></li>
+                            <li><a href="">SUBMENU3</a></li>
+                            <li><a href="">SUBMENU4</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#">MENU5</a>
+                        <ul class="submenu">
+                            <li><a href="">SUBMENU1</a></li>
+                            <li><a href="">SUBMENU2</a></li>
+                            <li><a href="">SUBMENU3</a></li>
+                            <li><a href="">SUBMENU4</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+            <div class="btn-toggle">
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+            </div>
+        </div>
+    </div>
+
+    <nav class="menuCloned"></nav>
+
+    <div class="visual"></div>
+</body>
+</html>

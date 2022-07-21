@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FLEX FLEX FLEX</title>
+    <link rel="stylesheet" href="../css/reset.css">
+    <style>
+        html,
+        body {
+            height: 100%;
+        }
+
+        body {
+            background-color: black;
+            color: white;
+        }
+
+        .box {
+            height: 100%;
+        }
+
+        .box ul {
+            height: 100%;
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .box ul li {
+            transition: 0.15s;
+            width: 25%;
+            /*             
+            flex-grow: 1;
+            flex-shrink: 0;
+            flex-basis: auto;
+             */
+            flex: 1 0 auto;
+        }
+
+        .box ul li:hover {
+            flex-grow: 2;
+        }
+
+        .box ul li:nth-child(2n) {
+            background-color: gold;
+        }
+
+        @media screen and (max-width: 500px){
+            .box ul {
+                flex-direction: column;
+            }
+
+            .box ul li {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- flex-container: flex-wrap -->
+    <!-- flex-item: flex-grow flex-shrink flex-basis -->
+
+    <div class="box">
+        <ul>
+            <li style="background-image: url('../images/pc01.jpg')">1</li>
+            <li style="background-image: url('../images/pc02.jpg')">2</li>
+            <li style="background-image: url('../images/pc03.jpg')">3</li>
+            <li style="background-image: url('../images/pc01.jpg')">4</li>
+            <li style="background-image: url('../images/pc02.jpg')">5</li>
+        </ul>
+    </div>
+</body>
+</html>
