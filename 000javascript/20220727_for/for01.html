@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FOR</title>
+    <script src="../../js/jquery-3.1.1.min.js"></script>
+    <style>
+        body {
+            background-color: black;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <button class="btn">누르십시오</button>
+    <button class="reset">되돌립니다</button>
+    <div class="wrapper">
+        <span>Lorem ipsum</span> dolor sit amet consectetur, <span>adipisicing elit</span>. Quisquam <span>animi</span> sint consequuntur nesciunt <span>ab rerum qui porro,</span> modi eligendi.
+    </div>
+    
+    <script>
+        // const btn = document.querySelector(".btn");
+        // const span = document.getElementsByTagName("span");
+
+        // btn.addEventListener("click", btnClick);
+        
+        // function btnClick(){
+        //     for (let i = 0; i < span.length; i++){
+        //         span[i].style.color = "red";
+        //         span[i].style.fontSize = "20px";
+        //     }
+        // }
+
+
+        // const btn = document.getElementsByClassName("btn")[0];
+        // const reset = document.getElementsByClassName("reset")[0];
+        
+        // btn.addEventListener("click", btnClick);
+        // reset.addEventListener("click", btnGetBack);
+
+        // function btnClick(){
+        //     for (let i = 0; i < document.getElementsByTagName("span").length; i++){
+        //         document.getElementsByTagName("span")[i].style.color = "red";
+        //         document.getElementsByTagName("span")[i].style.fontSize = "20px";
+        //     }
+        // }
+
+        // function btnGetBack(){
+        //     for (let i = 0; i < document.getElementsByTagName("span").length; i++){
+        //         document.getElementsByTagName("span")[i].style.color = "inherit";
+        //         document.getElementsByTagName("span")[i].style.fontSize = "inherit";
+        //     }
+        // }
+
+
+        $(".btn").click(function(){
+            $(".wrapper span").css({
+                "color": "red",
+                "font-size": "20px",
+            });
+        });
+
+        $(".reset").click(function(){
+            $(".wrapper span").css({
+                "color": "inherit",
+                "font-size": "inherit",
+            });
+        });
+    </script>
+</body>
+</html>

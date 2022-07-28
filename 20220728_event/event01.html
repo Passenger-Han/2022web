@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EVENT</title>
+    <style>
+        body {
+            background-color: black;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div style="transition: 0.75s;" onmouseover="this.style.backgroundColor = 'red';" onmouseout="this.style.backgroundColor = 'initial';">안녕하세요.</div>
+
+    <p class="container-text">만나서 반갑습니다.</p>
+    <p class="container-text second">처음 뵙겠습니다.</p>
+
+    <script>
+        const pi = document.querySelector(".container-text");
+
+        pi.onmouseover = over;
+        pi.onmouseout = out;
+        // pi.addEventListener("mouseover", over);
+
+        function over(){
+            console.log("mouseover");
+        }
+        function out(){
+            console.log("mouseout");
+        }
+
+        const pi1 = document.querySelector(".container-text.second");
+        pi1.addEventListener("mouseover", function(){
+            console.log("mouseover");
+        });
+        pi1.addEventListener("mouseout", out);
+    </script>
+</body>
+</html>

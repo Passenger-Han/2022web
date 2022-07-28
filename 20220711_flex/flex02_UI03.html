@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flex UI</title>
+    <link rel="stylesheet" href="../css/reset.css">
+    <script src="../js/jquery-3.1.1.min.js"></script>
+    <style>
+        body{
+            background-color: black;
+            color: white;
+        }
+
+        .container {
+            width: 1200px; margin: 0 auto;
+        }
+
+        #header {
+            background-color: #575757;
+            position: absolute;
+            width: 100%;
+        }
+
+        .wrap-header {
+            padding: 16px 0;
+        }
+
+        .wrap-header,
+        .wrap-navigator > ul {
+            display: flex;
+            height: 100%;
+        }
+        
+        .wrap-navigator {
+            width: 600px;
+            margin-left: auto;
+        }
+        
+        .wrap-navigator > ul > li {
+            flex: 1 1 auto;
+            position: relative;
+        }
+
+        .wrap-navigator > ul > li > a {
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: gray;
+        }
+
+        .submenu {
+            position: absolute;
+            background-color: #CACACA;
+            width: 100%;
+            padding: 16px 10px;
+            text-align: center;
+            display: none;
+        }
+
+        .submenu li a {
+            line-height: 32px;
+        }
+
+        /* .wrap-navigator:hover .submenu {
+            display: block;
+        } */
+
+        .bg {
+            width: 100%;
+            height: 300px;
+            background-color: dodgerblue
+        }
+    </style>
+</head>
+<body>
+    <header id="header">
+        <div class="container wrap-header">
+            <h1><a href="#">logo</a></h1>
+            <div class="wrap-navigator">
+                <ul>
+                    <li>
+                        <a href="#">MENU1</a>
+                        <ul class="submenu">
+                            <li><a href="#">SUBMENU1</a></li>
+                            <li><a href="#">SUBMENU2</a></li>
+                            <li><a href="#">SUBMENU3</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#">MENU2</a>
+                        <ul class="submenu">
+                            <li><a href="#">SUBMENU1</a></li>
+                            <li><a href="#">SUBMENU2</a></li>
+                            <li><a href="#">SUBMENU3</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#">MENU3</a>
+                        <ul class="submenu">
+                            <li><a href="#">SUBMENU1</a></li>
+                            <li><a href="#">SUBMENU2</a></li>
+                            <li><a href="#">SUBMENU3</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#">MENU4</a>
+                        <ul class="submenu">
+                            <li><a href="#">SUBMENU1</a></li>
+                            <li><a href="#">SUBMENU2</a></li>
+                            <li><a href="#">SUBMENU3</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#">MENU5</a>
+                        <ul class="submenu">
+                            <li><a href="#">SUBMENU1</a></li>
+                            <li><a href="#">SUBMENU2</a></li>
+                            <li><a href="#">SUBMENU3</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="bg"></div>
+        <div class="container-img">
+            <ul>
+                <li>
+                    <img src="../images/img1.jpg" alt="">
+                </li>
+            </ul>
+        </div>
+    </header>
+
+    <script>
+        $(".bg").slideUp(1);
+        $(".wrap-navigator").hover(function(){
+            $(".bg, .submenu").stop().slideDown();
+        }, function(){
+            $(".bg, .submenu").stop().slideUp();
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SLIDE BASIC</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <style>
+        body {
+            background-color: black;
+            color: white;
+        }
+
+        img {
+            display: block;
+            width: 1000px;
+        }
+
+        .container {
+            width: 1000px;
+            height: 800px;
+            margin: 0 auto;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .slide {
+            width: 4000px;
+            display: flex;
+            position: relative;
+            left: 0;
+        }
+
+        .slide02 {
+            position: relative;
+            bottom: 0px;
+        }
+        
+        .slide02 div {
+            position: absolute;
+            opacity: 0;
+        }
+
+        .slide02 div:nth-child(1) {
+            opacity: 1;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="slide">
+            <div><img src="../../images/pc01.jpg" alt="0">1</div>
+            <div><img src="../../images/pc02.jpg" alt="1">2</div>
+            <div><img src="../../images/pc03.jpg" alt="2">3</div>
+            <div><img src="../../images/pc01.jpg" alt="3">4</div>
+        </div>
+
+        <div class="slide02">
+            <div><img src="../../images/pc01.jpg" alt="">1</div>
+            <div><img src="../../images/pc02.jpg" alt="">2</div>
+            <div><img src="../../images/pc03.jpg" alt="">3</div>
+        </div>
+    </div>
+
+    <script>
+        setInterval(slider, 1000);
+
+        let num = 0;
+        function slider(){
+            num++;
+            if (num == 4){
+                $(".slide").css({"left": 0,});
+                num = 1;
+            }
+            $(".slide").stop().animate({"left": `${num * -1000}px`}, 300);
+        }
+
+
+        setInterval(slider02, 2000);
+
+        let num02 = 0;
+        let view = 1;
+        function slider02(){
+            num02++;
+            if(num02 == $(".slide02 > div").length){
+                num02 = 0;
+            }
+            $(".slide02 > div")
+            .eq(num02)
+            .css({"z-index": view++, "opacity": 0,})
+            .animate({opacity: 1,}, 500);
+        }
+    </script>
+</body>
+</html>

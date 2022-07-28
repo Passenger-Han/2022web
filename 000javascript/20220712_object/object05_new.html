@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OBJECT05 - NEW</title>
+    <script src="../../js/jquery-3.1.1.min.js"></script>
+    <style>
+        body {
+            background-color: black;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    
+
+    <script>
+        // OBJECT LITERAL
+        const obj = {
+            name: "홍길동",
+            age: 24,
+            run: function(){
+                console.log(`${this.name}(${this.age})이 달린다.`);
+            },
+        }
+
+        obj.color = "blue";
+        obj.view = function(){
+            console.log(this.color);
+        }
+
+        function Man(){
+
+        }
+
+        let hanView = new Man();
+        let hanView01 = new Man();
+        hanView.name = "홍길동";
+        hanView01.name = "김철수";
+
+
+        function Car(_name, _color, _type){
+            this.name = _name;
+            this.color = _color;
+            this.type = _type;
+        }
+
+        Car.prototype.drive = function(){
+            console.log(this.name + "가 달린다.");
+        }
+
+        let han = new Car("Sonata", "Blue", "Medium");
+
+        class Car02 {
+            constructor(_name, _color, _type){
+                this.name = _name;
+                this.color = _color;
+                this.type = _type;
+            }
+            drive(){
+                console.log(this.name + "이/가 달린다.");
+            }
+        }
+
+        let myCar = new Car02("마티즈", "노랑", "소형");
+
+        // $("선택자").on("click", function(){}) <= This is 'Callback Function'.
+    </script>
+</body>
+</html>

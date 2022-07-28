@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flex UI</title>
+    <link rel="stylesheet" href="../css/reset.css">
+    <style>
+        body {
+            background-color: black;
+            color: white;
+        }
+
+        .wrap-content {
+            width: 1240px;
+            border: 1px dotted white;
+        }
+        
+        .wrap-content > ul {
+            display: flex;
+            flex-wrap: wrap;
+            position: relative;
+        }
+        
+        .wrap-content > ul > li {
+            height: 310px;
+            flex-grow: 1;
+            flex-basis: 25%;
+            border: 1px dotted gray;
+        }
+
+        .wrap-content > ul > li:nth-child(3) {flex-basis: 50%;}
+        .wrap-content > ul > li:nth-child(6) {flex-basis: 50%;}
+        .wrap-content > ul > li:nth-child(7) {height: 620px;}
+        .wrap-content > ul > li:nth-child(8) {flex-basis: 50%;}
+        .wrap-content > ul > li:nth-child(10) {flex-grow: 0;}
+        .wrap-content > ul > li:nth-child(11) {flex-grow: 0; flex-basis: 50%;}
+    </style>
+</head>
+<body>
+    <div class="wrap-content">
+        <ul>
+            <li>01</li>
+            <li>02</li>
+            <li>03</li>
+            <li>04</li>
+            <li>05</li>
+            <li>06</li>
+            <li>07</li>
+            <li>08</li>
+            <li>09</li>
+            <li>10</li>
+            <li>11</li>
+        </ul>
+    </div>
+</body>
+</html>

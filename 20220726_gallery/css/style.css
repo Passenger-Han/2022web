@@ -1,0 +1,49 @@
+@charset "UTF-8";
+.actualWorkspace {
+    width: 760px;
+    margin: 0 auto;
+}
+
+/* VIEWER */
+.viewer {
+    width: fit-content;
+    margin: 0 auto;
+}
+
+.viewer img {
+    display: none;
+}
+
+.tabs {
+    width: inherit;
+    overflow: hidden;
+    position: relative;
+}
+
+.thumbnails {
+    display: flex; flex-wrap: nowrap;
+    position: relative; left: 0; transition: 0.3s;
+}
+
+.thumbnails li {
+    margin-right: 8px;
+}
+
+.button-next,
+.button-prev {
+    width: 13px;
+    height: 25px;
+    background-image: url(../img/btn_right.gif);
+    background-position: center;
+    background-repeat: no-repeat;
+    position: absolute;
+    right: -26px;
+    bottom: 25px;
+}
+
+.button-prev {
+    width: 13px;
+    height: 25px;
+    background-image: url(../img/btn_left.gif);
+    left: -26px;
+}

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flex UI</title>
+    <link rel="stylesheet" href="../css/reset.css">
+    <style>
+        body {
+            background-color: black;
+            color: white;
+        }
+
+        ul.list {
+            width: 500px;
+            margin: 0 auto;
+        }
+
+        li.list-item:before {
+            content: "😊";
+            margin-right: 12px;
+            position: absolute;
+            left: -12px;
+        }
+
+        li.list-item {
+            display: flex;
+            border-left: 3px solid gold;
+            position: relative;
+            padding-left: 20px;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <ul class="list">
+        <li class="list-item">
+            <span>❤</span> Lorem ipsum dolor sit, amet consectetur adipisicing elit. Veniam illum perspiciatis distinctio sed et. Necessitatibus officiis quisquam sunt illum, fugiat inventore obcaecati. Perferendis ipsum illo maiores qui nulla eaque rem, ratione deleniti.
+        </li>
+        <li class="list-item">
+            <span>✔</span> Lorem ipsum dolor sit, amet consectetur adipisicing elit. Veniam illum perspiciatis distinctio sed et. Necessitatibus officiis quisquam sunt illum, fugiat inventore obcaecati. Perferendis ipsum illo maiores qui nulla eaque rem, ratione deleniti.
+        </li>
+        <li class="list-item">
+            <span>🤔</span> Lorem ipsum dolor sit, amet consectetur adipisicing elit. Veniam illum perspiciatis distinctio sed et. Necessitatibus officiis quisquam sunt illum, fugiat inventore obcaecati. Perferendis ipsum illo maiores qui nulla eaque rem, ratione deleniti.
+        </li>
+        <li class="list-item">
+            <span>💋</span> Lorem ipsum dolor sit, amet consectetur adipisicing elit. Veniam illum perspiciatis distinctio sed et. Necessitatibus officiis quisquam sunt illum, fugiat inventore obcaecati. Perferendis ipsum illo maiores qui nulla eaque rem, ratione deleniti.
+        </li>
+    </ul>
+</body>
+</html>

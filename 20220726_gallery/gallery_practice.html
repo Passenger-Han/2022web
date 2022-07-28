@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery</title>
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: black;
+            color: white;
+        }
+
+        li {
+            list-style: none;
+        }
+
+        img {
+            display: block;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="actualWorkspace" style="position: relative;">
+
+        <div class="viewer" style="margin-bottom: 24px;">
+            <img src="img/1.jpg" alt="img 1" style="display: block;">
+            <!-- <img src="img/2.jpg" alt="img 2"><img src="img/3.jpg" alt="img 3"><img src="img/4.jpg"
+                alt="img 4"><img src="img/5.jpg" alt="img 5"><img src="img/6.jpg" alt="img 6"><img src="img/7.jpg" alt="img 7"><img
+                src="img/8.jpg" alt="img 8"><img src="img/9.jpg" alt="img 9"><img src="img/10.jpg" alt="img 10"><img
+                src="img/11.jpg" alt="img 11"><img src="img/12.jpg" alt="img 12"><img src="img/13.jpg" alt="img 13"><img
+                src="img/14.jpg" alt="img 14"><img src="img/15.jpg" alt="img 15"><img src="img/16.jpg" alt="img 16"><img
+                src="img/17.jpg" alt="img 17"><img src="img/18.jpg" alt="img 18">
+            <img src="img/19.jpg" alt="img 19"> -->
+        </div>
+
+        <div class="tabs">
+            <ul class="thumbnails">
+                <li><img src="img/thumb1.jpg" alt="thumbnail" 1=""></li>
+                <li><img src="img/thumb2.jpg" alt="thumbnail" 2=""></li>
+                <li><img src="img/thumb3.jpg" alt="thumbnail" 3=""></li>
+                <li><img src="img/thumb4.jpg" alt="thumbnail" 4=""></li>
+                <li><img src="img/thumb5.jpg" alt="thumbnail" 5=""></li>
+                <li><img src="img/thumb6.jpg" alt="thumbnail" 6=""></li>
+                <li><img src="img/thumb7.jpg" alt="thumbnail" 7=""></li>
+                <li><img src="img/thumb8.jpg" alt="thumbnail" 8=""></li>
+                <li><img src="img/thumb9.jpg" alt="thumbnail" 9=""></li>
+                <li><img src="img/thumb10.jpg" alt="thumbnail" 10=""></li>
+                <li><img src="img/thumb11.jpg" alt="thumbnail" 11=""></li>
+                <li><img src="img/thumb12.jpg" alt="thumbnail" 12=""></li>
+                <li><img src="img/thumb13.jpg" alt="thumbnail" 13=""></li>
+                <li><img src="img/thumb14.jpg" alt="thumbnail" 14=""></li>
+                <li><img src="img/thumb15.jpg" alt="thumbnail" 15=""></li>
+                <li><img src="img/thumb16.jpg" alt="thumbnail" 16=""></li>
+                <li><img src="img/thumb17.jpg" alt="thumbnail" 17=""></li>
+                <li><img src="img/thumb18.jpg" alt="thumbnail" 18=""></li>
+                <li><img src="img/thumb19.jpg" alt="thumbnail" 19=""></li>
+            </ul>
+
+        </div>
+        <div class="button-next"></div>
+        <div class="button-prev"></div>
+
+    </div>
+
+    <script>
+        const clickThumb = document.querySelectorAll(".tabs .thumbnails li");
+        const imgShown = document.querySelector(".viewer img");
+        const btnNext = document.querySelector(".button-next");
+        const btnPrev = document.querySelector(".button-prev");
+        let scrollCounter = 0;
+        for (let i = 0; i < clickThumb.length; i++){
+            clickThumb[i].addEventListener("click", function(){
+                imgShown.setAttribute("src", `img/${i + 1}.jpg`);
+            });
+        }
+
+        btnNext.addEventListener("click", goToNext);
+        btnPrev.addEventListener("click", goToPrev);
+
+        function goToNext(){
+            if (scrollCounter < 2){
+                scrollCounter++;
+                document.querySelector(".tabs .thumbnails").style.left = `${scrollCounter * -760}px`;
+            }
+        }
+        function goToPrev(){
+            if (scrollCounter > 0){
+                scrollCounter--;
+                document.querySelector(".tabs .thumbnails").style.left = `${scrollCounter * -760}px`;
+            }
+        }
+    </script>
+</body>
+</html>

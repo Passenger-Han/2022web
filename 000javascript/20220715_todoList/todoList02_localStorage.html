@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TODOLIST - LOCAL STORAGE</title>
+    <style>
+        body {
+            background-color: black;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <input type="text" class="input-field">
+    <button class="add-todo">할 일 추가</button>
+    <button onclick="removeAll()">모두 지우기</button>
+
+    <ul class="todo-list"></ul>
+
+    <script>
+        const inputField = document.querySelector(".input-field");
+        const addTodo = document.querySelector(".add-todo");
+        const todoList = document.querySelector(".todo-list");
+        let todoSubmitted = [];
+        let textStacked = '';
+        initialize();
+        
+        addTodo.addEventListener("click", function(){
+            let todoTaken = inputField.value;
+            if (todoTaken != ""){
+                localStorage.setItem(todoTaken, todoTaken);
+                inputField.value = '';
+            } else {
+                alert("오늘의 할 일을 입력해주세요.");
+            }
+            
+            showTodo();
+        });
+        
+        function initialize(){
+            todoSubmitted = [];
+            for(let i = 0; i < localStorage.length; i++){
+                todoSubmitted.push(localStorage.key(i));
+            }
+            console.log(todoSubmitted);
+        }
+        
+        function showTodo(){
+            initialize();
+            textStacked = '';
+            todoSubmitted.forEach(function(item, index){
+                textStacked += `<li>${item} <button onclick="removeTodo('${item}', ${index})">지우기</button></li>`;
+            });
+            todoList.innerHTML = textStacked;
+        }
+
+        function removeTodo(item, index){
+            localStorage.removeItem(item);
+            showTodo();
+        }
+
+        function removeAll(){
+            localStorage.clear();
+            showTodo();
+        }
+
+        showTodo();
+    </script>
+</body>
+</html>

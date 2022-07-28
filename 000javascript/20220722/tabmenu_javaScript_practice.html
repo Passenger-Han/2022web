@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TABMENU</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: black;
+            color: white;
+        }
+
+        li {
+            list-style-type: none;
+        }
+
+        .wrapper-tabs {
+            border: 1px dotted white;
+            width: 400px;
+            height: 100px;
+            display: flex;
+        }
+
+        .wrapper-tabs .tab {
+            border-right: 1px dotted white;
+            width: calc(100% / 3);
+            height: 100%;
+
+            display: flex; justify-content: center; align-items: center;
+        }
+
+        .wrapper-tabs .tab.active {
+            background-color: white;
+            color: black;
+        }
+
+        .wrapper-tabs .tab:last-child {
+            border-right: none;
+        }
+
+        .wrapper-imgs {
+            width: 400px;
+            overflow: hidden;
+        }
+
+        .wrapper-imgs ul {
+            transition: 0.3s;
+            display: flex;
+            position: relative;
+            left: 0;
+        }
+
+        .wrapper-imgs ul li img {
+            width: 400px;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrapper-tabs">
+        <div class="tab active">1</div>
+        <div class="tab">2</div>
+        <div class="tab">3</div>
+    </div>
+
+    <div class="wrapper-imgs">
+        <ul>
+            <li><img src="../../images/pc01.jpg" alt=""></li>
+            <li><img src="../../images/pc02.jpg" alt=""></li>
+            <li><img src="../../images/pc03.jpg" alt=""></li>
+        </ul>
+    </div>
+
+    <script>
+        let menu = document.querySelectorAll(".wrapper-tabs .tab");
+        let imgPos = document.querySelector(".wrapper-imgs ul");
+
+        for (let i = 0; i < menu.length; i++){
+            menu[i].addEventListener("click", function(){
+                imgPos.style.left = `${i * -400}px`;
+
+                for (let k = 0; k < menu.length; k++){
+                    menu[k].classList.remove("active");
+                }
+                menu[i].classList.add("active");
+            });
+        }
+    </script>
+</body>
+</html>

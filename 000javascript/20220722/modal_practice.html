@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MODAL</title>
+    <script src="../../js/jquery-3.1.1.min.js"></script>
+    <style>
+        html,
+        body {
+            height: 100%;
+        }
+
+        body {
+            background-color: black;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        li {
+            list-style: none;
+        }
+
+        .wrapper-list ul {
+            display: flex;
+            gap: 40px;
+        }
+
+        .wrapper-list ul li img {
+            width: 320px;
+        }
+
+        .grayScreen {
+            position: fixed;
+            z-index: 2;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            background-color: #00000077;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .overlay {
+            position: relative;
+        }
+
+        .closer {
+            position: absolute;
+            top: -40px;
+            right: 0;
+            z-index: 3;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #FFFFFF;
+            width: 40px;
+            height: 40px;
+        }
+
+        .closer .bar {
+            position: absolute;
+            width: 13px;
+            height: 1px;
+            background-color: #000000;
+        }
+
+        .closer .bar:nth-child(1) {transform: rotate(45deg)}
+        .closer .bar:nth-child(2) {transform: rotate(-45deg)}
+    </style>
+</head>
+<body>
+    <div class="wrapper-list">
+        <ul>
+            <li><a href="../../images/pc01.jpg"><img src="../../images/pc01.jpg" alt=""></a></li>
+            <li><a href="../../images/pc02.jpg"><img src="../../images/pc02.jpg" alt=""></a></li>
+            <li><a href="../../images/pc03.jpg"><img src="../../images/pc03.jpg" alt=""></a></li>
+        </ul>
+    </div>
+
+    <div class="grayScreen">
+        <div class="overlay">
+            <div class="closer">
+                <div class="bar"></div>
+                <div class="bar"></div>
+            </div>
+            <img src="" alt="">
+        </div>
+    </div>
+        
+    <script>
+        $(".grayScreen").hide();
+
+        $(".wrapper-list ul li a").on("click", function(event){
+            event.preventDefault();
+
+            let linkSource = $(this).attr("href");
+            $(".grayScreen").show();
+            $(".grayScreen .overlay img").attr("src", linkSource);
+        });
+
+        $(".grayScreen .overlay .closer").on("click", function(){
+            $(".grayScreen").hide();
+        })
+    </script>
+</body>
+</html>
