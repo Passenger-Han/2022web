@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TODOLIST - MENU SCRIPT</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <style>
+        * {margin: 0; padding: 0; box-sizing: border-box;}
+        body {background-color: black; color: white;}
+        a:link, a:hover {text-decoration: none; color: inherit}
+        li {list-style-type: lower-greek;}
+
+        .header {background-color: #676767;}
+
+        .menu {width: 800px; margin: 0 auto; display: flex; height: 60px;}
+        .menu > li {flex: 1 1 25%;}
+        .menu > li:hover {background-color: #343434;}
+        .menu > li > a {display: flex; height: 100%; justify-content: center; align-items: center;}
+
+        .menu > li .submenu {display: none;}
+        .menu > li:hover .submenu {display: block;}
+        .menu .submenu > li {height: 40px;}
+        .menu .submenu > li:hover {background-color: #343434;}
+        .menu .submenu > li > a {display: flex; height: 100%; justify-content: center; align-items: center;}
+
+        .visual {height: 600px; background-color: #111111;}
+    </style>
+</head>
+<body>
+    <div class="header">
+        <ul class="menu"></ul>
+    </div>
+    <div class="visual"></div>
+    <script>
+        const menuData = [
+            {
+                menu: "company",
+                href: "#1",
+                submenu: null,
+            },
+            {
+                menu: "product",
+                href: "#2",
+                submenus: [
+                    {
+                        submenu: "product1",
+                        href: "#product1",
+                    },
+                    {
+                        submenu: "product2",
+                        href: "#product2",
+                    },
+                    {
+                        submenu: "product3",
+                        href: "#product3",
+                    },
+                ],
+            },
+            {
+                menu: "community",
+                href: "#3",
+                submenus: [
+                    {
+                        submenu: "community1",
+                        href: "#community1",
+                    },
+                    {
+                        submenu: "community2",
+                        href: "#community2",
+                    },
+                ],
+            },
+            {
+                menu: "board",
+                href: "#4",
+                submenus: [
+                    {
+                        submenu: "board1",
+                        href: "#board1",
+                    },
+                    {
+                        submenu: "board2",
+                        href: "#board2",
+                    },
+                    {
+                        submenu: "board3",
+                        href: "#board3",
+                    },
+                    {
+                        submenu: "board4",
+                        href: "#board4",
+                    },
+                ],
+            },
+        ]
+
+        let menuList = document.querySelector(".menu");
+        let textStacked = '';
+
+        menuData.forEach(function(element, index){
+            textStacked += `<li><a href="${element.href}">${element.menu}</a>`;
+                if (element.submenus != null){
+                    textStacked += `<ul class="submenu">`;
+                        element.submenus.forEach(function(subelement, subindex){
+                            textStacked += `<li><a href="${subelement.href}">${subelement.submenu}</a></li>`;
+                        });
+                    textStacked += `</ul>`;
+                }
+            textStacked += `</li>`;
+        });
+
+        menuList.innerHTML = textStacked;
+    </script>
+</body>
+</html>

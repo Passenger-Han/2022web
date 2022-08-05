@@ -16,7 +16,7 @@
         h1 {margin-bottom: 24px; text-indent: 16px;}
         .wrapper-insert {width: 100%; height: 40px; display: flex; gap: 16px; justify-content: space-between; margin-bottom: 24px;}
         .wrapper-insert input, .wrapper-insert button {height: 100%;}
-        .wrapper-insert input {width: 100%; padding: 16px;}
+        .wrapper-insert input {flex-grow: 1; padding: 16px;}
         .lists {width: 100%; margin: 0 auto 24px;}
         .lists li {padding: 8px; height: 60px; position: relative; display: flex; justify-content: space-between; border-radius: 12px;}
         .lists li.active {background-color: crimson;}
@@ -31,17 +31,19 @@
     <div class="actualWorkspace">
         <h1>일</h1>
         <div class="wrapper-insert">
-            <input type="text" placeholder="추가하려는 일">
+            <input type="text" placeholder="추가하려는 일" data-writing-mode="-1">
             <button id="insert" onclick="add();">추가</button>
         </div>
         <ul class="lists">
         </ul>
         <button class="remove-all" onclick="removeAll();">행&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;복&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;버&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;튼</button>
     </div>
-    <i class="fa-solid fa-trash-can" onclick=""></i>
-    <i class="fa-solid fa-screwdriver-wrench" onclick=""></i>
-    <i class="fa-solid fa-flag-checkered" onclick=""></i>
-    <i class="fa-solid fa-triangle-exclamation" onclick=""></i>
+    <div style="display: none;">
+        <i class="fa-solid fa-trash-can" onclick=""></i>
+        <i class="fa-solid fa-screwdriver-wrench" onclick=""></i>
+        <i class="fa-solid fa-flag-checkered" onclick=""></i>
+        <i class="fa-solid fa-triangle-exclamation" onclick=""></i>
+    </div>
 
     <script>
         // let dataList = [
@@ -53,11 +55,12 @@
         // ];
 
         let dataList = [
-            {todo: '오늘의 할 일 1', done: true,},
-            {todo: '오늘의 할 일 2', done: true,},
-            {todo: '오늘의 할 일 3', done: false,},
-            {todo: '오늘의 할 일 4', done: true,},
-            {todo: '오늘의 할 일 5', done: false,},
+            // {todo: '오늘의 할 일 1', done: true,},
+            // {todo: '오늘의 할 일 2', done: true,},
+            // {todo: '오늘의 할 일 3', done: false,},
+            // {todo: '오늘의 할 일 4', done: true,},
+            // {todo: '오늘의 할 일 5', done: false,},
+            {todo: `<span style='background-color: black; margin-left: 4px;'>행복버튼 누르기</span>`, done: false,},
         ];
 
         let textStacked = '';
@@ -100,7 +103,7 @@
             // FORIN
             // object {key: value, ...} [value1, value2, ...]
             // for (const key in dataList) {
-            //     textStacked = textStacked + `<li> ${dataList[key]} </li>`;
+                //     textStacked = textStacked + `<li> ${dataList[key]} </li>`;
             // }
             // document.querySelector(".lists").innerHTML = textStacked;
         };
@@ -111,33 +114,46 @@
         }
 
         view();
-
+        
         function add(){
             dataList.splice(0, 0, {todo: document.querySelector(".wrapper-insert input").value, done: false});
             // dataList.push({todo: document.querySelector(".wrapper-insert input").value, done: false});
             document.querySelector(".wrapper-insert input").value = '';
             view();
         }
-
+        
         function remove(index){
             dataList.splice(index, 1);
             view();
         }
-
+        
         function modify(index){
-            let asking = prompt('여기에 일을 새로 적으세요.');
+            let asking = prompt(`새로 수정할 내용을 입력하세요.`);
             if (asking == ''){
-                alert('일을 적지 않으셨습니다.');
+                alert('내용을 적지 않았으므로 수정하지 않았습니다.');
+            } else if (asking === null) {
+                alert('수정을 취소하셨습니다.')
             } else {
-                dataList.splice(index, 1, {todo: asking, done: false});
+                // dataList.splice(index, 1, {todo: asking, done: false});
+                dataList[index].todo = asking;
                 view();
             }
         }
-
+        
+        function modifyNoPrompt(title, index){
+            if (document.querySelector(".wrapper-insert input").dataset.writingMode != -1 || document.querySelector(".wrapper-insert input").dataset.writingMode == index){
+                document.querySelector(".wrapper-insert input").placeholder = '추가하려는 일';
+                document.querySelector(".wrapper-insert input").dataset.writingMode = -1;
+            } else {
+                document.querySelector(".wrapper-insert input").placeholder = title;
+                document.querySelector(".wrapper-insert input").dataset.writingMode = index;
+            }
+        }
+        
         function removeAll(){
             dataList.splice(0, dataList.length + 1);
             view();
         }
-    </script>
+        </script>
 </body>
 </html>
