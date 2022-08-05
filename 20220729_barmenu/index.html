@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {background-color: black;color: white;}
+        a {text-decoration: inherit; color: inherit;}
+        li {list-style: none;}
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1><a href="./index.html">logo</a></h1>
+        <nav class="wrapper-navigator">
+            <ul class="navigator">
+                <li><a href="./sub01.html">1MENU1</a></li>
+                <li><a href="./sub02.html">2MENU2</a></li>
+                <li><a href="./sub03.html">3MENU3</a></li>
+                <li><a href="./sub04.html">4MENU4</a></li>
+            </ul>
+            <div class="bar"></div>
+        </nav>
+    </div>
+
+    <div class="visual">
+        <h2>MAIN</h2>
+    </div>
+
+    <div class="container">
+        <ul class="contents">
+            <li><a href="sub01.html?submenu=0&alphabet=a">1</a></li>
+            <li><a href="sub01.html?submenu=1&alphabet=b">2</a></li>
+            <li><a href="sub01.html?submenu=2&alphabet=c">3</a></li>
+            <li><a href="sub01.html?submenu=3&alphabet=d">4</a></li>
+        </ul>
+    </div>
+    
+    <script src="js/script.js"></script>
+    <script>
+        MenuIndex("main");
+    </script>
+</body>
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Moving Car</title>
+    <link rel="stylesheet" href="../../css/reset.css">
+    <script src="../../js/jquery-3.1.1.min.js"></script>
+    <style>
+        html, body {height: 100%;}
+        body {background-color: black; color: white; display: flex; justify-content: center; align-items: center; flex-direction: column;}
+        .panel {width: 600px; height: 300px; border: 1px solid white; position: relative;}
+        .wrapper-btn {width: 600px; display: flex;}
+        .btn-start {margin-left: auto; margin-right: 8px;}
+        .bar {width: 500px; height: 10px; background-color: red; position: absolute; left: 50px; top: 190px;}
+        .car {position: absolute; left: 50px; top: 120px;}
+        .car.flipped {transform: rotateY(180deg);}
+    </style>
+</head>
+<body>
+    <div class="panel">
+        <div class="bar"></div>
+        <div class="car">
+            <img src="../../images/car.png" alt="자동차">
+        </div>
+    </div>
+    <div class="wrapper-btn">
+        <button class="btn-start">Accelerate</button>
+        <button class="btn-stop">Diminish</button>
+    </div>
+
+    <script>
+        const startline = $(".car").position().left;
+        const endline = startline + $(".bar").width() - $(".car").width();
+        let velocity = 2;
+        let carLocation = startline;
+        let timeId;
+        let isMoving = false;
+
+        // setInterval(function(){
+        //     carLocation += velocity;
+        //     $(".car").css({left: carLocation,});
+        // }, 10);
+
+        // timeId = setInterval(MovingCar, 10);
+        // clearInterval();
+        $(".btn-start").click(function(){
+            if (isMoving == false){
+                timeId = setInterval(MovingCar, 10);
+                isMoving = !isMoving;
+            }
+        });
+        $(".btn-stop").click(function(){
+            clearInterval(timeId);
+            isMoving = !isMoving;
+        })
+
+        function MovingCar(){
+            carLocation += velocity;
+            $(".car").css({left: carLocation,});
+
+            if (carLocation > endline){
+                velocity = -velocity;
+                $(".car").addClass("flipped");
+            }
+            if (carLocation < startline){
+                velocity = -velocity;
+                $(".car").removeClass("flipped");
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {background-color: black;color: white;}
+        a {text-decoration: inherit; color: inherit;}
+        li {list-style: none;}
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1><a href="./index.html">logo</a></h1>
+        <nav class="wrapper-navigator">
+            <ul class="navigator">
+                <li><a href="./sub01.html">1MENU1</a></li>
+                <li><a href="./sub02.html">2MENU2</a></li>
+                <li><a href="./sub03.html">3MENU3</a></li>
+                <li><a href="./sub04.html">4MENU4</a></li>
+            </ul>
+            <div class="bar"></div>
+        </nav>
+    </div>
+
+    <div class="visual-sub company">
+        <h2>sub01</h2>
+    </div>
+
+    <div class="container sub">
+        <ul class="tab">
+            <li class="active">TAB1</li>
+            <li>TAB2</li>
+            <li>TAB3</li>
+            <li>TAB4</li>
+        </ul>
+        <div class="content">
+            <div>
+                <div class="currentLocation"> HOME > COMPANY > TAB1 </div>
+                <h2>ONE</h2>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum illo possimus tenetur nobis hic vero quos facere quibusdam necessitatibus. Quis.
+            </div>
+            <div>
+                <div class="currentLocation"> HOME > COMPANY > TAB2 </div>
+                <h2>TWO</h2>
+                Dolorem, cumque aspernatur optio est sit repellendus, nihil, laboriosam facere quia aliquid ipsam omnis reprehenderit perferendis blanditiis. Consectetur, nisi deserunt.
+            </div>
+            <div>
+                <div class="currentLocation"> HOME > COMPANY > TAB3 </div>
+                <h2>THREE</h2>
+                Sit voluptate laudantium accusantium quos ea possimus repellendus? Perferendis voluptate dolore, unde id laboriosam rem ab inventore debitis possimus ipsa.
+            </div>
+            <div>
+                <div class="currentLocation"> HOME > COMPANY > TAB4 </div>
+                <h2>FOUR</h2>
+                Quaerat dolore minima eveniet possimus nemo a laudantium, cumque quisquam quae blanditiis, modi, nisi iusto perferendis corrupti labore! Aliquam, minus.
+            </div>
+        </div>
+    </div>
+    
+    <script src="js/script.js"></script>
+    <script>
+        // DEPTH 1
+        MenuIndex(0);
+
+        // DEPTH 2
+        let params = new URLSearchParams(location.search);
+        console.log(params.get("submenu"));
+        console.log(params.get("alphabet"));
+
+        function views(parameters){
+            if (parameters != null){
+                $(".tab li").removeClass("active");
+                $(".tab li").eq(parameters).addClass("active");
+                $(".content div").hide().eq(parameters).show();
+            }
+        }
+
+        views(params.get("submenu"));
+
+        $(".tab li").click(function(){
+            let i = $(this).index();
+            $(".tab li").removeClass("active");
+            $(this).addClass("active");
+
+            $(".content div").hide().eq(i).show();
+        })
+    </script>
+</body>
+</html>

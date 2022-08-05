@@ -1,0 +1,64 @@
+@charset "UTF-8";
+.wrapper-bar-navigator {
+    width: 100%;
+}
+
+.wrapper-visual,
+.bar-navigator {
+    width: 900px;
+    margin: 0 auto;
+}
+
+.navigator {
+    display: flex;
+    justify-content: space-around;
+}
+
+.navigator > li {
+    width: 100%;
+    position: relative;
+}
+
+.navigator > li:hover::before,
+.navigator > li.active::before {
+    content: "v";
+    display: block;
+    position: absolute;
+    width: 100%;
+    font-size: 12px;
+    text-align: center;
+    top: 8px;
+    color: red;
+}
+.navigator > li:hover::after,
+.navigator > li.active::after {
+    content: "";
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 1px;
+    background-color: red;
+    bottom: 0;
+}
+
+.navigator > li > a {
+    padding: 24px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.wrapper-visual .visual,
+.wrapper-visual .visual li,
+.wrapper-visual .visual img {
+    width: inherit;
+}
+
+.wrapper-visual {
+    overflow: hidden;
+}
+
+.visual {
+    position: relative;
+    display: flex;
+}

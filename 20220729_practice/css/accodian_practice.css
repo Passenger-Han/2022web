@@ -1,0 +1,59 @@
+@charset "UTF-8";
+
+html,
+body {
+    height: 100%;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.wrapper-accodian {
+    background: darkgray;
+    width: 480px;
+}
+
+.accodian {
+    padding: 20px;
+}
+
+.accodian > li {
+    background-color: #8F8F8F;
+    margin-bottom: 2px;
+    position: relative;
+}
+
+.accodian > li > a {
+    display: block;
+    line-height: 48px;
+    text-indent: 16px;
+}
+
+.accodian > li.active > a::after {
+    content: "*";
+    display: block;
+    position: absolute;
+    right: 20px;
+    top: 0px;
+}
+
+.accodian-sub {
+    display: none;
+}
+.accodian > li.active > .accodian-sub {
+    display: block;
+}
+
+.accodian-sub > li {
+    background-color: #797979;
+    margin-bottom: 2px;
+}
+
+.accodian-sub > li > a {
+    display: block;
+    line-height: 48px;
+    text-indent: 32px;
+}

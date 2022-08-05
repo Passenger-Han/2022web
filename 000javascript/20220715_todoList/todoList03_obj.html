@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TODOLIST - OBJ</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css" integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        * {margin: 0; padding: 0; box-sizing: border-box;}
+        body {background-color: black; color: white;}
+        li {list-style-type: none; margin-bottom: 4px;}
+        button {background-color: inherit; color: inherit; border: 1px solid white; padding: 0 12px; white-space: nowrap;}
+        .actualWorkspace {width: 600px; margin: 0 auto; padding-top: 60px;}
+        h1 {margin-bottom: 24px; text-indent: 16px;}
+        .wrapper-insert {width: 100%; height: 40px; display: flex; gap: 16px; justify-content: space-between; margin-bottom: 24px;}
+        .wrapper-insert input, .wrapper-insert button {height: 100%;}
+        .wrapper-insert input {width: 100%; padding: 16px;}
+        .lists {width: 100%; margin: 0 auto 24px;}
+        .lists li {padding: 8px; height: 60px; position: relative; display: flex; justify-content: space-between; border-radius: 12px;}
+        .lists li.active {background-color: crimson;}
+        .lists li.active .element {text-decoration: initial;}
+        .lists li .element {width: 100%; height: 100%; display: flex; justify-content: flex-start; align-items: center; text-decoration: line-through;}
+        .lists li .wrapper-icon {display: flex; gap: 20px;}
+        .lists li .wrapper-icon i {height: 100%; cursor: pointer; display: flex; align-items: center;}
+        button.remove-all {width: 100%; height: 120px; border: none; background-color: red; font-size: 24px; font-weight: 900; border-radius: 16px;}
+    </style>
+</head>
+<body>
+    <div class="actualWorkspace">
+        <h1>일</h1>
+        <div class="wrapper-insert">
+            <input type="text" placeholder="추가하려는 일">
+            <button id="insert" onclick="add();">추가</button>
+        </div>
+        <ul class="lists">
+        </ul>
+        <button class="remove-all" onclick="removeAll();">행&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;복&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;버&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;튼</button>
+    </div>
+    <i class="fa-solid fa-trash-can" onclick=""></i>
+    <i class="fa-solid fa-screwdriver-wrench" onclick=""></i>
+    <i class="fa-solid fa-flag-checkered" onclick=""></i>
+    <i class="fa-solid fa-triangle-exclamation" onclick=""></i>
+
+    <script>
+        // let dataList = [
+        //     '오늘의 할 일 1',
+        //     '오늘의 할 일 2',
+        //     '오늘의 할 일 3',
+        //     '오늘의 할 일 4',
+        //     '오늘의 할 일 5',
+        // ];
+
+        let dataList = [
+            {todo: '오늘의 할 일 1', done: true,},
+            {todo: '오늘의 할 일 2', done: true,},
+            {todo: '오늘의 할 일 3', done: false,},
+            {todo: '오늘의 할 일 4', done: true,},
+            {todo: '오늘의 할 일 5', done: false,},
+        ];
+
+        let textStacked = '';
+        function view(){
+            // FOR
+            // for (let i = 0; i < dataList.length; i++){
+            //     textStacked = textStacked + `<li> ${dataList[i]} </li>`;
+            // }
+            // document.querySelector(".lists").innerHTML = textStacked;
+
+            // FOREACH - ARROW FUNCTION
+            // dataList.forEach((element) => {
+            //     textStacked = textStacked + `<li> ${element} </li>`;
+            // });
+            // document.querySelector(".lists").innerHTML = textStacked;
+
+            // FOREACH - CALLBACK FUNCTION
+            textStacked = '';
+            // document.querySelector(".lists").innerHTML = '';
+            if (dataList.length == 0){
+                textStacked = '아무 일도 남지 않았습니다!';
+            } else{
+                dataList.forEach(function(element, index){
+                    if (dataList[index].done == true){
+                        textStacked = textStacked + `<li><div class="element" onclick="done(${index});"> ${index + 1}. ${dataList[index].todo}</div><div class="wrapper-icon"><i class="fa-solid fa-trash-can" onclick="remove(${index});"></i><i class="fa-solid fa-screwdriver-wrench" onclick="modify(${index});"></i><i class="fa-solid fa-triangle-exclamation" onclick="done(${index});"></i></div></li>`; // textStacked = textStacked + `<li> ${index + 1}. ${element.todo}</li>`;
+                    } else {
+                        textStacked = textStacked + `<li class="active"><div class="element" onclick="done(${index});"> ${index + 1}. ${dataList[index].todo}</div><div class="wrapper-icon"><i class="fa-solid fa-trash-can" onclick="remove(${index});"></i><i class="fa-solid fa-screwdriver-wrench" onclick="modify(${index});"></i><i class="fa-solid fa-flag-checkered" onclick="done(${index});"></i></div></li>`; // textStacked = textStacked + `<li> ${index + 1}. ${element.todo}</li>`;
+                    }
+                });
+            }
+            document.querySelector(".lists").innerHTML = textStacked;
+            
+            // FOROF
+            // array, string, ...
+            // for (const iterator of dataList) {
+            //     textStacked = textStacked + `<li> ${iterator} </li>`;
+            // }
+            // document.querySelector(".lists").innerHTML = textStacked;
+            
+            // FORIN
+            // object {key: value, ...} [value1, value2, ...]
+            // for (const key in dataList) {
+            //     textStacked = textStacked + `<li> ${dataList[key]} </li>`;
+            // }
+            // document.querySelector(".lists").innerHTML = textStacked;
+        };
+
+        function done(index){
+            dataList[index].done = !dataList[index].done;
+            view();
+        }
+
+        view();
+
+        function add(){
+            dataList.splice(0, 0, {todo: document.querySelector(".wrapper-insert input").value, done: false});
+            // dataList.push({todo: document.querySelector(".wrapper-insert input").value, done: false});
+            document.querySelector(".wrapper-insert input").value = '';
+            view();
+        }
+
+        function remove(index){
+            dataList.splice(index, 1);
+            view();
+        }
+
+        function modify(index){
+            let asking = prompt('여기에 일을 새로 적으세요.');
+            if (asking == ''){
+                alert('일을 적지 않으셨습니다.');
+            } else {
+                dataList.splice(index, 1, {todo: asking, done: false});
+                view();
+            }
+        }
+
+        function removeAll(){
+            dataList.splice(0, dataList.length + 1);
+            view();
+        }
+    </script>
+</body>
+</html>
