@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ul LISTING</title>
+    <style>
+        body {background-color: black; color: white;}
+        li {list-style-type: lower-greek;}
+        a:link, a:hover {text-decoration: none; color: inherit;}
+    </style>
+</head>
+<body>
+    <ul class="lists"></ul>
+    <script>
+        let dataList = [
+            {
+                menuName: 'Company',
+                dir: 'sub01.html',
+                subMenu: [{
+                    subName: 'History',
+                    subDir: '?depNum=0',
+                },
+                {
+                    subName: 'Location',
+                    subDir: '?depNum=1',
+                },
+                {
+                    subName: 'CEO',
+                    subDir: '?depNum=2',
+                },],
+            },
+            {
+                menuName: 'QnA',
+                dir: 'sub02.html',
+                subMenu: null,
+            },
+            {
+                menuName: 'Products',
+                dir: 'sub03.html',
+                subMenu: [{
+                    subName: 'Machines',
+                    subDir: '?depNum=0',
+                },
+                {
+                    subName: 'Tools',
+                    subDir: '?depNum=1',
+                },],
+            },
+            {
+                menuName: 'Services',
+                dir: 'sub04.html',
+                subMenu: [{
+                    subName: 'international Agent',
+                    subDir: '?depNum=0',
+                },],
+            },
+            {
+                menuName: 'Allies',
+                dir: 'sub05.html',
+                subMenu: [{
+                    subName: 'Inland-',
+                    subDir: '?depNum=0',
+                },
+                {
+                    subName: 'Outland-',
+                    subDir: '?depNum=1',
+                },],
+            },
+        ]
+
+        let textStack = '';
+
+        dataList.forEach((element, index) => {
+            textStack += `<li><a href="./${element.dir}">${element.menuName}</a>`;
+                if (element.subMenu != null) {
+                    textStack += `<ul class="submenu">`;
+                    element.subMenu.forEach((elementSub, indexSub) => {
+                        textStack += `<li><a href="./${element.dir}${elementSub.subDir}">${elementSub.subName}</a></li>`;
+                    });
+                    textStack += `</ul>`;
+                }
+            textStack += `</li>`;
+        })
+
+        document.querySelector(".lists").innerHTML = textStack;
+    </script>
+</body>
+</html>

@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BOOTSTRAP SAMPLE</title>
+    <!-- POPPER.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.11.5/umd/popper.min.js" integrity="sha512-8cU710tp3iH9RniUh6fq5zJsGnjLzOWLWdZqBMLtqaoZUA6AWIE34lwMB3ipUNiTBP5jEZKY95SfbNnQ8cCKvA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <!-- BOOTSTRAP CSS + js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.0/js/bootstrap.min.js" integrity="sha512-8Y8eGK92dzouwpROIppwr+0kPauu0qqtnzZZNEF8Pat5tuRNJxJXCkbQfJ0HlUG3y1HB3z18CSKmUo7i2zcPpg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.0/css/bootstrap.min.css" integrity="sha512-XWTTruHZEYJsxV3W/lSXG1n3Q39YIWOstqvmFsdNEEQfHoZ6vm6E9GK2OrF6DSJSpIbRbi+Nn0WDPID9O7xB2Q==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        @media (min-width: 760px){
+            .nav-item.dropdown:hover .dropdown-menu {display: block;}
+        }
+        .visual {background: url(images/bg-top.jpg) no-repeat center; background-size: cover;}
+        .bg-gray {background-color: #F0F1F4 !important;}
+        #contents-first .card {box-shadow: 4px 4px 6px #00000045; border: none; transition: 0.23s;}
+        #contents-first .card:hover {transform: translate(-10px, -10px); box-shadow: 8px 8px 8px #00000023;}
+        .dashed:after {content: ""; display: block; width: 240px; height: 1px; background-color: #676676; margin: 24px auto;}
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="#">Brandlogo</a>
+            <button class="navbar-toggler d-lg-none" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavId" aria-controls="collapsibleNavId"
+                aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="collapsibleNavId">
+                <ul class="navbar-nav ms-auto mt-2 mt-lg-0">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#">HOME <span class="visually-hidden">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">COMPANY</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="dropdownId" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">PRODUCT</a>
+                        <div class="dropdown-menu" aria-labelledby="dropdownId">
+                            <a class="dropdown-item" href="#">Action 1</a>
+                            <a class="dropdown-item" href="#">Action 2</a>
+                        </div>
+                    </li>
+                </ul>
+                <!-- <form class="d-flex my-2 my-lg-0">
+                    <input class="form-control me-sm-2" type="text" placeholder="Search">
+                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                </form> -->
+            </div>
+        </div>
+    </nav>
+    
+    <div class="visual py-5">
+        <div class="container text-center text-white">
+            <h2>Lorem ipsum dolor sit amet consectetur.</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Suscipit explicabo, eveniet ducimus excepturi iusto quibusdam alias.</p>
+            <a href="#" class="btn btn-light  d-block d-md-inline-block mx-5 mb-3">UPLOAD PROJECT</a>
+            <img src="images/drop-icon.png" alt="" class="d-none d-md-block m-auto mb-3">
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+        </div>
+    </div>
+
+    <div class="bg-gray py-5">
+        <div class="container mb-5">
+            <div class="row">
+                <div class="col-md-5 order-2 order-md-1 text-center text-md-start">
+                    <h2>Lorem ipsum dolor sit amet.</h2>
+                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Praesentium, saepe nisi?</p>
+                    <a href="#!" class="btn btn-primary">More</a>
+                </div>
+                <div class="col-md-7 order-1 order-md-2 mb-5 mb-md-0 px-5 px-md-0">
+                    <img src="images/symu-panel-1.png" alt="" class="img-fluid">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container py-5">
+        <div class="row">
+            <div class="col-md-7 mb-5 mb-md-0 px-5 px-md-0">
+                <img src="images/symu-panel-2.png" alt="" class="img-fluid">
+            </div>
+            <div class="col-md-5 text-center text-md-end">
+                <h2>Lorem ipsum dolor sit amet.</h2>
+                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Praesentium, saepe nisi?</p>
+                <a href="#!" class="btn btn-primary">More</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="bg-gray py-5">
+        <div id="contents-first" class="container">
+            <h2 class="text-center mb-3 dashed">Gallery</h2>
+            <p class="text-center mb-5">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quis.</p>
+            <div class="row">
+                <div class="col-6 col-md-3">
+                    <div class="card">
+                        <img class="card-img-top" src="images/testimg.jpg" alt="EiffelTower">
+                        <div class="card-body">
+                            <h4 class="card-title">Lorem, ipsum.</h4>
+                            <p class="card-text">Lorem ipsum dolor sit amet.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6 col-md-3">
+                    <div class="card">
+                        <img class="card-img-top" src="images/testimg.jpg" alt="EiffelTower">
+                        <div class="card-body">
+                            <h4 class="card-title">Lorem, ipsum.</h4>
+                            <p class="card-text">Lorem ipsum dolor sit amet.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6 col-md-3">
+                    <div class="card">
+                        <img class="card-img-top" src="images/testimg.jpg" alt="EiffelTower">
+                        <div class="card-body">
+                            <h4 class="card-title">Lorem, ipsum.</h4>
+                            <p class="card-text">Lorem ipsum dolor sit amet.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6 col-md-3">
+                    <div class="card">
+                        <img class="card-img-top" src="images/testimg.jpg" alt="EiffelTower">
+                        <div class="card-body">
+                            <h4 class="card-title">Lorem, ipsum.</h4>
+                            <p class="card-text">Lorem ipsum dolor sit amet.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="bg-gray py-5" style="background: url(../images/pc01.jpg) center no-repeat; background-size: cover; background-attachment: fixed;">
+        <div id="contents-second" class="container">
+            <h2 class="text-center mb-3 dashed text-white">Gallery</h2>
+            <p class="text-center mb-5 text-white">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quis.</p>
+            <div class="row">
+                <div class="col-6 col-md-3">
+                    <div class="card">
+                        <img class="card-img-top" src="images/testimg.jpg" alt="EiffelTower">
+                        <div class="card-body">
+                            <h4 class="card-title">Lorem, ipsum.</h4>
+                            <p class="card-text">Lorem ipsum dolor sit amet.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6 col-md-3">
+                    <div class="card">
+                        <img class="card-img-top" src="images/testimg.jpg" alt="EiffelTower">
+                        <div class="card-body">
+                            <h4 class="card-title">Lorem, ipsum.</h4>
+                            <p class="card-text">Lorem ipsum dolor sit amet.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6 col-md-3">
+                    <div class="card">
+                        <img class="card-img-top" src="images/testimg.jpg" alt="EiffelTower">
+                        <div class="card-body">
+                            <h4 class="card-title">Lorem, ipsum.</h4>
+                            <p class="card-text">Lorem ipsum dolor sit amet.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6 col-md-3">
+                    <div class="card">
+                        <img class="card-img-top" src="images/testimg.jpg" alt="EiffelTower">
+                        <div class="card-body">
+                            <h4 class="card-title">Lorem, ipsum.</h4>
+                            <p class="card-text">Lorem ipsum dolor sit amet.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer py-5 bg-black text-white">
+        <div class="container text-center">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat qui exercitationem velit rerum.
+        </div>
+    </div>
+</body>
+</html>

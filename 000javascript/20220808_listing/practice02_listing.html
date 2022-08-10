@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        :root {
+            --navigator-height: unset;
+        }
+
+        * {margin: 0; padding: 0; box-sizing: border-box;}
+        body {background-color: black; color: white;}
+        a:link, a:visited {text-decoration: initial; color: inherit;}
+        li {list-style: none;}
+
+        .submenu {display: none;}
+        
+        #header {
+            background-color: #ABABAB;
+            position: relative;
+            z-index: 1000;
+        }
+        
+        #header .navigator-background {
+            opacity: 0;
+            position: absolute;
+            /* z-index: -1; */
+            left: 0;
+            right: 0;
+            top: 100%;
+            height: var(--navigator-height);
+            background-color: darkred;
+            transition: 0.25s;
+        }
+
+        .container {
+            position: relative;
+            z-index: 999;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .container,
+        .navigator {
+            display: flex; align-items: center;
+        }
+
+        .navigator {
+            margin-left: auto; margin-right: 6%;
+            align-items: center; gap: 12px;
+            width: 40%;
+        }
+
+        .navigator > li {
+            border-left: 1px solid #909090; border-right: 1px solid #909090;
+            position: relative;
+            width: 25%;
+        }
+
+        .navigator > li,
+        .navigator > li .submenu li {
+            padding: 12px 0; padding-left: 16px;
+        }
+
+        .navigator > li > a {
+
+        }
+
+        .navigator > li .submenu {
+            position: absolute; left: 0; top: 100%;
+            display: block;
+            visibility: hidden;
+            opacity: 0;
+            transition: 0.25s;
+        }
+        
+        .navigator > li .submenu.active {
+            visibility: visible;
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+    <header id="header">
+        <div class="wrapper">
+            <nav class="container">
+                <h1>Brandlogo</h1>
+                <ul class="navigator">
+                    
+                </ul>
+            </nav>
+        </div>
+        <div class="navigator-background"></div>
+    </header>
+
+    <script>
+        'use strict';
+        let navigatorList = [
+            {
+                depthOne: 'COMPANY',
+                dir: './sub01.html',
+                submenu: [{
+                    depthTwo: 'History',
+                    dir: '?depthTwo=0',
+                },
+                {
+                    depthTwo: 'CEO',
+                    dir: '?depthTwo=1',
+                },
+                {
+                    depthTwo: 'Location',
+                    dir: '?depthTwo=2',
+                }],
+            },
+            {
+                depthOne: 'RECRUIT',
+                dir: './sub02.html',
+                submenu: null,
+            },
+            {
+                depthOne: 'SERVICE',
+                dir: './sub03.html',
+                submenu: [{
+                    depthTwo: 'Business to Business',
+                    dir: '?depthTwo=0',
+                },
+                {
+                    depthTwo: 'Indiviual Catering Service',
+                    dir: '?depthTwo=1',
+                },
+                {
+                    depthTwo: 'More more',
+                    dir: '?depthTwo=2',
+                }],
+            },
+            {
+                depthOne: 'ANOTHER',
+                dir: './sub04.html',
+                submenu: [{
+                    depthTwo: 'ANOTHER SUBMENU 1',
+                    dir: '?depthTwo=0',
+                },
+                {
+                    depthTwo: 'ANOTHER SUBMENU 2',
+                    dir: '?depthTwo=1',
+                },
+                {
+                    depthTwo: 'ANOTHER SUBMENU 3',
+                    dir: '?depthTwo=2',
+                },
+                {
+                    depthTwo: 'ANOTHER SUBMENU 4',
+                    dir: '?depthTwo=3',
+                }],
+            },
+        ]
+        let stack = '';
+        const rootCall = document.querySelector(":root");        
+        
+        navigatorList.forEach((element, index) => {
+            stack += `<li>`;
+                stack += `<a href="${element.dir}">${element.depthOne}</a>`;
+                if (element.submenu != null){
+                    stack += `<ul class="submenu">`;
+                        navigatorList[index].submenu.forEach((elementSub, indexSub) => {
+                            stack += `<li><a href="${elementSub.dir}">${elementSub.depthTwo}</a></li>`;
+                        }
+                    )
+                    stack += `</ul>`;
+                }
+                stack += `</li>`;
+            }
+        );
+        document.querySelector(".navigator").innerHTML = stack;
+                
+        let array_navHeight = [];
+        document.querySelectorAll(".submenu").forEach(element => {
+            let a = 0;
+            a = element.clientHeight;
+            console.log(a);
+            array_navHeight.push(a);
+        });
+        let navHeight = array_navHeight.reduce((a, b) => {return Math.max(a, b);});
+        rootCall.style.setProperty('--navigator-height', navHeight + 24 + 'px');
+
+        document.querySelector(".navigator").addEventListener('mouseover', function(){
+            for (let i = 0; i < document.querySelectorAll("#header .navigator > li .submenu").length; i++){
+                document.querySelectorAll("#header .navigator > li .submenu")[i].classList.add('active');
+            }
+            document.querySelector("#header .navigator-background").style.opacity = 1;
+        })
+        document.querySelector("#header .navigator-background").addEventListener('mouseout', function(){
+            for (let i = 0; i < document.querySelectorAll("#header .navigator > li .submenu").length; i++){
+                document.querySelectorAll("#header .navigator > li .submenu")[i].classList.remove('active');
+            }
+            document.querySelector("#header .navigator-background").style.opacity = 0;
+        })
+
+
+
+    </script>
+</body>
+</html>

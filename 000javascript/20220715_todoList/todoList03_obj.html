@@ -60,7 +60,7 @@
             // {todo: '오늘의 할 일 3', done: false,},
             // {todo: '오늘의 할 일 4', done: true,},
             // {todo: '오늘의 할 일 5', done: false,},
-            {todo: `<span style='background-color: black; margin-left: 4px;'>행복버튼 누르기</span>`, done: false,},
+            {todo: `행복버튼 누르기`, done: false,},
         ];
 
         let textStacked = '';
@@ -85,9 +85,9 @@
             } else{
                 dataList.forEach(function(element, index){
                     if (dataList[index].done == true){
-                        textStacked = textStacked + `<li><div class="element" onclick="done(${index});"> ${index + 1}. ${dataList[index].todo}</div><div class="wrapper-icon"><i class="fa-solid fa-trash-can" onclick="remove(${index});"></i><i class="fa-solid fa-screwdriver-wrench" onclick="modify(${index});"></i><i class="fa-solid fa-triangle-exclamation" onclick="done(${index});"></i></div></li>`; // textStacked = textStacked + `<li> ${index + 1}. ${element.todo}</li>`;
+                        textStacked = textStacked + `<li><div class="element" onclick="done(${index});"> ${index + 1}. ${dataList[index].todo}</div><div class="wrapper-icon"><i class="fa-solid fa-trash-can" onclick="remove(${index});"></i><i class="fa-solid fa-screwdriver-wrench" onclick="modifyNoPrompt('${dataList[index].todo}', ${index});"></i><i class="fa-solid fa-triangle-exclamation" onclick="done(${index});"></i></div></li>`;
                     } else {
-                        textStacked = textStacked + `<li class="active"><div class="element" onclick="done(${index});"> ${index + 1}. ${dataList[index].todo}</div><div class="wrapper-icon"><i class="fa-solid fa-trash-can" onclick="remove(${index});"></i><i class="fa-solid fa-screwdriver-wrench" onclick="modify(${index});"></i><i class="fa-solid fa-flag-checkered" onclick="done(${index});"></i></div></li>`; // textStacked = textStacked + `<li> ${index + 1}. ${element.todo}</li>`;
+                        textStacked = textStacked + `<li class="active"><div class="element" onclick="done(${index});"> ${index + 1}. ${dataList[index].todo}</div><div class="wrapper-icon"><i class="fa-solid fa-trash-can" onclick="remove(${index});"></i><i class="fa-solid fa-screwdriver-wrench" onclick="modifyNoPrompt('${dataList[index].todo}', ${index});"></i><i class="fa-solid fa-flag-checkered" onclick="done(${index});"></i></div></li>`;
                     }
                 });
             }
@@ -116,8 +116,19 @@
         view();
         
         function add(){
-            dataList.splice(0, 0, {todo: document.querySelector(".wrapper-insert input").value, done: false});
-            // dataList.push({todo: document.querySelector(".wrapper-insert input").value, done: false});
+            if (document.querySelector(".wrapper-insert input").dataset.writingMode == -1){
+                dataList.splice(0, 0, {todo: document.querySelector(".wrapper-insert input").value, done: false});
+                // dataList.push({todo: document.querySelector(".wrapper-insert input").value, done: false});
+            } else {
+                if (document.querySelector(".wrapper-insert input").value != ''){
+                    dataList[document.querySelector(".wrapper-insert input").dataset.writingMode].todo = document.querySelector(".wrapper-insert input").value;
+                } else {
+                    alert('입력한 내용이 없어서 수정하지 않았습니다.');
+                }
+                    document.querySelector(".wrapper-insert input").dataset.writingMode = -1;
+                    document.querySelector(".wrapper-insert input").placeholder = '추가하려는 일';
+                    document.querySelector(".wrapper-insert button").innerHTML = '추가';
+            }
             document.querySelector(".wrapper-insert input").value = '';
             view();
         }
@@ -140,13 +151,15 @@
             }
         }
         
-        function modifyNoPrompt(title, index){
+        function modifyNoPrompt(content, index){
             if (document.querySelector(".wrapper-insert input").dataset.writingMode != -1 || document.querySelector(".wrapper-insert input").dataset.writingMode == index){
                 document.querySelector(".wrapper-insert input").placeholder = '추가하려는 일';
                 document.querySelector(".wrapper-insert input").dataset.writingMode = -1;
+                document.querySelector(".wrapper-insert button").innerHTML = '추가';
             } else {
-                document.querySelector(".wrapper-insert input").placeholder = title;
+                document.querySelector(".wrapper-insert input").placeholder = content;
                 document.querySelector(".wrapper-insert input").dataset.writingMode = index;
+                document.querySelector(".wrapper-insert button").innerHTML = '수정';
             }
         }
         

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AGAIN AGAIN AGAIN AGAIN AGAIN AGAIN AGAIN AGAIN AGAIN AGAIN AGAIN AGAIN AGAIN AGAIN AGAIN AGAIN AGAIN AGAIN AGAIN AGAIN </title>
+    <style>
+        * {margin: 0; padding: 0; box-sizing: border-box;}
+        body {background-color: black; color: white; padding-top: 40px;}
+        li {list-style-type: none;}
+        button {cursor: pointer;}
+        .container {width: 400px; margin: 0 auto;}
+        .form-todo {display: flex; gap: 8px; margin-bottom: 8px;}
+        .form-todo #todo {flex-grow: 1; padding: 16px;}
+        .form-todo #todo:focus {outline: none;}
+        .form-todo #adder {padding: 16px 24px; background-color: transparent; color: white; border: 1px solid white;}
+        .container .todo-lists {background-color: #CBCBCB; padding: 16px; margin-bottom: 8px;}
+        .container .todo-lists li {background-color: #000000; margin-bottom: 4px; padding: 16px; display: flex; justify-content: space-between; align-items: center;}
+        .container .todo-lists li.done {background-color: #343434; color: #ABABAB99;}
+        .container .todo-lists li.done span {text-decoration: line-through;}
+        .container .todo-lists li .wrapper {display: flex; gap: 4px;}
+        .container .todo-lists li .wrapper button {padding: 8px 12px; background-color: transparent; color: white; border: 1px solid white;}
+        .container .the-button-making-ppl-happy {padding: 24px 16px; background-color: darkred; color: white; display: flex; justify-content: center; align-items: center; cursor: pointer;}
+    </style>
+</head>
+<body>
+    <div class="container">
+        <form class="form-todo" action="javascript:void(0);">
+            <input type="text" name="todo" id="todo" data-writing-mode="-1">
+            <button id="adder" onclick="Add();">추가</button>
+        </form>
+        <ul class="todo-lists"></ul>
+        <div class="the-button-making-ppl-happy" onclick="RemoveAll();">누르면 행복해지는 버튼</div>
+    </div>
+
+    <script>
+        'use strict';
+        let dataList = [];
+
+        function View(){
+            dataList = JSON.parse(localStorage.getItem("data_todoList"));
+            let stack = '';
+            if (dataList.length <= 0){
+                stack = `할 일 끝 ^0 ^`;
+            } else {
+                dataList.forEach((element, index) => {
+                    if (element.done == true){
+                        stack = stack + `<li class="done" onclick="done(${index});"><span>${element.todo}</span> <div class="wrapper"><button onclick="Modify(${index});">수정</button><button onclick="Remove(${index});">삭제</button></div></li>`
+                    } else {
+                        stack = stack + `<li onclick="done(${index});"><span>${element.todo}</span> <div class="wrapper"><button onclick="Modify(${index});">수정</button><button onclick="Remove(${index});">삭제</button></div></li>`
+                    }
+                });
+            }
+            document.querySelector(".todo-lists").innerHTML = stack;
+        };
+
+        function done(index){
+            dataList[index].done = !dataList[index].done
+            View();
+        }
+
+        function Add(){
+                if (document.querySelector("#todo").dataset.writingMode == -1){
+                    if (document.querySelector("#todo").value == ''){
+                        alert('입력한 내용이 없어 추가하지 않았습니다.');
+                    } else {
+                        dataList.splice(0, 0, {todo: document.querySelector("#todo").value, done: false});
+                    }
+                } else {
+                    if (document.querySelector("#todo").value == ''){
+                        alert('입력한 내용이 없어 수정하지 않았습니다.');
+                    } else {
+                        dataList[document.querySelector("#todo").dataset.writingMode].todo = document.querySelector("#todo").value;
+                    }
+                }
+            localStorage.setItem("data_todoList", JSON.stringify(dataList));
+            
+            document.querySelector("#todo").dataset.writingMode = -1;
+            document.querySelector("#adder").innerHTML = '추가';
+            document.querySelector("#todo").value = '';
+            document.querySelector("#todo").focus();
+            View();
+        };
+
+        function Remove(index){
+            dataList.splice(index, 1);
+            localStorage.setItem("data_todoList", JSON.stringify(dataList));
+            View();
+            event.stopPropagation();
+        };
+        
+        function RemoveAll(){
+            dataList.splice(0, dataList.length + 1);
+            View();
+        };
+
+        function Modify(index){
+            if (document.querySelector("#todo").dataset.writingMode != -1 && document.querySelector("#todo").dataset.writingMode == index){
+                document.querySelector("#todo").dataset.writingMode = -1;
+                document.querySelector("#adder").innerHTML = '추가';
+            } else {
+                document.querySelector("#todo").focus();
+                document.querySelector("#todo").dataset.writingMode = index;
+                document.querySelector("#adder").innerHTML = '수정';
+            }
+            event.stopPropagation();
+        };
+    </script>
+</body>
+</html>

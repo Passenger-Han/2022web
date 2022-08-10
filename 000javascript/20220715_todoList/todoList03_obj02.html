@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TODOLIST - OBJ</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css" integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        * {box-sizing: border-box; margin: 0; padding: 0;}
+        body {background-color: black;color: white; padding-top: 200px;}
+        li {list-style-type: lower-greek;}
+        .form-input, .lists {width: 600px; margin: 0 auto;}
+        .form-input {display: flex; gap: 16px; padding: 16px 0; height: 80px; align-items: stretch;}
+        .form-input #todo {flex-grow: 1; text-indent: 16px;}
+        .form-input button {margin-right: initial;}
+        .lists li {background-color: crimson; padding: 16px; margin-bottom: 4px; display: flex; align-items: center; justify-content: space-between;}
+        .lists li.finished {background-color: initial; text-decoration: line-through;}
+        button {background-color: inherit; color: inherit; border: 1px solid white; padding: 8px 12px; margin-right: 4px;}
+    </style>
+</head>
+<body>
+    <div class="form-input">
+        <input type="text" name="todo" id="todo" data-writing-mode="-1">
+        <button class="btn-add" onclick="Add();">추가</button>
+    </div>
+    <ul class="lists">
+
+    </ul>
+
+    <script>
+        let dataList = [
+            {
+                todo: `행복버튼 누르기`,
+                done: false,
+            },
+            {
+                todo: `True`,
+                done: false,
+            },
+            {
+                todo: `False`,
+                done: true,
+            },
+        ];
+        let textStack = '';
+
+        // dataList.forEach((element, index) => {
+        //     document.querySelectorAll(".lists li")[index].addEventListener(function(){
+        //         // Done(index);
+        //     });
+        // });
+
+        function Done(index){
+            dataList[index].done = !dataList[index].done;
+            View();
+        }
+        
+        function View(){
+            textStack = '';
+            dataList.forEach((element, index) => {
+                if (element.done == true){
+                    textStack += `<li onclick="Done(${index});" class="finished">${element.todo} <span class="btns"><button class="btn-mod" onclick="Modify(${index});">수정</button><button class="btn-rmv" onclick="Remove(${index});">삭제</button></span></li>`
+                } else {
+                    textStack += `<li onclick="Done(${index});" class="">${element.todo} <span class="btns"><button class="btn-mod" onclick="Modify(${index});">수정</button><button class="btn-rmv" onclick="Remove(${index});">삭제</button></span></li>`
+                }
+            });
+            document.querySelector(".lists").innerHTML = textStack;
+        }
+
+        function Add(){
+            if (document.querySelector("#todo").dataset.writingMode == -1){
+                dataList.splice(0, 0, {todo: document.querySelector("#todo").value, done: false,});
+            } else {
+                if (document.querySelector("#todo").value != ''){
+                    dataList[document.querySelector("#todo").dataset.writingMode].todo = document.querySelector("#todo").value;
+                } else {
+                    alert('입력한 내용이 없어 수정하지 않았습니다.');
+                }
+            }
+            document.querySelector("#todo").value = '';
+            document.querySelector("#todo").dataset.writingMode = -1;
+            document.querySelector(".form-input .btn-add").innerHTML = `추가`;
+            View();
+        }
+        
+        function Remove(index){
+            dataList.splice(index, 1);
+            View();
+        }
+        
+        function Modify(index){
+            if (document.querySelector("#todo").dataset.writingMode != -1 && document.querySelector("#todo").dataset.writingMode == index) {
+                document.querySelector("#todo").dataset.writingMode = -1;
+                document.querySelector(".form-input .btn-add").innerHTML = `추가`;
+            } else {
+                document.querySelector("#todo").dataset.writingMode = index;
+                document.querySelector(".form-input .btn-add").innerHTML = `수정`;
+            }
+            event.stopPropagation();
+        }
+
+        View();
+    </script>
+</body>
+</html>

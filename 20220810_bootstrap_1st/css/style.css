@@ -1,0 +1,33 @@
+@charset "UTF-8";
+
+:root {
+    --bg-color1: #8b0000;
+    --bg-color-gradient1: linear-gradient(135deg, #30CFD0 0%, #330867 100%);
+    --shadow-color1: 3px 3px 10px rgba(0, 0, 0, 0.15);
+}
+.bg-color1 {
+    background: var(--bg-color1, darkred);
+}
+
+.btn-gradient1 {
+    background-image: var(--bg-color-gradient1, blue); border: none;
+}
+
+.visual {
+    background: url(../images/slider-bg.svg) no-repeat center;
+    background-size: cover;
+}
+
+#content-1st .card {
+    background-color: var(--bs-gray-100);
+    transition: 0.15s;
+}
+
+#content-1st .card:hover {
+    transform: scale(1.008);
+    box-shadow: var(--shadow-color1);
+}
+
+#content-1st .card img {
+    height: 200px;
+}
