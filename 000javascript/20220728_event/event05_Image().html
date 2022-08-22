@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image()</title>
+    <style>
+        body {
+            background-color: #000000;
+            color: #FFFFFF;
+        }
+    </style>
+</head>
+<body>
+    <img src="../../images/img1.jpg" alt="" onclick="Change(this)">
+    <script>
+        const files = [
+            'img1.jpg',
+            'img2.jpg',
+            'img3.jpg',
+            'img4.jpg',
+            'img5.jpg',
+            'img6.jpg',
+            'img7.jpg',
+        ];
+
+        // let nextImage = 1;
+        // function Change(img){
+        //     img.src = `../../images/${files[nextImage]}`;
+        //     nextImage++;
+        //     nextImage %= files.length;
+        // }
+
+        
+        const imgs = new Array();
+        for (let i = 0; i < files.length; i++){
+            imgs[i] = new Image();
+            imgs[i].src = `../../images/${files[i]}`;
+        }
+
+        let nextImage = 1;
+        function Change(img){
+            img.src = imgs[nextImage].src;
+            nextImage++;
+            nextImage %= imgs.length;
+        }
+    </script>
+</body>
+</html>

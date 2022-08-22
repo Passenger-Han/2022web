@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FOCUS</title>
+    <style>
+        * {margin: 0; padding: 0; box-sizing: border-box;}
+        body {background-color: #000000; color: #FFFFFF;}
+        input:focus {
+            outline: none;
+            /* background-color: rgba(255, 167, 167, 1); */
+        }
+    </style>
+</head>
+<body>
+    <form action="javascript:void(0);">
+        <fieldset>
+            <!-- 이름 -->
+            <label for="name">이름</label>
+            <input type="text" id="name">
+
+            <!-- 학번 -->
+            <label for="studentTag">학번</label>
+            <input type="text" id="studentTag">
+
+            <!-- 지역 -->
+            <span class="loca">거주지</span>
+            <label for="seoul">서울</label>
+            <input type="radio" name="location" id="seoul" value="서울" checked>
+            <label for="daejun">대전</label>
+            <input type="radio" name="location" id="daejun" value="대전">
+            <label for="busan">부산</label>
+            <input type="radio" name="location" id="busan" value="부산">
+            <button class="location-select">선택</button>
+        </fieldset>
+    </form>
+
+    <script>
+        window.onload = function(){
+            document.getElementById('name').focus();
+        }
+
+        function Check(object){
+            if (object.value == ''){
+                object.focus();
+                alert('Enter your name, please.');
+                return false;
+            }
+        }
+
+        let locationSelected = document.querySelector(".loca");
+        let radioCity = document.getElementsByName("location");
+        let locationButton = document.querySelector(".location-select");
+
+        locationButton.onclick = function(){
+            radioCity.forEach((element, index) => {
+                if (radioCity[index].checked == true){
+                    locationSelected.innerHTML = element.value;
+                }
+            });
+        }
+    </script>
+</body>
+</html>

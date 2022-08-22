@@ -1,0 +1,40 @@
+@charset "UTF-8";
+:root {
+    --box-shadow-dark: 0 4px 3px rgba(0, 0, 0, 0.22);
+}
+
+ul {margin: 0; padding: 0;}
+li {list-style-type: none;}
+.banner a:link, .banner a:visited {text-decoration: initial; color: initial;}
+#footer a:link, #footer a:visited {text-decoration: none; color: inherit;}
+
+.navbar-toggler {border: none;}
+.bg-custom-001 {width: 100%; height: 600px; background: linear-gradient(160deg, #30CFD0 0%, #330867 67% 80%, #000000 80% 80.075%, #330867 80.075% 100%); position: absolute; z-index: -1; transform: skew(0, -3deg);}
+
+.video video {object-fit: fill; width: 100%; border-radius: 6px; box-shadow: 0 0 10px rgba(122, 0, 138, 0.875);}
+.video .text-white {top: 24px; left: 40px;}
+
+#content-1st .banner {box-shadow: var(--box-shadow-dark);}
+#content-1st .banner a {color: var(--bs-white);}
+
+#content-3rd.banner .row .card {cursor: pointer; border: 0 none; box-shadow: var(--box-shadow-dark);}
+
+#content-4th .row .col-lg-6.visual {height: 400px;}
+
+#content-4th .icon {width: 80px; height: 80px; border-radius: 50%; box-shadow: var(--box-shadow-dark);}
+
+#content-4th .img01 {top: 0; right: 0;}
+#content-4th .img02 {bottom: 0;}
+#content-4th .img05 {top: 0; left: 0;}
+#content-4th .img06 {bottom: 0; right: 0;}
+
+#contact {
+    background: url(../images/contact-cover.jpg) no-repeat center;
+    background-size: cover;
+}
+
+footer {
+    background-color: #E8E8E8;
+}
+
+@media (max-width: 768px){.offcanvas-body .navbar-nav .nav-item a {color: var(--bs-black);}}

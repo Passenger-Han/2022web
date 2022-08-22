@@ -31,3 +31,36 @@
 #content-1st .card img {
     height: 200px;
 }
+
+/* OWL CAROUSEL */
+.owl-theme .owl-nav [class*=owl-] {
+    background-color: initial;
+    font-size: 32px !important;
+    /* width: 32px; height: 32px; */
+    border-radius: 50%;
+}
+
+.owl-theme .owl-nav [class*=owl-] .fa-solid {
+    vertical-align: top;
+}
+
+.owl-theme .owl-nav [class*=owl-]:hover {
+    background: initial;
+    color: #FF0000;
+    text-decoration: none;
+}
+
+.owl-prev, .owl-next {position: absolute; top: 35%;}
+.owl-prev {left: -26px;}
+.owl-next {right: -26px;}
+
+.lazy-load {
+    transition: 0.5s;
+    transform: translateY(24px);
+    opacity: 0;
+}
+
+.lazy-load.fade {
+    transform: translateY(0);
+    opacity: 1;
+}
