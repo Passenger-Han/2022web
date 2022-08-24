@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PARALLAX</title>
+    <style>
+        html, body {height: 100%;}
+        * {margin: 0; padding: 0; box-sizing: border-box;}
+        body {background-color: rgb(33, 0 ,2); color: white; height: 400vh;}
+        header {height: 100vh; background-color: #FEAE1B; position: relative; overflow: hidden;}
+        .layer {width: 100vw; height: 100vh; position: absolute; background-position: center bottom; background-repeat: no-repeat; background-size: auto 900px;}
+        .layer.parallax01 {background-image: url(img/parallax0.png);}
+        .layer.parallax02 {background-image: url(img/parallax1.png);}
+        .layer.parallax03 {background-image: url(img/parallax2.png);}
+        .layer.parallax04 {background-image: url(img/parallax3.png);}
+        .layer.parallax05 {background-image: url(img/parallax4.png);}
+        .layer.parallax06 {background-image: url(img/parallax5.png);}
+        .layer.parallax07 {background-image: url(img/parallax6.png);}
+        .layer.parallax08 {background-image: url(img/parallax7.png);}
+        .layer.parallax09 {background-image: url(img/parallax8.png);}
+    </style>
+</head>
+<body>
+    <header>
+        <div class="layer parallax01" data-scroll-velocity="6"></div>
+        <div class="layer parallax02" data-scroll-velocity="7"></div>
+        <div class="layer parallax03" data-scroll-velocity="8"></div>
+        <div class="layer parallax04" data-scroll-velocity="9"></div>
+        <div class="layer parallax05" data-scroll-velocity="10"></div>
+        <div class="layer parallax06" data-scroll-velocity="12"></div>
+        <div class="layer parallax07" data-scroll-velocity="20"></div>
+        <div class="layer parallax08" data-scroll-velocity="27"></div>
+        <div class="layer parallax09" data-scroll-velocity="48"></div>
+    </header>
+
+    <script>
+        let layers = document.querySelectorAll(".layer");
+
+        window.onscroll = () => {
+            // console.log(scrollY); // Scrolling checked.
+            layers.forEach((element, index) => {
+                element.style.transform = `translate3D(0, ${scrollY / element.dataset.scrollVelocity * 4}px, 0)`;
+            });
+        }
+    </script>
+</body>
+</html>

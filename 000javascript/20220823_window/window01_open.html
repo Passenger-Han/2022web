@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WINDOW OPEN</title>
+    <style>
+        body {background-color: black; color: white;}
+    </style>
+</head>
+<body>
+    <a href="https://www.naver.com" target="_self">네이버</a>
+    <a href="https://www.daum.net" target="_blank">다음</a>
+    <button onclick="NewWindow('www.naver.com');">새 창 열기</button>
+
+    <script>
+        function NewWindow(urls){
+            // console.log('open');
+            window.open('https://' + urls, 'My Window', 'width = 300, height = 400');
+        }
+    </script>
+</body>
+</html>

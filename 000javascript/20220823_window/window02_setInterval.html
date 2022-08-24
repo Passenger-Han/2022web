@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>STRINGs</title>
+    <style>
+        body {background-color: black; color: white;}
+    </style>
+</head>
+<body>
+    <div class="drive">자동으로 회전하는 텍스트 </div>
+    <script>
+        'use strict';
+        const driveElement = document.querySelector(".drive");
+        
+        // // substr() used.
+        // driveElement.onclick = () => clearInterval(timer01);
+        // let timer01 = setInterval(RotateString, 250);
+        // function RotateString(){
+            // let currentString = driveElement.innerHTML;
+            // let firstCharacter = currentString.substr(0, 1);
+            // let restCharacters = currentString.substr(1);
+            // currentString = restCharacters + firstCharacter;
+            // driveElement.innerHTML = currentString;
+        // };
+            
+        // // substring() used.
+        driveElement.onclick = () => clearInterval(timer02);
+        let timer02 = setInterval(() => {
+            let targetString = driveElement.innerHTML;
+            let firstCharacter = targetString.substring(0, 1);
+            let remainder = targetString.substring(1);
+            targetString = remainder + firstCharacter;
+            driveElement.innerHTML = targetString;
+        }, 250);
+    </script>
+</body>
+</html>
