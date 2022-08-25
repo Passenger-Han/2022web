@@ -38,22 +38,29 @@
         const listQuantity = $(".slide > li").length;
         $(document).ready(function(){
             let currentPicture = 0;
+            let unfinishedSlide = false;
 
             // 단추
             $(".goNext").click(function(){
                 autoMode++;
-                $(".slide > li").eq(currentPicture).css({left: 0}).stop().animate({left: '-100%'}, 950); // 기존 이미지
-                currentPicture++;
-                if (currentPicture == listQuantity) currentPicture = 0; // (array 는 0부터 시작)
-                $(".slide > li").eq(currentPicture).css({left: '100%'}).stop().animate({left: 0}, 950); // 불러올 이미지
+                if (unfinishedSlide == false){
+                    unfinishedSlide = true;
+                    $(".slide > li").eq(currentPicture).css({left: 0}).stop().animate({left: '-100%'}, 950); // 기존 이미지
+                    currentPicture++;
+                    if (currentPicture == listQuantity) currentPicture = 0; // (array 는 0부터 시작)
+                    $(".slide > li").eq(currentPicture).css({left: '100%'}).stop().animate({left: 0}, 950, () => {unfinishedSlide = false;}); // 불러올 이미지
+                }
                 if (autoMode != 1) {clearInterval(autoSlide); autoSlide = null; $(".play").html('AUTO');} // autoSlide 중지
             });
             $(".goPrev").click(function(){
                 autoMode++;
-                $(".slide > li").eq(currentPicture).css({left: 0}).stop().animate({left: '100%'}, 950); // 기존 이미지
-                currentPicture--;
-                if (currentPicture == -1) currentPicture = listQuantity - 1; // (array 는 0부터 시작)
-                $(".slide > li").eq(currentPicture).css({left: '-100%'}).stop().animate({left: 0}, 950); // 불러올 이미지
+                if (unfinishedSlide == false){
+                    unfinishedSlide = true;
+                    $(".slide > li").eq(currentPicture).css({left: 0}).stop().animate({left: '100%'}, 950); // 기존 이미지
+                    currentPicture--;
+                    if (currentPicture == -1) currentPicture = listQuantity - 1; // (array 는 0부터 시작)
+                    $(".slide > li").eq(currentPicture).css({left: '-100%'}).stop().animate({left: 0}, 950, () => {unfinishedSlide = false;}); // 불러올 이미지
+                }
                 if (autoMode != 1) {clearInterval(autoSlide); autoSlide = null; $(".play").html('AUTO');} // autoSlide 중지
             });
             $(".play").click(function(){
@@ -62,7 +69,7 @@
                     autoSlide = setInterval(() => {
                         autoMode--;
                         $(".goNext").trigger("click");
-                    }, 3000);
+                    }, 6000); // 아래의 'trigger 를 이용한 Auto-slide' 와 동일하게.
                     $(".play").html('PAUSE');
                 } else {
                     autoMode = 2;
@@ -71,11 +78,12 @@
             });
         });
         
+        // trigger 를 이용한 Auto-slide
         let autoMode = 1;
         let autoSlide = setInterval(() => {
             autoMode--;
             $(".goNext").trigger("click");
-        }, 3000);
+        }, 6000);
     </script>
 </body>
 </html>
