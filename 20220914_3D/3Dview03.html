@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3D Cards</title>
+    <style>
+        * {margin: 0; padding: 0; box-sizing: border-box;}
+        body {height: 100vh; display: flex; justify-content: center; align-items: center; background-image: url(img/back-img.jpg); background-size: cover; background-position: center; background-repeat: no-repeat; perspective: 800px;}
+        img {display: block;}
+        .wrapper-card {width: 200px; height: 308px; transform-style: preserve-3d;}
+        .card {position: relative; transform-style: preserve-3d; transform: rotateY(180deg); transition: 1s;}
+        .card .panel {position: absolute; backface-visibility: hidden; border-radius: 8px; overflow: hidden;}
+        .card .card-front {}
+        .card .card-rear {transform: rotateY(180deg);}
+        
+        .card.active {transform: rotateY(0deg);}
+        /* .wrapper-card:hover .card {transform: rotateY(0deg);} */
+    </style>
+</head>
+<body>
+    <div class="wrapper-card">
+        <div class="card">
+            <div class="panel card-front">
+                <img src="img/k.png" alt="">
+            </div>
+            <div class="panel card-rear">
+                <img src="img/back.jpg" alt="">
+            </div>
+        </div>
+    </div>
+    
+    <div class="wrapper-card">
+        <div class="card">
+            <div class="panel card-front">
+                <img src="img/q.png" alt="">
+            </div>
+            <div class="panel card-rear">
+                <img src="img/back.jpg" alt="">
+            </div>
+        </div>
+    </div>
+    
+    <div class="wrapper-card">
+        <div class="card">
+            <div class="panel card-front">
+                <img src="img/j.png" alt="">
+            </div>
+            <div class="panel card-rear">
+                <img src="img/back.jpg" alt="">
+            </div>
+        </div>
+    </div>
+        
+    <div class="wrapper-card">
+        <div class="card">
+            <div class="panel card-front">
+                <img src="img/10.jpg" alt="">
+            </div>
+            <div class="panel card-rear">
+                <img src="img/back.jpg" alt="">
+            </div>
+        </div>
+    </div>
+    
+    <div class="wrapper-card">
+        <div class="card">
+            <div class="panel card-front">
+                <img src="img/a.jpg" alt="">
+            </div>
+            <div class="panel card-rear">
+                <img src="img/back.jpg" alt="">
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const card = document.querySelectorAll(".card");
+        for (let i = 0; i < 5; i++){
+            card[i].addEventListener('click', function(){
+                card[i].classList.toggle('active');
+            })
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3D View</title>
+    <style>
+        * {margin: 0; padding: 0; box-sizing: border-box;}
+        html, body {height: 100%;}
+        body {background-color: black; color: white; display: flex; justify-content: center; align-items: center; perspective: 200px;}
+        .box-wrapper {width: 150px; height: 200px; transform-style: preserve-3d;;}
+        .box-wrapper:hover .box {animation: animate3D 2s alternate forwards;}
+        .box {width: 100px; height: 200px; background-color: beige; transform: rotateY(0deg); transform-origin: 0 0; backface-visibility:hidden; _animation: animate3D 2s alternate forwards;}
+        
+        @keyframes animate3D {100% {transform: rotateY(-135deg);}}
+    </style>
+</head>
+<body>
+    <div class="box-wrapper">
+        <div class="box">
+            
+        </div>
+    </div>
+</body>
+</html>

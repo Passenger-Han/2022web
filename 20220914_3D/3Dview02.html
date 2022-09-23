@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Card Flip</title>
+    <style>
+        * {margin: 0; padding: 0; box-sizing: border-box;}
+        html, body {height: 100%;}
+        body {background-color: black; color: white; display: flex; justify-content: center; align-items: center;}
+        .card-wrapper {perspective: 100px;}
+        .card {width: 150px; height: 200px; position: relative; background-color: white; color: black; transform-style: preserve-3d; transform: rotateY(0); transition: 5s;}
+        .card-wrapper:hover .card {transform: rotateY(180deg);}
+        .card div {width: 100%; height: 100%; display: flex; justify-content: center; align-items: center; position: absolute; backface-visibility: hidden;}
+        .card .front {background-color: beige;}
+        .card .front h1 {transform: translate3d(0, 0, 0);}
+        .card .back {background-color: crimson; transform: rotateY(180deg);}
+        .card .back h1 {transform: translate3d(0, 0, 0);}
+    </style>
+</head>
+<body>
+    <div class="card-wrapper">
+        <div class="card">
+            <div class="front"><h1>앞</h1></div>
+            <div class="back"><h1>뒤</h1></div>
+        </div>
+    </div>
+</body>
+</html>

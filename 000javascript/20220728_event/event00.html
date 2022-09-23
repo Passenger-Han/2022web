@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EVENT</title>
+    <style>
+        body {background-color: black; color: white;}
+        #outer {background-color: #F00; padding: 20px; color: black;}
+        #inner {background-color: #0F0; padding: 20px; color: black;}
+    </style>
+    <script>
+        window.onload = function(){
+            const outer = document.querySelector("#outer");
+            const inner = document.querySelector("#inner");
+
+            outer.onclick = function(){alert('부모 이벤트');}
+            inner.onclick = function(event){alert('자식 이벤트'); event.stopPropagation();}
+        }
+    </script>
+</head>
+<body>
+    <div id="outer">
+        <div id="inner">클릭</div>
+    </div>
+</body>
+</html>

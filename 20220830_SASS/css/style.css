@@ -1,0 +1,57 @@
+body {
+  background-color: black;
+}
+
+a:link, a:visited {
+  text-decoration: none;
+  color: green;
+}
+
+h2 {
+  font-size: 2em;
+  color: red;
+  background: green;
+}
+
+.nav {
+  width: 500px;
+  margin: 0 auto;
+}
+.nav li {
+  list-style-type: none;
+  height: 40px;
+  float: left;
+}
+.nav li a {
+  display: block;
+  line-height: 40px;
+}
+.nav li a.active {
+  color: red;
+}
+.nav li:hover {
+  background: darkgreen;
+}
+.nav:after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+.red, .darkblue, .crimson {
+  width: 100px;
+  height: 40px;
+  color: white;
+}
+
+.crimson {
+  background-color: crimson;
+}
+
+.darkblue {
+  background-color: darkblue;
+}
+
+.red {
+  background-color: red;
+}/*# sourceMappingURL=style.css.map */

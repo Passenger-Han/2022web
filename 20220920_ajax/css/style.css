@@ -1,0 +1,80 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+img {
+  display: block;
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-image: url(https://source.unsplash.com/1600x900/?seoul);
+}
+
+.card {
+  width: 300px;
+  height: 300px;
+  padding: 1.75rem;
+  background: rgba(0, 0, 0, 0.6039215686);
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+.card .search {
+  display: flex;
+  gap: 0.25rem;
+}
+.card .search #input-search {
+  padding: 0.5rem;
+  flex-grow: 1;
+  outline: none;
+  border-radius: 0.375rem;
+  border: 0 none;
+}
+.card .search .button-icon {
+  flex-basis: 9%;
+  padding: 0.5rem;
+  border-radius: 0.375rem;
+  border: 0 none;
+}
+.card .weather {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+.card .weather .summary {
+  margin-top: 0.25rem;
+  margin-bottom: auto;
+  display: flex;
+  flex-direction: column;
+}
+.card .weather .summary .temperature {
+  font-size: 3.5em;
+}
+.card .weather .info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.card .weather .info .info-picto {
+  flex-basis: 50%;
+}
+.card .weather .info .info-text {
+  flex-basis: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}/*# sourceMappingURL=style.css.map */

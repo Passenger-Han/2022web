@@ -1,0 +1,65 @@
+$grass: green;
+$red: red;
+$crimson: crimson;
+$darkblue: darkblue;
+
+body {background-color: black;}
+
+a:link, a:visited {
+    text-decoration: none;
+    color: $grass;
+}
+
+h2 {
+    font-size: 2em;
+    color: red;
+    background: $grass;
+}
+
+.nav {
+    width: 500px;
+    margin: 0 auto;
+    li {
+        list-style-type: none;
+        height: 40px;
+        float: left;
+        a {
+            display: block;
+            line-height: 40px;
+
+            &.active {
+                color: red;
+            }
+        }
+
+        &:hover {
+            background: darkgreen;
+        }
+    }
+
+    &:after {
+        content: "";
+        display: block;
+        clear: both;
+    }
+}
+
+%button {
+    width: 100px;
+    height: 40px;
+    color: white;
+}
+.crimson {
+    @extend %button;
+    background-color: $crimson;
+}
+
+.darkblue {
+    @extend %button;
+    background-color: $darkblue;
+}
+
+.red {
+    @extend %button;
+    background-color: $red;
+}

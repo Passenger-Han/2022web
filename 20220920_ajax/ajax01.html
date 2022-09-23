@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AJAX</title>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <ul class="container"></ul>
+    
+    <script>
+        $.ajax({
+            url: 'data/book.json',
+            method: 'GET',
+            dataType: 'json',
+        })
+        .done(function(data){
+            console.log(data);
+            let stacked = '';
+            for (let i = 0; i < data.book.length; i++){
+                stacked += `<li>${data.book[i].title}, ${data.book[i].author}, ${data.book[i].price}</li>`;
+            }
+            $('.container').html(stacked);
+        })
+        .fail(function(xhr, status, errorThrown){
+            console.log('error!');
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SVG</title>
+    <style>
+        .st1 {fill:#d48900;}
+        .st2 {fill:none;stroke:#000;stroke-miterlimit:10;}
+        .face {transform:translateX(4px); animation: animationFace 1.25s alternate infinite linear;}
+        @keyframes animationFace {to {transform: translateX(-8px);}}
+        .eye1 {transform:scaleY(1); transform-origin: 53px 66px; animation: animationEyes 3s alternate infinite linear;}
+        .eye2 {transform:scaleY(1); transform-origin: 97px 66px; animation: animationEyes 3s alternate infinite linear;}
+        @keyframes animationEyes {94% {transform:scaleY(1)} 97% {transform:scaleY(0.2)} 100% {transform:scaleY(1)}}
+    </style>
+</head>
+<body>
+    <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" x="0" y="0" viewBox="0 0 300 300" style="enable-background:new 0 0 150 150" xml:space="preserve">
+        <defs>
+            <mask id="head">
+                <path d="M75 125.5c-27.8 0-50.5-22.7-50.5-50.5 0-10.6 3.2-20.7 9.4-29.3l.3-.5-.5-.3c-4.5-2.3-7.2-6.9-7.2-11.9 0-7.4 6.1-13.5 13.5-13.5 5.9 0 11.1 3.8 12.9 9.5l.2.5.5-.2c6.7-3.2 13.9-4.8 21.4-4.8s14.7 1.6 21.4 4.8l.5.2.2-.5c1.8-5.7 6.9-9.5 12.9-9.5 7.4 0 13.5 6.1 13.5 13.5 0 5-2.8 9.6-7.2 11.9l-.5.3.3.5c6.1 8.6 9.4 18.7 9.4 29.3 0 27.8-22.7 50.5-50.5 50.5z"/>
+            </mask>
+        </defs>
+        <path d="M110 20c7.2 0 13 5.8 13 13 0 4.8-2.7 9.2-7 11.5l-1 .5.7.9c6.1 8.5 9.3 18.6 9.3 29 0 27.6-22.4 50-50 50s-50-22.4-50-50c0-10.5 3.2-20.5 9.3-29l.7-.9-1-.5c-4.3-2.3-7-6.7-7-11.5 0-7.2 5.8-13 13-13 5.7 0 10.7 3.7 12.4 9.1l.3 1.1 1-.5C60.5 26.6 67.6 25 75 25s14.5 1.6 21.2 4.7l1 .5.3-1.1c1.8-5.4 6.8-9.1 12.5-9.1m0-1c-6.3 0-11.6 4.1-13.4 9.8C90.1 25.7 82.7 24 75 24s-15.1 1.7-21.6 4.8C51.6 23.1 46.3 19 40 19c-7.7 0-14 6.3-14 14 0 5.4 3 10 7.5 12.4C27.5 53.7 24 64 24 75c0 28.2 22.8 51 51 51s51-22.8 51-51c0-11-3.5-21.3-9.5-29.6 4.5-2.3 7.5-7 7.5-12.4 0-7.7-6.3-14-14-14z"/>
+        <circle class="st1" cx="40" cy="33" r="10"/>
+        <circle class="st1" cx="110" cy="33" r="10"/>
+        <g class="face" mask="url(#head)">
+            <circle class="eye1" cx="53" cy="66" r="3"/>
+            <circle class="eye2" cx="97" cy="66" r="3"/>
+            <path class="st2" d="M97.2 86c-2.6 9.8-11.6 17-22.2 17s-19.6-7.2-22.2-17"/>
+        </g>
+    </svg>
+</body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather AJAX</title>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <select name="cities" id="input-city">
+        <option value="seoul" selected>서울</option>
+        <option value="busan">부산</option>
+    </select>
+    <div class="info">
+        <h1 class="city"></h1>
+        <div class="wrapper">
+            <p class="weather"></p>
+            <div class="icon"></div>
+            <p class="temperature"></p>
+        </div>
+    </div>
+
+    <script>
+        let targetLocation = 'seoul';
+        let yourAPICode = '';
+
+        console.log($('input-city option:selected').val());
+        caster('seoul');
+        
+        $('#input-city').change(function(){
+            $('#input-city option:selected').each(function(){
+                caster($(this).val());
+            })
+        })
+
+        function caster(target){
+            $.ajax({
+                url: `https://api.openweathermap.org/data/2.5/weather?q=${target}&appid=${yourAPICode}`,
+                dataType: 'json',
+                success: viewer,
+            })
+        }
+
+        function viewer(data){
+            console.log(data);
+
+            let city = data.name;
+            $('.city').html(city);
+
+            let weather = data.weather[0].description;
+            let icon = data.weather[0].icon;
+            $('.weather').html(`<img src='http://openweathermap.org/img/wn/${icon}@2x.png'> / ${weather}`); // @2x <<<--- 2배 크기 아이콘이 서버에 있음
+
+            let temperature = data.main.temp;
+            let temperMin = data.main.temp_min;
+            let temperMax = data.main.temp_max;
+            $('.temperature').html(`${parseInt(temperature)}&#x2103, (${temperMin} ~ ${temperMax})`);
+        }
+        
+    </script>
+</body>
+</html>

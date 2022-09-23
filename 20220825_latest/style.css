@@ -2,14 +2,14 @@
 .my-latest {width: 1200px; margin: 0 auto; padding: 20px; display: flex;}
 
 .my-latest .title {width: 250px; height: 300px; flex-shrink: 0}
-.my-latest .title h3 {margin-bottom: 12px; font-size: 20px; color: #FFFFFF;}
+.my-latest .title h3 {margin-bottom: 12px; font-size: 20px; color: #000000;}
 .my-latest .title .icon-more {display: block; width: 23px; height: 23px; text-indent: -9999px; background-image: url(./img/btn.png); background-position: 0 -23px;}
 .my-latest .title .icon-more:hover {background-position: 0 -1px;}
 
 .my-latest .content {display: flex; gap: 48px;}
-.my-latest .content li a {display: flex; flex-direction: column; height: 100%; justify-content: space-between; height: 100%; color: #FFFFFFDF;}
-.my-latest .content li a h4 {font-size: 20px; line-height: 28px; letter-spacing: -0.000875em;}
+.my-latest .content li a {display: flex; flex-direction: column; height: 100%; justify-content: space-between; height: 100%; color: #000000DF;}
+.my-latest .content li a h4 {font-size: 18px; line-height: 28px; letter-spacing: -0.000875em;}
 .my-latest .content li a p {align-self: end;}
 .my-latest .content li {position: relative; letter-spacing: -0.000875em;}
-.my-latest li:after {content: ''; display: block; width: 1px; height: calc(100% - (32px * 2)); background: #DDDDDD33; position: absolute; top: 32px; right: -24px;}
+.my-latest li:after {content: ''; display: block; width: 1px; height: calc(100% - (48px * 2)); background: #33333333; position: absolute; top: 48px; right: -24px;}
 .my-latest li:last-child::after {display: none;}

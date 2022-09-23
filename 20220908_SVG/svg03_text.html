@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SVG TEXT</title>
+    <style>
+        * {margin: 0; padding: 0; box-sizing: border-box;}
+        body {background-color: black; color: white;}
+        .boxed {background-color: #222;}
+        .text01 {fill:#A00; stroke: #AAA; font-size: 2em; font-weight: bold;}
+        .circle01 {fill: #FFF;}
+        #maskingText {}
+    </style>
+</head>
+<body>
+    <div class="boxed">
+        <svg class="" width="300" height="200">
+            <defs>
+                <mask id="maskingText">
+                    <circle class="circle01" cx="0" cy="0" r="50"></circle>
+                </mask>
+            </defs>
+
+            <g mask="url(#maskingText)">
+            <!-- <g> -->
+                <text class="text01" x="0" y="28">
+                    <tspan x="0" y="60">Lorem ipsum dolor</tspan>
+                    <tspan x="0" y="90">sit amet consectetur,</tspan>
+                    <tspan x="10" y="120">adipisicing elit. Tempora, hic.</tspan>
+                </text>
+            </g>
+        </svg>
+    </div>
+
+    <script>
+        const targetBox = document.querySelector(".boxed");
+        const targetCircle = document.querySelector(".circle01");
+
+        targetBox.addEventListener("mousemove", function(event){
+            // console.log(X = `${event.clientX} , Y = ${event.clientY}`);
+            targetCircle.style.transform = `translate(${event.clientX}px, ${event.clientY}px`;
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SLIDE PRACTICE</title>
+    <!-- jQuery -->
+    <script src="../../js/jquery-3.6.0.min.js"></script>
+    <style>
+        * {margin: 0; padding: 0; box-sizing: border-box;}
+        html, body {height: 100%;}
+        body {background-color: black; color: white;}
+        li {list-style-type: none;}
+
+        .flex-centered {display: flex; justify-content: center; align-items: center;}
+        .margined-bottom {margin-bottom: 20px;}
+
+        .my-slider {display: flex; position: relative; width: 1000px; height: 400px; _overflow: hidden;}
+        .my-slide {position: relative; top: 0; left: 0;}
+        .my-slide img {height: 100%; display: block;}
+
+        .button-wrapper {display: flex; justify-content: space-between;}
+        .button {background-color: #99A123; width: 60px; height: 60px; border-radius: 12px; font-weight: 900;}
+
+        .pager-wrapper {gap: 4px;}
+        .pager {background-color: #454545; width: 20px; height: 20px; border-radius: 50%; transition: 0.3s;}
+        .pager:hover {background-color: #FF0000;}
+        .pager.current {background-color: #FF0000; transform: scale(115%);}
+    </style>
+</head>
+<body class="flex-centered">
+    <div class="my-slider-wrapper">
+        <!-- Slider Part -->
+        <ul class="my-slider margined-bottom">
+            <li class="my-slide"><img src="../../images/images01.jpg" alt="img"></li>
+            <li class="my-slide"><img src="../../images/images02.jpg" alt="img"></li>
+            <li class="my-slide"><img src="../../images/images03.jpg" alt="img"></li>
+            <li class="my-slide"><img src="../../images/images04.jpg" alt="img"></li>
+            <li class="my-slide"><img src="../../images/images05.jpg" alt="img"></li>
+        </ul>
+
+        <!-- Button Part -->
+        <div class="button-wrapper margined-bottom">
+            <span class="button flex-centered prev"> ← </span>
+            <!-- <span class="button flex-centered auto-mode">AUTO</span> -->
+            <span class="button flex-centered next"> → </span>
+        </div>
+
+        <!-- Pager Part -->
+        <div class="pager-wrapper flex-centered">
+            <!-- <div class="pager"></div> -->
+        </div>
+    </div>
+
+    <script>
+        // VARIABLES PART
+        let slideCurrent = 0;
+        let slideNext = 0;
+        let sliding = false;
+
+        // FUNCTIONS PART
+        // Backward button
+        $(".button.prev").click(function(){
+            if (sliding == false){
+                sliding = true;
+                slideNext = slideCurrent - 1;
+                if (slideNext < 0){
+                    slideNext = $(".my-slider .my-slide").length - 1;
+                }
+                MySlider("prev");
+            }
+        });
+        // Forward button
+        $(".button.next").click(function(){
+            // Backward
+            if (sliding == false){
+                sliding = true;
+                slideNext = slideCurrent + 1;
+                if (slideNext > $(".my-slider .my-slide").length - 1){
+                    slideNext = 0;
+                }
+                MySlider("next");
+            }
+        });
+
+        function MySlider(direction){
+            if (direction == "prev"){
+                console.log(slideCurrent, slideNext);
+                $(".my-slider .my-slide").eq(slideCurrent)
+                .css({left: '0%'}).stop().animate({left: '-100%'}, 660, function(){sliding = false;});
+                slideCurrent--;
+                $(".my-slider .my-slide").eq(slideNext)
+                .css({left: '100%'}).stop().animate({left: '0%'}, 660, function(){sliding = false;});
+            } else { // direction == "next"
+                $(".my-slider .my-slide").eq(slideCurrent)
+                .css({left: '0%'}).stop().animate({left: '100%'}, 660, function(){sliding = false;});
+                slideCurrent++;
+                $(".my-slider .my-slide").eq(slideNext)
+                .css({left: '-100%'}).stop().animate({left: '0%'}, 660, function(){sliding = false;});
+            }
+        }
+    </script>
+</body>
+</html>

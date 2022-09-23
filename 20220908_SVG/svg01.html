@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SVG</title>
+    <style>
+        body {
+            background-color: black;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <svg width="100" height="100">
+        <circle cx="50" cy="50" r="40" stroke="green" stroke-width="4" fill="yellow" />
+    </svg>
+
+    <style type="text/css">
+        .box {
+            width: 200px;
+            height: 200px;
+        }
+
+        .box2 {
+            width: 400px;
+            height: 400px;
+        }
+
+        .st0 {
+            fill: #EB5A59;
+            stroke: #BF1818;
+            stroke-width: 4;
+            stroke-dasharray: 256;
+            stroke-dashoffset: 256;
+            animation: stroked 2.5s forwards;
+        }
+
+        @keyframes stroked {
+            100% {
+                stroke-dashoffset: 0;
+            }
+        }
+
+        /* .st0:hover {
+            fill: #0000FF99;
+            transition: 0.3s;
+        } */
+    </style>
+
+    <img src="img/circle.svg" alt="">
+    <!-- <iframe src="img/circle.svg" alt=""> -->
+    <embed src="img/circle.svg" alt="" class="st0">
+
+    <div class="box">
+        <svg viewBox="0 0 100 100">
+            <circle class="st0" cx="50" cy="50" r="40" class="st0">
+        </svg>
+    </div>
+
+    <div class="box2">
+        <svg viewBox="0 0 100 100">
+            <style type="text/css">
+                .st1 {
+                    fill: none;
+                    stroke: #BF1818;
+                    stroke-width: 10;
+                    <!-- stroke-miterlimit: 10; -->
+                    stroke-dasharray: 189;
+                    stroke-dashoffset: 189;
+                    animation: dashed 4.5s forwards ease-in-out;
+                }
+
+                @keyframes dashed {
+                    100% {stroke-dashoffset: 0;}
+                }
+            </style>
+            <path class="st1" d="M50,10c22.1,0,40,17.9,40,40S72.1,90,50,90S10,72.1,10,50" />
+        </svg>
+
+    </div>
+
+    <script>document.querySelector(".st0").getTotalLength(); </script>
+</body>
+
+</html>

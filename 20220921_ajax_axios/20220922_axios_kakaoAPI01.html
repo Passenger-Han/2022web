@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AXIOS02</title>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script src="../js/axios.min.js"></script>
+    <script src="../js/moment.min.js"></script>
+    <script src="../js/ko.min.js"></script>
+    <style>
+        * {margin: 0; padding: 0; box-sizing: border-box;}
+        body {background-color: black; color: white;}
+        a {text-decoration: none; color: inherit;}
+        li {list-style: none;}
+        .container form {display: flex; margin-bottom: 1.5rem; gap: 1rem; padding-top: 1rem;}
+        .container form #searcher {flex-grow: 1; outline: none;}
+        .container form button {}
+        .container form #searcher,
+        .container form button {padding: 0.75rem;}
+        .results li {border: 1px solid #FFFFFF67; margin-bottom: 1.5rem; padding: 1.5rem;}
+        .container {width: 100%; max-width: 800px; margin: 0 auto;}
+        .title {display: block; font-style: italic; margin-bottom: 0.5rem;}
+        .desc {text-indent: 0.875rem; margin-bottom: 1rem;}
+        .date {display: block; text-align: right; color: #FFFFFFBA;}
+        .pagination-wrapper, .pagination {display: flex; align-items: center; gap: 1rem;}
+        .pagination a {padding: 0.5rem; border: 1px solid #FFFFFF33;}
+        .pagination a.current {font-weight: 900; background-color: #FFFFFFFF; color: #000000FF;}
+        .arrow {cursor: pointer;}
+    </style>
+</head>
+<body>
+    <div class="container">
+        <form action="javascript:void(0);">
+            <input type="text" name="searcher" id="searcher" placeholder="검색할 내용">
+            <button onclick="searching(document.querySelector('#searcher').value);">찾기</button>
+        </form>
+                
+        <ul class="results"></ul>
+
+        <div class="pagination-wrapper">
+            <div class="prev-pagination arrow" onclick="goToPrev();">
+                <b><</b>
+            </div>
+            <div class="pagination"></div>
+            <div class="next-pagination arrow" onclick="goToNext();">
+                <b>></b>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const yourKakaoAPICode = '';
+
+        let searchKeyword;
+        let searchMethod = 'https://dapi.kakao.com/v2/search/web';
+        let searchSize = 4;
+        let pageTo;
+        let totalRecord;
+        let pagerCount = 7;
+        
+
+        // INITIALIZED
+        pageTo = 1;
+
+        function searching(searchKeyword){
+            axios
+                .get(queuePath(),queueKeyword(searchKeyword),)
+                .then(result,)
+                .then(pager(totalRecord),)
+                .catch(error,);
+        }
+
+        function queuePath(){
+            // WEB SEARCH RESULT
+            return searchMethod;
+        }
+
+        function queueKeyword(searchKeyword, pageTo){
+            return {
+                params: {query: searchKeyword, size: searchSize, page: pageTo, sort: 'recency'},
+                headers: {Authorization: yourKakaoAPICode,},
+            }
+        }
+
+        function result(dataObj){
+            // console.log(dataObj.data.meta.pageable_count);
+            // console.log(dataObj.data.documents);
+            let actualData = dataObj.data.documents;
+            let stacked = '';
+
+            actualData.forEach(function(element, index){
+                stacked += `<a href="${element.url}">`;
+                stacked += `<li><span class="title">${element.title}</span>`;
+                stacked += `<p class="desc">${element.contents}</p>`;
+                stacked += `<p class="date">${moment(element.datetime).format('HH : MM : SS, YYYY. MM. DD dddd')}</p></li>`;
+                stacked += `</a>`;
+            });
+            document.querySelector('.results').innerHTML = stacked;
+
+            searchKeyword = document.querySelector('#searcher').value;
+            totalRecord = dataObj.data.meta.pageable_count;
+            
+            document.querySelector('#searcher').focus();
+        }
+
+        function error(error){
+            console.log('error');
+        }
+
+        function goToPage(page){
+            axios
+                .get(queuePath(),queueKeyword(searchKeyword, page),)
+                .then(pageTo = page)
+                .then(result,)
+                .then(pager(totalRecord),)
+                .catch(error,);
+        }
+
+        function goToNext(){
+            pageTo++;
+            axios
+                .get(queuePath(),queueKeyword(searchKeyword, pageTo),)
+                .then(result,)
+                .then(pager(totalRecord),)
+                .catch(error,);
+        }
+        function goToPrev(){
+            pageTo--;
+            axios
+                .get(queuePath(),queueKeyword(searchKeyword, pageTo),)
+                .then(result,)
+                .then(pager(totalRecord),)
+                .catch(error,);
+        }
+
+        function pager(totalRecord){
+            // console.log(totalRecord, Number(pageTo));
+            pageTo = Number(pageTo);
+            let totalPages = Math.ceil(totalRecord / searchSize);
+            if (totalPages > 50) totalPage = 50; // Kakao 검색 API 한계 페이지 수
+            let startPage;
+            let endPage;
+
+            startPage = pageTo - Math.floor(pagerCount / 2);
+            startPage < 1? startPage = 1: '';
+            endPage = startPage + pagerCount - 1;
+            endPage > totalPages? endPage = totalPages: '';
+
+            console.log(startPage, endPage);
+
+            let pageNumbers = '';
+            for (let i = startPage; i <= endPage; i++){
+                if (i == pageTo) {
+                    pageNumbers += `<a href="#" onclick="goToPage(${i});" class="current">${i}</a>`;
+                } else {
+                    pageNumbers += `<a href="#" onclick="goToPage(${i});">${i}</a>`;
+                }
+            }
+
+            document.querySelector('.pagination').innerHTML = pageNumbers;
+        }
+
+    </script>
+</body>
+</html>

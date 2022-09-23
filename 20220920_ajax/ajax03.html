@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AJAX03</title>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <style>
+        * {margin: 0; padding: 0; box-sizing: border-box;}
+        li {list-style-type: none;}
+        img {display: block;}
+        body {background-color: black; color: white;}
+        .wrapper {width: 75%; max-width: 1400px; margin: 0 auto;}
+        .wrapper .lists {display: flex; justify-content: space-around;}
+        .wrapper .lists img {width: 100%; max-width: 240px; height: auto;}
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <ul class="lists"></ul>
+    </div>
+
+    <script>
+        $.ajax({
+            url: './data/book.json',
+            dataType: 'json',
+            success: view,
+        })
+
+        function view(data){
+            console.log(data.book);
+            for (let i = 0; i < data.book.length; i++){
+                let title = data.book[i].title;
+                let author = data.book[i].author;
+                let image = data.book[i].bookimg;
+                let text = `<li><img src='img/${image}'><h2>${title}</h2> / <p>${author}</p> /</li>`;
+                $('.wrapper .lists').append(text);
+            }
+        }
+    </script>
+</body>
+</html>
