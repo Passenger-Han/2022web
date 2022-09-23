@@ -119,7 +119,7 @@
         }
 
         function goToNext(){
-            pageTo++;
+            if (pageTo < Math.ceil(totalRecord / searchSize)) pageTo++;
             axios
                 .get(queuePath(),queueKeyword(searchKeyword, pageTo),)
                 .then(result,)
@@ -127,7 +127,7 @@
                 .catch(error,);
         }
         function goToPrev(){
-            pageTo--;
+            if (pageTo > 1) pageTo--;
             axios
                 .get(queuePath(),queueKeyword(searchKeyword, pageTo),)
                 .then(result,)
