@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VUE?</title>
+    <style>
+        * {margin: 0; padding: 0; box-sizing: border-box;}
+
+        ul, li {
+            list-style: none;
+        }
+
+        img {
+            width: 100%;
+            max-width: 200px;
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <ul>
+            <li v-for="item in noticeData">
+                <img v-bind:src="`img/${item.img}`" alt="">
+                {{item.title}}
+            </li>
+        </ul>
+        <!-- {{noticeData}} -->
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/3.2.40/vue.global.min.js" integrity="sha512-petS3Gitq8CSs2gVnfDUxYptoNUCbvCaFcMvro7D27Fvf/MmXPuwS3bgYuYGszcYdIswra8JGkE19ckvFzPuZQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script type="module">
+        import {noticeData} from './data.js';
+
+        const myView = {
+            data(){
+                return {
+                    noticeData: noticeData,
+                }
+            }
+        }
+
+        Vue.createApp(myView).mount('#app');
+    </script>
+</body>
+</html>

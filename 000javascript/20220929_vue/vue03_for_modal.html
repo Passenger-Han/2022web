@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VUE MODAL</title>
+    <style>
+        * {margin: 0; padding: 0; box-sizing: border-box;}
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        ul, li {
+            list-style: none;
+        }
+
+        /* img {
+            width: auto;
+            max-height: 200px;
+            height: 100%;
+        } */
+
+        .nav, .visual, .container {
+            width: 1280px;
+            margin: 0 auto;
+        }
+
+        .nav, .nav ul {
+            display: flex;
+        }
+
+        .nav ul {
+            margin-left: auto;
+        }
+        .nav ul li {
+            padding: 0 10px;
+            height: 100%;
+
+        }
+        .nav ul li a {
+            display: flex;justify-content: center;align-items: center;
+            height: inherit;
+        }
+
+        .banner ul {
+            display: flex;
+            gap: 1.25rem;
+        }
+        .banner ul li {
+            flex-grow: 1;
+            flex-basis: 25%;
+
+            min-height: 224px;
+            /* height: 192px; */
+
+            /* background: #00000012; */
+        }
+        .banner ul li > div {
+            min-height: inherit;
+            /* height: inherit; */
+
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            /* justify-content: space-between; */
+
+            overflow-x: hidden;
+        }
+
+        .image {
+            width: 100%;
+            padding-top: 60%;
+            background-position: center center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        /* modal */
+        /* modal */
+        /* modal */
+        .modal {
+            width: 600px;
+            height: 600px;
+
+            position: fixed;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 12px;
+
+            padding: 2rem;
+            background: #FFFFFFFF;
+            box-shadow: 8px 8px 24px #00000033;
+        }
+
+        .modal .image {
+            /* width: 90%; */
+            padding-top: initial;
+        }
+
+        .modal .image img {
+            width: 100%;
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <header></header>
+        <div class="nav">
+            <h1><a href="#">{{logo}}</a></h1>
+            <ul>
+                <li v-for="(item, index) in menuList">
+                    <a v-bind:href="item.url">{{menuList[index].menuName}}</a>
+                </li>
+            </ul>
+        </div>
+        <div class="visual">
+
+        </div>
+
+        <div class="container banner">
+            <h3 style="text-align: center; margin: 1rem 0;">공지사항</h3>
+            <ul>
+                <template v-for="(item, index) in noticeData">
+                    <li v-if="index < 4">
+                        <div @click="modalView = true; modalNumber = index;">
+                            <div class="image" :style="{'background-image': `url(img/${item.img})`, color: colorOne,}"></div>
+                            <!-- <img v-bind:src="`img/${item.img}`" alt=""> -->
+                            <h3>{{noticeData[index].title}}</h3>
+                        </div>
+                    </li>
+                </template>
+            </ul>
+        </div>
+        <footer></footer>
+
+        <div class="modal" v-if="modalView == true">
+            <div class="image">
+                <img v-bind:src="`img/${noticeData[modalNumber].img}`" alt="">
+            </div>
+            <div class="text">
+                <h4>
+                    {{noticeData[modalNumber].title}}
+                </h4>
+            </div>
+            <button @click="modalView = false">
+                닫기
+            </button>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/3.2.40/vue.global.min.js" integrity="sha512-petS3Gitq8CSs2gVnfDUxYptoNUCbvCaFcMvro7D27Fvf/MmXPuwS3bgYuYGszcYdIswra8JGkE19ckvFzPuZQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script type="module">
+        import {noticeData, newsData, snsData} from './data.js';
+
+        const myWeb = {
+            data(){
+                return {
+                    logo: 'YH',
+                    menuList: [{
+                        menuName: '회사소개',
+                        url: 'https://www.naver.com',
+                    },
+                    {
+                        menuName: '제품소개',
+                        url: 'https://www.naver.com',
+                    },
+                    {
+                        menuName: '온라인문의',
+                        url: 'https://www.naver.com',
+                    },
+                    {
+                        menuName: '커뮤니티',
+                        url: 'https://www.naver.com',
+                    },
+                    ],
+                    noticeData: noticeData,
+                    colorOne: 'blue',
+                    modalView: false,
+                    modalNumber: 0,
+                }
+            }
+        }
+        Vue.createApp(myWeb).mount('#app');
+    </script>
+</body>
+</html>

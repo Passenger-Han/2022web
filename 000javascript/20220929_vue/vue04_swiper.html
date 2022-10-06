@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue with Swiper</title>
+
+    <!-- Vue -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/3.2.40/vue.global.min.js" integrity="sha512-petS3Gitq8CSs2gVnfDUxYptoNUCbvCaFcMvro7D27Fvf/MmXPuwS3bgYuYGszcYdIswra8JGkE19ckvFzPuZQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <!-- Swiper -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/8.4.2/swiper-bundle.min.css" integrity="sha512-+i36IwpzfYLmCNRFtEnpEAie8PEyhO5GuK7W2Y0eDMVwT1pesCB86xuQlc5v1lfb69N/6hejJEW3EWeVkExTlQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/8.4.2/swiper-bundle.min.js" integrity="sha512-dPYTaB+Ip4gAl9vo6U0jSmI8v1AZKjPKH367mfo7pR5gLf1IKpjm3bIXIwm+MmYWEf0eiBEWSBqE+MdKUx0jfg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <style>
+        * {margin: 0; padding: 0; box-sizing: border-box;}
+        a {text-decoration: none; color: inherit}
+        ul, li {list-style: none;}
+        
+        body {background: black; color: white;}
+
+        .container {width: 100%; max-width: 1280px; margin: 0 auto;}
+
+        .tabmenu ul {display: flex; gap: 2rem; margin: 1rem 0; justify-content: flex-end;}
+        .tabmenu ul li {padding: 1rem 1.25rem; border: 1px dashed #FFFFFF66;}
+        .tabmenu ul li.active {border: 0px dashed #FFFFFF66; background: #FFFFFF66;}
+
+        .swiper-slide {border: 1px dashed #FFFFFF66;}
+        .thumbnail {width: 100%; padding-top: 60%; background-repeat: no-repeat; background-size: cover; background-position: center center;}
+        .text {padding: 1rem 0.5rem; height: 240px; display: flex; flex-direction: column; justify-content: space-between;}
+        .text p {margin-top: auto;}
+        .indexed {text-align: right;}
+    </style>
+</head>
+<body>
+    <div id="app">
+        <div class="container banner">
+
+            <h3>재단소식</h3>
+            <div class="tabmenu">
+                <ul>
+                    <li v-bind:class="{active: tab == 1}" @click="tab = 1;">공지사항</li>
+                    <li v-bind:class="{active: tab == 2}" @click="tab = 2;">뉴스룸</li>
+                    <li v-bind:class="{active: tab == 3}" @click="tab = 3">소셜미디어</li>
+                </ul>
+            </div>
+
+            <div class="swiper">
+                <div class="swiper-wrapper">
+                    <div v-for="(item, index) in notice" class="swiper-slide item" v-if="tab == 1">
+                        <div class="thumbnail" v-bind:style="{'background-image': `url(img/${item.img})`}"></div>
+                        <div class="text">
+                            <h3>{{item.title}}</h3>
+                            <p>{{item.content}}</p>
+                            <div class="indexed">
+                                <p>{{item.date}}</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div v-for="(item, index) in news" class="swiper-slide item" v-if="tab == 2">
+                        <div class="thumbnail" v-bind:style="{'background-image': `url(img/${item.img})`}"></div>
+                        <div class="text">
+                            <h3>{{item.title}}</h3>
+                            <p>{{item.content}}</p>
+                            <div class="indexed">
+                                <p>{{item.date}}</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div v-for="(item, index) in sns" class="swiper-slide item" v-if="tab == 3">
+                        <div class="thumbnail" v-bind:style="{'background-image': `url(img/${item.img})`}"></div>
+                        <div class="text">
+                            <h3>{{item.title}}</h3>
+                            <p>{{item.content}}</p>
+                            <div class="indexed">
+                                <p>{{item.date}}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script type="module">
+        import {noticeData, newsData, snsData} from './data.js';
+
+        const webApp = {
+            data(){
+                return {
+                    tab: 1,
+                    notice: noticeData,
+                    news: newsData,
+                    sns: snsData,
+                }
+            }
+        }
+
+        Vue.createApp(webApp).mount('#app')
+
+        const swiper = new Swiper('.swiper', {
+            slidesPerView: 4,
+            spaceBetween: 40,
+            observer: true,
+            observeParents: true,
+        })
+    </script>
+</body>
+</html>
